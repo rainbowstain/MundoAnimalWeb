@@ -26,6 +26,10 @@
 /* Barra de búsqueda */
 .search-container {
     margin-bottom: 2rem;
+    width: 100%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .search-container .input-group {
@@ -33,20 +37,42 @@
     border-radius: 50px;
     overflow: hidden;
     transition: all 0.3s ease;
+    height: 60px; /* Barra más alta */
+}
+
+.search-container .input-group:hover {
+    box-shadow: 0 12px 28px rgba(255, 107, 107, 0.3);
+    transform: translateY(-3px);
 }
 
 .search-container .input-group:focus-within {
-    box-shadow: 0 10px 25px rgba(255, 107, 107, 0.25);
-    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(255, 107, 107, 0.4);
+    transform: translateY(-5px);
+    border: 2px solid var(--primary-color);
 }
 
 .search-container .form-control {
     border-radius: 50px 0 0 50px;
     border: none;
     padding: 0.8rem 1.5rem;
-    font-size: 1.1rem;
+    font-size: 1.3rem; /* Texto más grande */
     font-weight: 500;
     color: var(--dark-color);
+    height: 100%;
+}
+
+.search-container .input-group-text {
+    background-color: var(--primary-color);
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    padding: 0 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search-container .input-group-text:hover {
+    background-color: #e45a5a;
 }
 
 .search-container .form-control::placeholder {
@@ -121,21 +147,13 @@
 
 /* Pestañas de categorías */
 .filter-tabs {
-    margin-bottom: 2rem;
+   
     padding-bottom: 1.5rem;
-    border-bottom: 1px solid #ddd;
+   
     position: relative;
 }
 
-.filter-tabs::before {
-    content: 'Categorías';
-    position: absolute;
-    top: -25px;
-    left: 0;
-    font-weight: 600;
-    color: #555;
-    font-size: 1rem;
-}
+
 
 .filter-tabs .nav-pills {
     gap: 0.5rem;
@@ -175,19 +193,10 @@
     padding-bottom: 1.5rem;
     border-bottom: 1px solid #ddd;
     position: relative;
-    margin-top: 60px;
-    padding-top: 10px;
+    
+  
 }
 
-.quality-legend::before {
-    content: 'Filtrar por Calidad';
-    position: absolute;
-    top: -25px;
-    left: 0;
-    font-weight: 600;
-    color: #555;
-    font-size: 1rem;
-}
 
 .selected-quality-indicator {
     display: none;

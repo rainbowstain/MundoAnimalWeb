@@ -1,6 +1,6 @@
 /* Base Styles */
 :root {
-    --primary-color: #ff6b6b;
+    --primary-color: #ff5722;
     --secondary-color: #4ecdc4;
     --accent-color: #ffe66d;
     --dark-color: #2d3436;
@@ -204,6 +204,11 @@ nav ul li a:hover::after {
     padding: 0; /* Eliminamos el padding para que el carrusel ocupe todo el espacio */
 }
 
+/**
+ * Contenedor principal del hero section, que contiene el título,
+ * texto y botones. Asegura que el contenido no se desborde de la
+ * pantalla y agrega un poco de espacio abajo para los botones.
+ */
 .hero-content {
     max-width: 1800px;
     
@@ -516,6 +521,52 @@ nav ul li a:hover::after {
 /* Location Section */
 #ubicacion {
     padding: 4rem 0;
+    background-color: #f9f9f9;
+}
+
+.location-highlight {
+    margin-bottom: 3rem;
+}
+
+.highlight-item {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid var(--primary-color);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.highlight-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(255, 107, 107, 0.2);
+}
+
+.highlight-item i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-right: 1.5rem;
+    margin-top: 0.3rem;
+    background: #fff6f6;
+    padding: 20px;
+    border-radius: 50%;
+    box-shadow: 0 10px 20px rgba(255, 107, 107, 0.2);
+}
+
+.highlight-item h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.highlight-text {
+    font-size: 1.4rem;
+    color: #555;
+    line-height: 1.6;
+    font-weight: 500;
+    background-color: transparent !important;
 }
 
 .location-content {
@@ -534,24 +585,78 @@ nav ul li a:hover::after {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 2rem;
+    gap: 2.5rem;
+    padding: 1.5rem;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 .info-item {
     display: flex;
     align-items: flex-start;
+    transition: transform 0.3s ease;
+}
+
+.info-item:hover {
+    transform: translateY(-5px);
 }
 
 .info-item i {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     color: var(--primary-color);
-    margin-right: 1rem;
+    margin-right: 1.5rem;
     margin-top: 0.3rem;
+    background: #fff6f6;
+    padding: 15px;
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.2);
 }
 
 .info-item h3 {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
     color: var(--dark-color);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.info-item p {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.info-item h4 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-top: 1.5rem;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.social-icon:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    background-color: #e04f1a;
 }
 
 /* Contact Section */

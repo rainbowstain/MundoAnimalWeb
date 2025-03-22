@@ -1,10 +1,16 @@
 /* Estilos para el logo y elementos personalizados */
 
+/* Estilo para el logo principal */
+.custom-logo-img {
+    filter: sepia(50%) saturate(300%) hue-rotate(325deg) brightness(110%);
+    transition: all 0.3s ease;
+}
+
 /* Estilo para el svg de huella de pata */
-.paw-icon {
+.paw-icon, .turtle-icon {
     width: 24px;
     height: 24px;
-    stroke: var(--primary-color);
+    stroke: currentColor;
     margin-right: 10px;
     vertical-align: middle;
 }
@@ -387,7 +393,7 @@
     left: -10px;
     width: 40px;
     height: 40px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23ffa500' opacity='0.1' d='M226.5 92.9c14.3 42.9-1.8 85.6-32.5 104.8-30.7 19.2-68.2 9.4-89.2-13-24-25.6-32.8-65-22.1-95.8 9.7-27.9 33.7-45.6 62.1-43.1 31.2 2.7 64.7 17.4 81.7 47.1z'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23ff5722' opacity='0.1' d='M226.5 92.9c14.3 42.9-1.8 85.6-32.5 104.8-30.7 19.2-68.2 9.4-89.2-13-24-25.6-32.8-65-22.1-95.8 9.7-27.9 33.7-45.6 62.1-43.1 31.2 2.7 64.7 17.4 81.7 47.1z'/%3E%3C/svg%3E");
     background-size: contain;
     background-repeat: no-repeat;
     opacity: 0.5;
@@ -396,11 +402,11 @@
 
 .service-icon i {
     font-size: 2rem;
-    color: #ff6b00;
+    color: #ff5722;
 }
 
 .service-icon-box:hover .service-icon {
-    background-color: #ff6b00;
+    background-color: #ff5722;
 }
 
 .service-icon-box:hover .service-icon i {

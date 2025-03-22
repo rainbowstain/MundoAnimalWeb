@@ -48,15 +48,14 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#productos">Productos</a>
                         </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#ubicacion">Ubicación</a>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#buscador-alimentos">Marcas</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#contacto">Agendar Peluquería</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#ubicacion">Ubicación</a>
                         </li>
                     </ul>
                 </div>
@@ -303,7 +302,7 @@
                         <div class="col-md-8">
                             <div class="search-container">
                                 <div class="input-group mb-3">
-                                    <input type="text" id="search-input" class="form-control" placeholder="Buscar marca o tipo de alimento..." aria-label="Buscar alimento">
+                                    <input type="text" id="search-input" class="form-control" placeholder="Buscar marca..." aria-label="Buscar alimento">
                                     <div class="input-group-text">
                                         <i class="fas fa-search"></i>
                                     </div>
@@ -433,7 +432,7 @@
                                         <div class="exotic-category-card">
                                             <div class="card h-100">
                                                 <div class="card-header bg-primary text-white">
-                                                    <h5 class="mb-0"><i class="fas fa-drumstick-bite me-2"></i>Pollos</h5>
+                                                    <h5 class="mb-0"><i class="fas fa-egg me-2"></i>Pollos</h5>
                                                 </div>
                                                 <div class="card-body" id="pollos-foods">
                                                     <!-- Se llenará dinámicamente con JavaScript -->
@@ -459,7 +458,7 @@
                                         <div class="exotic-category-card">
                                             <div class="card h-100">
                                                 <div class="card-header bg-primary text-white">
-                                                    <h5 class="mb-0"><i class="fas fa-water me-2"></i>Tortugas</h5>
+                                                    <h5 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="turtle-icon"><path d="m12 10 2 4v3a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-3a8 8 0 1 0-16 0v3a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-3l2-4h4Z"/><path d="M4.82 7.9 8 10"/><path d="M15.18 7.9 12 10"/><path d="M16.93 10H20a2 2 0 0 1 0 4H2"/></svg>Tortugas</h5>
                                                 </div>
                                                 <div class="card-body" id="tortugas-foods">
                                                     <!-- Se llenará dinámicamente con JavaScript -->
@@ -481,30 +480,50 @@
     <section id="ubicacion">
         <div class="container">
             <h2 class="section-title">Encuéntranos</h2>
+            <div class="location-highlight mb-4">
+                <div class="row justify-content-center">
+                    <div class="col-md-5">
+                        <div class="info-item highlight-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h3>Dirección</h3>
+                                <p class="highlight-text">Mercado Agro Linderos Norte, <strong>Local 131</strong>, Arica</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="info-item highlight-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h3>Horario de Atención</h3>
+                                <p class="highlight-text"><strong>Todos los días:</strong> 10:00 - 19:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="location-content">
                 <div class="map">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.2235485893516!2d-70.2840234!3d-18.4458762!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x915aa8b5c0eb9187%3A0x3b9b9178f4c3b279!2sMercado%20Agro%20Linderos%20Norte%2C%20Arica!5e0!3m2!1ses!2scl!4v1616000000000!5m2!1ses!2scl" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
                 <div class="address-info">
                     <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h3>Dirección</h3>
-                            <p>Mercado Agro Linderos Norte, Local 131, Arica</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <h3>Horario de Atención</h3>
-                            <p>Todos los días: 10:00 - 19:00</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-smile"></i>
+                        <i class="fas fa-paw"></i>
                         <div>
                             <h3>Visítanos</h3>
                             <p>¡Te esperamos en nuestra tienda! Ven a conocer todos nuestros productos y recibe asesoría personalizada para el cuidado de tus mascotas.</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-hashtag"></i>
+                        <div>
+                            <h3>Síguenos en redes sociales!</h3>
+                      
+                            <div class="social-icons mt-3">
+                                <a href="#" class="social-icon" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="social-icon" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
