@@ -1,0 +1,1509 @@
+/* Estilos para el logo y elementos personalizados */
+
+/* Estilo para el svg de huella de pata */
+.paw-icon {
+    width: 24px;
+    height: 24px;
+    stroke: var(--primary-color);
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.info-icon .paw-icon {
+    width: 18px;
+    height: 18px;
+    stroke: white;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Estilos para la sección de reservas de peluquería */
+.grooming-booking {
+    background-color: transparent;
+    transition: all 0.3s ease;
+    max-width: 100%;
+}
+
+.booking-container {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.booking-container:hover {
+    box-shadow: 0 8px 25px rgba(255, 165, 0, 0.2);
+}
+
+.booking-container::before {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    width: 100px;
+    height: 100px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23ff6b6b' opacity='0.1' d='M442.8 150.6c-152.5 0-156.4 66.8-298.9 66.8-13.7 0-24.7-11.1-24.7-24.7 0-13.7 11.1-24.7 24.7-24.7 142.4 0 146.3-66.8 298.9-66.8 13.7 0 24.7 11.1 24.7 24.7.1 13.7-11 24.7-24.7 24.7z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+    z-index: 0;
+    transform: rotate(15deg);
+}
+
+.booking-description {
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.grooming-booking:hover {
+    box-shadow: 0 8px 25px rgba(255, 165, 0, 0.2);
+}
+
+.grooming-booking h3,
+.booking-title {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 10px;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.grooming-booking h3::before {
+    content: '';
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23ffe66d' d='M256 224c-79.5 0-144 64.5-144 144s64.5 144 144 144 144-64.5 144-144-64.5-144-144-144zm0 240c-52.9 0-96-43.1-96-96s43.1-96 96-96 96 43.1 96 96-43.1 96-96 96zm176-272c0-44.2-35.8-80-80-80s-80 35.8-80 80 35.8 80 80 80 80-35.8 80-80zm-80 48c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48zm-224-48c0-44.2-35.8-80-80-80S0 147.8 0 192s35.8 80 80 80 80-35.8 80-80zm-80 48c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48zm272 0c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48zm-272 0c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48z'%3E%3C/path%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.grooming-booking h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    border-radius: 3px;
+}
+
+.calendar-container {
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #eee;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    margin: 15px 0;
+    position: relative;
+}
+
+.calendar-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    z-index: 10;
+}
+
+.booking-info {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 15px;
+    border-left: 4px solid var(--primary-color);
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.info-card {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.info-card:hover {
+    background-color: #fff5e6;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.info-icon {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+}
+
+.info-text {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.booking-info p {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.booking-info i {
+    color: var(--primary-color);
+    margin-right: 10px;
+    font-size: 1.1em;
+}
+
+/* Estilos para el formulario de reserva */
+.contact-form {
+    background-color: transparent;
+    transition: all 0.3s ease;
+    max-width: 100%;
+}
+
+.form-container {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.form-container:hover {
+    box-shadow: 0 8px 25px rgba(255, 165, 0, 0.2);
+}
+
+.form-container::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 100px;
+    height: 100px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23ffa500' opacity='0.1' d='M226.5 92.9c14.3 42.9-1.8 85.6-32.5 104.8-30.7 19.2-68.2 9.4-89.2-13-24-25.6-32.8-65-22.1-95.8 9.7-27.9 33.7-45.6 62.1-43.1 31.2 2.7 64.7 17.4 81.7 47.1z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+    z-index: 0;
+    transform: rotate(-15deg);
+}
+
+.form-title {
+    color: #ff6b00;
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.contact-form:hover {
+    box-shadow: 0 8px 25px rgba(255, 165, 0, 0.2);
+}
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -10px;
+    margin-left: -10px;
+    margin-bottom: 0;
+}
+
+.form-row > .form-group {
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(255, 165, 0, 0.1);
+    outline: none;
+}
+
+.contact-form .btn-primary {
+    background: linear-gradient(45deg, var(--primary-color), #ff8800);
+    border: none;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 0 4px 15px rgba(255, 165, 0, 0.2);
+    margin-top: 10px;
+    float: right;
+}
+
+.contact-form .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: all 0.6s ease;
+    z-index: -1;
+}
+
+.contact-form .btn-primary:hover::before {
+    left: 100%;
+}
+
+.contact-form .btn-primary:hover {
+    background: linear-gradient(45deg, #ff8800, var(--primary-color));
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 165, 0, 0.4);
+}
+
+.contact-form .btn-primary::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23ffffff' opacity='0.2' d='M226.5 92.9c14.3 42.9-1.8 85.6-32.5 104.8-30.7 19.2-68.2 9.4-89.2-13-24-25.6-32.8-65-22.1-95.8 9.7-27.9 33.7-45.6 62.1-43.1 31.2 2.7 64.7 17.4 81.7 47.1z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: -15px;
+    right: -15px;
+    opacity: 0;
+    transform: rotate(45deg);
+    transition: all 0.5s ease;
+}
+
+.contact-form .btn-primary:hover::after {
+    opacity: 1;
+    transform: rotate(30deg);
+}
+
+.contact-form .btn-primary:active {
+    transform: translateY(0);
+}
+
+/* Estilo para botones sin animación de pata */
+.btn-primary {
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+}
+
+/* Estilos para los iconos de servicios */
+.grooming-services-preview {
+    margin-bottom: 30px;
+}
+
+.service-icon-box {
+    text-align: center;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.service-icon-box:hover {
+    transform: translateY(-5px);
+}
+
+.service-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.service-icon::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 40px;
+    height: 40px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23ffa500' opacity='0.1' d='M226.5 92.9c14.3 42.9-1.8 85.6-32.5 104.8-30.7 19.2-68.2 9.4-89.2-13-24-25.6-32.8-65-22.1-95.8 9.7-27.9 33.7-45.6 62.1-43.1 31.2 2.7 64.7 17.4 81.7 47.1z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.service-icon i {
+    font-size: 2rem;
+    color: #ff6b00;
+}
+
+.service-icon-box:hover .service-icon {
+    background-color: #ff6b00;
+}
+
+.service-icon-box:hover .service-icon i {
+    color: #fff;
+}
+
+.service-icon-box h4 {
+    font-size: 1.1rem;
+    color: #333;
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+@media (max-width: 992px) {
+    .contact-content {
+        flex-direction: column;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .contact-form,
+    .grooming-booking {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    
+    .form-container,
+    .booking-container {
+        padding: 20px;
+    }
+    
+    .calendar-container iframe {
+        height: 350px;
+    }
+    
+    #contacto .section-title::before,
+    #contacto .section-title::after {
+        display: none;
+    }
+    
+    .contact-content > div {
+        min-width: 100%;
+    }
+    
+    .paw-corner {
+        width: 100px;
+        height: 100px;
+        opacity: 0.06;
+    }
+    
+    .service-icon {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .service-icon i {
+        font-size: 1.7rem;
+    }
+    
+    .service-icon-box h4 {
+        font-size: 1rem;
+    }
+    
+    .info-card {
+        padding: 10px;
+    }
+    
+    .info-icon {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .info-text {
+        font-size: 0.85rem;
+    }
+}
+
+/* Estilos para mejorar el diseño responsivo */
+.contact-content {
+    display: flex;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 1.6rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+    }
+    
+    .form-container,
+    .booking-container {
+        padding: 15px;
+    }
+    
+    .calendar-container iframe {
+        height: 300px;
+    }
+    
+    .service-icon-box {
+        margin-bottom: 15px;
+    }
+    
+    .service-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 10px;
+    }
+    
+    .service-icon i {
+        font-size: 1.5rem;
+    }
+    
+    .paw-corner {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .grooming-services-preview {
+        margin-bottom: 20px;
+    }
+    
+    .form-title,
+    .booking-title {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .section-title {
+        font-size: 1.4rem;
+    }
+    
+    .section-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 25px;
+    }
+    
+    .service-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .service-icon i {
+        font-size: 1.3rem;
+    }
+    
+    .service-icon-box h4 {
+        font-size: 0.9rem;
+    }
+    
+    .paw-corner {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .info-card {
+        margin-bottom: 10px;
+    }
+    
+    .form-group {
+        margin-bottom: 15px;
+    }
+    
+    .contact-form .btn-primary {
+        width: 100%;
+        padding: 10px 15px;
+    }
+    
+    .form-title,
+    .booking-title {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+    }
+    
+    .booking-description {
+        font-size: 0.9rem;
+    }
+}
+
+.contact-content > div {
+    flex: 1;
+    min-width: 300px;
+}
+
+
+/* Estilos para la sección de contacto */
+#contacto {
+    padding: 80px 0;
+    background-color: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Fondo con patrón de huellas de mascotas */
+body {
+    position: relative;
+    background-color: #fff;
+}
+
+/* Camino de patitas decorativas - Versión de alta calidad */
+.paw-trail {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.paw-print {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-image: url('../images/paw.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* Sólo mantener sombra suave para la patita naranja */
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.15));
+    opacity: 0;
+    transform-origin: center;
+    will-change: transform, opacity;
+}
+
+/* Animación para las patitas flotantes */
+@keyframes floatPawprint {
+    0% { transform: translateY(0) rotate(var(--rotation)); }
+    50% { transform: translateY(-15px) rotate(var(--rotation)); }
+    100% { transform: translateY(0) rotate(var(--rotation)); }
+}
+
+/* Animación para la aparición con fade */
+@keyframes fadeInPaw {
+    0% { opacity: 0; transform: scale(0.8) rotate(var(--rotation)); }
+    100% { opacity: 0.22; transform: scale(1) rotate(var(--rotation)); }
+}
+
+/* Estilos para la sección de peluquería canina */
+.grooming-section {
+    position: relative;
+}
+
+.paw-corner {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 0;
+    transition: all 0.5s ease;
+    animation: pawFloat 3s ease-in-out infinite alternate;
+}
+
+@keyframes pawFloat {
+    0% {
+        transform-origin: center;
+        transform: scale(1) rotate(var(--rotation));
+    }
+    100% {
+        transform-origin: center;
+        transform: scale(1.1) rotate(calc(var(--rotation) + 5deg));
+    }
+}
+
+.paw-corner.top-left {
+    top: 20px;
+    left: 20px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ffa500' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='4' r='2'/%3E%3Ccircle cx='18' cy='8' r='2'/%3E%3Ccircle cx='20' cy='16' r='2'/%3E%3Cpath d='M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z'/%3E%3C/svg%3E");
+    --rotation: -15deg;
+    transform: rotate(-15deg);
+    animation-delay: 0.5s;
+    opacity: 0.2;
+}
+
+.paw-corner.top-right {
+    top: 20px;
+    right: 20px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ff6b6b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='4' r='2'/%3E%3Ccircle cx='18' cy='8' r='2'/%3E%3Ccircle cx='20' cy='16' r='2'/%3E%3Cpath d='M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z'/%3E%3C/svg%3E");
+    --rotation: 15deg;
+    transform: rotate(15deg);
+    animation-delay: 0s;
+    opacity: 0.2;
+}
+
+.paw-corner.bottom-left {
+    bottom: 20px;
+    left: 20px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ff6b6b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='4' r='2'/%3E%3Ccircle cx='18' cy='8' r='2'/%3E%3Ccircle cx='20' cy='16' r='2'/%3E%3Cpath d='M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z'/%3E%3C/svg%3E");
+    --rotation: -15deg;
+    transform: rotate(-15deg);
+    animation-delay: 1.5s;
+    opacity: 0.2;
+}
+
+.paw-corner.bottom-right {
+    bottom: 20px;
+    right: 20px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ffa500' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='4' r='2'/%3E%3Ccircle cx='18' cy='8' r='2'/%3E%3Ccircle cx='20' cy='16' r='2'/%3E%3Cpath d='M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z'/%3E%3C/svg%3E");
+    --rotation: 15deg;
+    transform: rotate(15deg);
+    animation-delay: 1s;
+    opacity: 0.2;
+}
+
+#contacto {
+    position: relative;
+    background-color: rgba(249, 249, 249, 0.95);
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+#contacto::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23ffa500' opacity='0.05' d='M226.5 92.9c14.3 42.9-1.8 85.6-32.5 104.8-30.7 19.2-68.2 9.4-89.2-13-24-25.6-32.8-65-22.1-95.8 9.7-27.9 33.7-45.6 62.1-43.1 31.2 2.7 64.7 17.4 81.7 47.1zm-92.3 296.8c4.9 1.8 10.2 3.2 15.9 4 14.6 2 23.8-1 29.9-4.9 6.1-3.9 10.5-9.9 13.2-18.2 4.5-13.8 4.5-30.5.3-46.3-3.1-11.7-9.1-22.3-16.9-30.9-15.8-17.2-38.1-23.3-55.3-20.7-10.5 1.6-19.1 6.1-25.1 12.1-6.1 6.1-9.4 14.1-10 24.9-.9 15.9 4.1 36.8 17.5 55.8 7.2 10.2 16.4 19.8 30.5 24.2zm22.9-246.8c4.1-7.1 5.5-15.9 3.5-26.1-3.8-19.7-21.9-42.3-53.6-42.3-32.7 0-57.5 25.1-57.5 45.5 0 19.4 15.5 42.2 39.6 47.5 24.1 5.4 48.2-5.4 68-24.6zm84.8 86.5c9.6-3.3 17.4-10.6 19.6-20.9 4.2-19.2-4.5-44.3-33.9-60.4-32-17.5-67.6-13.4-79.8 17.7-2.5 6.3-3.1 12.5-2.2 18.5 1.5 9.5 7 16.7 15 22.1 18.4 12.2 47.3 16.1 81.3 3zm-15.2-172.6c.9-5.2-.3-10.5-3.2-15.2-7.9-12.9-29.9-21.3-54.6-14.8-21.7 5.8-37.2 20.5-37.2 35.6 0 11.9 6.7 23.2 21.3 29.2 14.6 6.1 33.5 6.5 51.7.4 11.7-3.9 18.9-9.5 22-15.2 3.1-5.7 3.8-12.2 0-20zm-97.3 258.8c3.5 13.4 12.5 25.8 30.5 30.1 20.6 5 41.2-4.9 46-24.8 4.8-19.9-8.4-49.6-31.3-67.4-13.3-10.3-27-15-38.6-14.3-11.6.7-20.7 6.8-25.7 18-8.2 18.3-1.7 43.2 19.1 58.4zM89.1 108.8c12.2 13.8 27.6 24.1 44.3 29.2 16.7 5.1 34.1 4.9 49.8-1.2 24.9-9.8 44.8-35 51.2-67.4 6.4-32.4-1.9-63.8-19.2-86-12.6-16.2-30.4-28.3-51.2-33.9-20.8-5.5-44.3-3.9-64.2 5.5-32.1 15.1-58.1 54.2-46.4 98.8 5.4 20.8 17.8 40.1 35.7 55zm61.2 114.3c-12.4-6.1-23-16.1-28.5-27.7-5.5-11.6-6.2-24.1-2.6-35.6 6.3-19.5 21.8-36.3 48-42.7 26.2-6.4 52.6 2.3 66.8 23.4 7.7 11.4 10.8 24.9 9.2 38.7-1.6 13.8-7.7 27.1-17.2 37.2-19.5 20.8-48.5 19.2-75.7 6.7zm63.3 67.9c13.3-14.7 18-33.9 12.3-55.1-5.7-21.3-20.4-40.7-46.8-51.3-26.5-10.7-59.3-8.1-75.8 12.7-16.5 20.8-13.6 59.6 7.5 83.8 12.2 13.9 28.1 22.4 46.8 24.5 18.6 2.1 39.2-2.2 56-14.6z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+    z-index: 0;
+    transform: rotate(45deg);
+}
+
+#contacto::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23ff6b6b' opacity='0.05' d='M442.8 150.6c-152.5 0-156.4 66.8-298.9 66.8-13.7 0-24.7-11.1-24.7-24.7 0-13.7 11.1-24.7 24.7-24.7 142.4 0 146.3-66.8 298.9-66.8 13.7 0 24.7 11.1 24.7 24.7.1 13.7-11 24.7-24.7 24.7zM195.9 311.1c142.4 0 146.3-66.8 298.9-66.8 13.7 0 24.7 11.1 24.7 24.7 0 13.7-11.1 24.7-24.7 24.7-152.5 0-156.4 66.8-298.9 66.8-13.7 0-24.7-11.1-24.7-24.7 0-13.7 11.1-24.7 24.7-24.7z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+    z-index: 0;
+    transform: rotate(-45deg);
+}
+
+#contacto .section-title {
+    display: inline-block;
+    position: relative;
+    padding: 0 15px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    font-size: 2.2rem;
+    text-align: center;
+    width: 100%;
+}
+
+#contacto .section-title::before,
+#contacto .section-title::after {
+    display: none;
+}
+
+/* Estilos para la sección de peluquería */
+.peluqueria-card {
+    transition: all 0.3s ease;
+    overflow: hidden;
+    position: relative;
+    border-radius: 0.5rem;
+}
+
+.peluqueria-card:hover {
+    box-shadow: 0 10px 25px rgba(255, 165, 0, 0.4) !important;
+}
+
+/* Nuevo enfoque para el borde brillante con mejor fluidez */
+.peluqueria-card {
+    position: relative;
+    z-index: 0; /* Establecer contexto de apilamiento */
+}
+
+.peluqueria-card::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+
+    z-index: -3; /* Colocar detrás del contenido */
+    border-radius: inherit;
+    background: linear-gradient(90deg, 
+        var(--primary-color), 
+        var(--accent-color), 
+        #ff8800, 
+        var(--primary-color), 
+        var(--accent-color));
+    background-size: 400% 400%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.peluqueria-card:hover::after {
+    opacity: 1;
+    animation: gradientBorder 3s ease-in-out infinite;
+}
+
+/* Capa interior para crear el efecto de borde sin ocultar el contenido */
+.peluqueria-card::before {
+    content: '';
+    position: absolute;
+    top: 2px; /* Reducido para mostrar el borde */
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    background: white;
+    border-radius: calc(1.5rem - 4px); /* Ajustar para mantener la curva correcta */
+    z-index: -1; /* Entre el gradiente y el contenido */
+    pointer-events: none;
+}
+
+.peluqueria-card:hover img {
+    transform: scale(1.03);
+    filter: brightness(1.05);
+}
+
+.peluqueria-img {
+    transition: all 0.4s ease;
+}
+
+.cita-btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    border: 2px solid var(--primary-color);
+    background: linear-gradient(45deg, var(--primary-color), #ff8800);
+}
+
+.cita-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(var(--bs-primary-rgb), 0.4) !important;
+    background: linear-gradient(45deg, #ff8800, var(--primary-color));
+}
+
+.cita-btn i {
+    font-size: 1.2em;
+    transition: transform 0.3s ease;
+}
+
+.cita-btn:hover i {
+    transform: scale(1.2) rotate(10deg);
+}
+
+.cita-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(60deg, transparent, rgba(255,255,255,0.4), transparent);
+    transform: rotate(45deg);
+    animation: btnShine 2s infinite;
+}
+
+@keyframes gradientBorder {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes btnShine {
+    0% {
+        transform: translateX(-100%) rotate(45deg);
+    }
+    100% {
+        transform: translateX(100%) rotate(45deg);
+    }
+}
+
+/* Estilos para el logo */
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+    width: 60px;
+    height: 60px;
+}
+
+/* Estilos para el logo personalizado */
+.custom-logo-img {
+    width: 60px;
+    height: auto;
+    transition: transform 0.3s ease;
+    /* Aplicar filtros para ajustar los colores a amarillo y naranja coral con sombra */
+    filter: brightness(1.3) contrast(1.2) saturate(1.8) hue-rotate(2deg) drop-shadow(0 2px 3px rgba(255, 107, 0, 0.2));
+}
+
+.custom-logo-img:hover {
+    transform: scale(1.05);
+}
+
+/* Estilos para la marca y texto */
+.navbar-brand {
+    flex-wrap: wrap;
+    max-width: 75%;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.navbar-brand h1 {
+    color: var(--primary-color);
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.6rem;
+    margin-bottom: 0;
+    line-height: 1.1;
+    font-weight: 700;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);
+}
+
+.tagline {
+    font-size: 0.9rem;
+    color: var(--dark-color);
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+/* Estilos generales y reset */
+html, body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+body {
+    padding-top: 70px; /* Espacio para el navbar fijo */
+    min-height: 100vh;
+}
+
+/* Navbar fijo con efecto glossy estilo Mac */
+.navbar.fixed-top {
+    background: rgba(255, 255, 255, 0.65) !important;
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
+    box-shadow: 0 1px 12px rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    z-index: 1030;
+    padding: 8px 0;
+    height: auto;
+    min-height: 60px;
+    width: 100%;
+    left: 0;
+    right: 0;
+}
+
+/* Estilos mejorados para los enlaces de navegación */
+.navbar-nav .nav-link {
+    position: relative;
+    color: var(--dark-color);
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    margin: 0 0.2rem;
+    transition: all 0.3s ease;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--primary-color);
+}
+
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+    opacity: 0;
+    border-radius: 2px;
+}
+
+.navbar-nav .nav-link:hover::after {
+    width: 70%;
+    opacity: 1;
+}
+
+/* Ajuste del logo para diferentes tamaños */
+.custom-logo-img {
+    max-width: 70px;
+    height: auto;
+    transition: all 0.2s ease;
+}
+
+/* Optimización para dispositivos móviles */
+@media (max-width: 991.98px) {
+    body {
+        padding-top: 60px; /* Espacio para el navbar fijo en móviles */
+    }
+    
+    /* Mejorar estilos de navegación en móviles */
+    .navbar-nav {
+        padding: 1rem 0;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 10px;
+        margin-top: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .navbar-nav .nav-link {
+        padding: 0.8rem 1.5rem;
+        text-align: center;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .navbar-nav .nav-link:last-child {
+        border-bottom: none;
+    }
+    
+    .navbar-nav .nav-link::after {
+        display: none;
+    }
+    
+    .navbar-nav .nav-link:hover {
+        background-color: rgba(var(--primary-color-rgb), 0.05);
+    }
+
+    /* Reposicionar botones del slider en móviles - entre los puntos y el cuadro */
+    .carousel-control-prev,
+    .carousel-control-next {
+        position: absolute;
+        top: auto;
+        bottom: 150px; /* Posición exacta entre los puntos y el cuadro */
+        width: 45px; /* Tamaño optimizado para móviles */
+        height: 45px; /* Tamaño optimizado para móviles */
+        transform: none !important; /* Eliminar cualquier transformación */
+        opacity: 1;
+        z-index: 20; /* Asegurar que estén por encima de otros elementos */
+        background-color: rgba(255, 149, 0, 0.8); /* Color naranja más visible */
+        border: 2px solid rgba(255, 255, 255, 0.9); /* Borde más visible */
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra para destacar */
+    }
+    
+    /* Ajustar posición horizontal en móviles */
+    .carousel-control-prev {
+        left: 15%; /* Posición horizontal ajustada */
+    }
+    
+    .carousel-control-next {
+        right: 15%; /* Posición horizontal ajustada */
+    }
+    
+    .carousel-control-prev:hover,
+    .carousel-control-next:hover {
+        transform: scale(1.1); /* Incrementar escala en hover para móviles */
+        background: rgba(255, 149, 0, 0.7); /* Naranja más brillante en móviles */
+    }
+    
+    .carousel-control-prev:active,
+    .carousel-control-next:active {
+        transform: scale(0.95); /* Solo compresión al hacer clic */
+    }
+    
+    /* Optimización del navbar para móviles */
+    .mobile-friendly-navbar .navbar {
+        padding: 5px 0;
+        height: auto;
+        max-height: 55px;
+        background: rgba(255, 255, 255, 0.65) !important;
+        backdrop-filter: blur(10px) saturate(180%);
+        -webkit-backdrop-filter: blur(10px) saturate(180%);
+    }
+    
+    /* Ajustar tamaño del logo en móviles */
+    .custom-logo-img {
+        max-width: 60px;
+    }
+    
+    /* Mejorar el menú desplegable en móviles */
+    .navbar-collapse {
+        background-color: #fff;
+        border-radius: 0 0 10px 10px;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        padding: 10px 0;
+        margin-top: 5px;
+    }
+    
+    /* Hacer el navbar más compacto */
+    .navbar {
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+        min-height: auto !important;
+    }
+    
+    .navbar-brand {
+        max-width: 80%;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .brand-text {
+        display: none; /* Ocultar texto en móviles */
+    }
+    
+    .logo-container {
+        margin-right: 0 !important;
+        padding: 0;
+    }
+    
+    .custom-logo-img {
+        width: 40px; /* Logo más pequeño en móviles */
+        height: auto;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .navbar-toggler {
+        border: none;
+        padding: 0.25rem;
+        margin: 0;
+    }
+    
+    .navbar-toggler:focus {
+        box-shadow: none;
+        outline: none;
+    }
+    
+    .navbar-toggler-icon {
+        width: 1.25em;
+        height: 1.25em;
+    }
+    
+    .navbar > .container {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    
+    .navbar-collapse {
+        background-color: white;
+        border-radius: 0 0 15px 15px;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        padding: 0.5rem;
+        margin-top: 0.25rem;
+        position: absolute;
+        width: calc(100% - 2rem);
+        left: 1rem;
+        top: 100%;
+        z-index: 1000;
+    }
+    
+    .navbar-nav .nav-item {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .navbar-nav .nav-item:last-child {
+        border-bottom: none;
+    }
+    
+    .navbar-nav .nav-link {
+        padding: 0.5rem 0.75rem;
+    }
+}
+
+.location-tag {
+    font-size: 0.85rem;
+    color: var(--dark-color);
+    opacity: 0.7;
+}
+
+/* Personalización de los indicadores (círculos) */
+.carousel-indicators {
+    margin-bottom: 0;
+    bottom: 10px;
+    position: absolute;
+    z-index: 15;
+}
+
+/* Estilos para los indicadores del carrusel */
+.custom-carousel-indicators-wrapper {
+    position: absolute;
+    bottom: 20px; /* Aumentar la distancia desde el fondo */
+    width: 100%;
+    z-index: 20;
+    padding: 0; /* Eliminar padding vertical */
+}
+
+.custom-carousel-indicators {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    width: fit-content;
+    margin: 0 auto;
+    border-radius: 30px;
+    padding: 8px 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.custom-carousel-indicators button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    padding: 0;
+    margin: 0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.custom-carousel-indicators button.active {
+    background-color: #FF6B00;
+    transform: scale(1.4);
+    box-shadow: 0 0 15px rgba(255, 107, 0, 0.7);
+}
+
+/* Mejoras para las transiciones del carrusel - transiciones optimizadas */
+.carousel-fade .carousel-item {
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    will-change: opacity;
+}
+
+.carousel-fade .carousel-item.active {
+    opacity: 1;
+}
+
+/* Ajustar la altura y proporciones del carrusel */
+.hero-slider {
+    height: 700px; /* Altura fija más reducida para evitar espacios en blanco */
+    margin-bottom: 0; /* Eliminar margen inferior */
+    overflow: hidden;
+    position: relative;
+}
+
+#heroCarousel {
+    height: 100%;
+    overflow: hidden;
+}
+
+.carousel-inner {
+    height: 100%;
+    overflow: hidden;
+}
+
+.carousel-item {
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Efecto de paralaje para las imágenes de fondo */
+.hero-slide {
+    transition: transform 12s cubic-bezier(0.165, 0.84, 0.44, 1), background-position 12s cubic-bezier(0.165, 0.84, 0.44, 1);
+    background-size: cover;
+    background-position: center 40%; /* Posición inicial */
+    height: 100%;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    transform: scale(1); /* Tamaño inicial */
+}
+
+/* Añadir overlay oscuro para mejorar la legibilidad del texto */
+.hero-slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), 
+                radial-gradient(circle at center, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.3) 100%);
+    z-index: 1;
+    /* Eliminado el backdrop-filter para quitar el desenfoque */
+}
+
+/* Mejorar el diseño de los contenedores de texto con efecto glass estilo Mac */
+.hero-content {
+    padding: 2rem;
+    position: relative;
+    z-index: 2; /* Asegurar que el contenido esté por encima del overlay */
+    background: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente */
+    backdrop-filter: blur(15px); /* Efecto de desenfoque intenso */
+    -webkit-backdrop-filter: blur(15px); /* Para Safari */
+    border-radius: 20px; /* Bordes redondeados estilo Mac */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    border: 1px solid rgba(255, 255, 255, 0.18); /* Borde fino brillante */
+    max-width: 550px;
+    margin: 0 auto;
+}
+
+/* Configuración general del carrusel */
+.hero-slider {
+    overflow: hidden;
+    position: relative;
+}
+
+/* Efecto de paralaje en las imágenes activas - movimiento horizontal hacia la izquierda */
+.carousel-item .hero-slide {
+    transform: scale(1);
+    transition: none;
+}
+
+@keyframes slide-move-left {
+    0% {
+        transform: scale(1) translateX(0);
+    }
+    100% {
+        transform: scale(1.15) translateX(-20px);
+    }
+}
+
+.carousel-item.active .hero-slide {
+    animation: slide-move-left 8s ease-out forwards;
+    will-change: transform;
+}
+
+
+/* Asegurar que los contenedores dentro del slide estén por encima del overlay */
+.hero-slide .container,
+.hero-slide .row,
+.hero-slide .col-lg-8 {
+    position: relative;
+    z-index: 2;
+}
+
+/* Estilizar los botones del carrusel para complementar el efecto glass */
+.hero-content .btn-primary {
+    background: rgba(255, 149, 0, 0.8); /* Naranja semi-transparente */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    box-shadow: 0 4px 15px rgba(255, 149, 0, 0.3);
+    transition: all 0.3s ease;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 12px 30px;
+}
+
+.hero-content .btn-primary:hover {
+    background: rgba(255, 149, 0, 0.9);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 149, 0, 0.4);
+}
+
+/* Mejorar la apariencia del título y el texto */
+.hero-content h2 {
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content .highlight {
+    color: #FFD700; /* Amarillo dorado */
+    position: relative;
+    display: inline-block;
+}
+
+.hero-content p {
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Añadir efecto de animación al contenido cuando el slide está activo - movimiento horizontal hacia la derecha */
+
+@keyframes content-move-right {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(20px);
+    }
+}
+
+.carousel-item.active .hero-content {
+    animation: content-move-right 8s ease-out forwards;
+    will-change: transform;
+}
+
+
+/* Eliminado efecto hover para el hero-content */
+
+/* Eliminado efecto de click para el hero-content */
+
+/* Efecto visual para el clic en el botón */
+.btn-click-effect {
+    animation: btn-pulse 0.3s ease;
+}
+
+@keyframes btn-pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.95); }
+    100% { transform: scale(1); }
+}
+
+/* Eliminamos la animación keyframe y usamos transiciones para un efecto más suave */
+
+.carousel-indicators [data-bs-target] {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 2px solid transparent;
+    margin: 0 6px;
+    transition: all 2s ease;
+}
+
+.carousel-indicators .active {
+    background-color: var(--primary-color);
+    width: 20px;
+    height: 20px;
+    border: 2px solid white;
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(255, 107, 107, 0.7);
+}
+
+/* Personalización de los controles de navegación - más grandes y centrados */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 60px; /* Botones más grandes */
+    height: 60px; /* Botones más grandes */
+    background: rgba(255, 255, 255, 0.25); /* Fondo semitransparente más visible */
+    backdrop-filter: blur(10px); /* Efecto glass */
+    -webkit-backdrop-filter: blur(10px); /* Para Safari */
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-20%);
+    opacity: 0.9; /* Más visible */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25), 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra realista */
+    border: 2px solid rgba(255, 255, 255, 0.3); /* Borde más visible */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    z-index: 10;
+    position: absolute;
+    transition: all 0.2s ease; /* Transición suave para todos los efectos */
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background: rgba(255, 149, 0, 0.5); /* Color naranja más visible */
+    opacity: 1;
+    transform: translateY(-30%) scale(1.05); /* Ligeramente más grande */
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.3), 0 0 25px rgba(255, 149, 0, 0.6); /* Brillo y elevación */
+}
+
+/* Efecto al presionar los botones - como botón real */
+.carousel-control-prev:active,
+.carousel-control-next:active {
+    transform:  scale(1.00); /* Efecto de presión y movimiento hacia abajo */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2), 0 0 15px rgba(255, 149, 0, 0.4); /* Sombra reducida */
+    transition: all 0.1s ease-in-out;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    width: 30px; /* Iconos más grandes */
+    height: 30px; /* Iconos más grandes */
+    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.7)); /* Sombra más visible */
+}
+
+/* Posicionamiento más centrado de los botones */
+.carousel-control-prev {
+    left: 15%; /* Mover desde el borde izquierdo hacia el centro */
+}
+
+.carousel-control-next {
+    right: 15%; /* Mover desde el borde derecho hacia el centro */
+}
