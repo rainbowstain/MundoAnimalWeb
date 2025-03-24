@@ -111,29 +111,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Newsletter form validation
-    const newsletterForm = document.querySelector('.newsletter-form');
-    if (newsletterForm) {
-        newsletterForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const emailInput = newsletterForm.querySelector('input[type="email"]');
-            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            
-            if (!emailInput.value.trim() || !emailPattern.test(emailInput.value.trim())) {
-                emailInput.style.borderColor = 'red';
-                alert('Por favor ingresa un email válido.');
-            } else {
-                alert('¡Gracias por suscribirte a nuestro boletín!');
-                newsletterForm.reset();
-                emailInput.style.borderColor = '';
-            }
-        });
-        
-        newsletterForm.querySelector('input').addEventListener('input', function() {
-            this.style.borderColor = '';
-        });
-    }
-    
+   
     // Add animation on scroll - versión optimizada
     const animateOnScroll = function() {
         // Usar IntersectionObserver en lugar de scroll events

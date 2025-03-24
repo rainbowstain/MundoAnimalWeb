@@ -1,5 +1,11 @@
 /* Estilos para el logo y elementos personalizados */
 
+/* Ocultar los botones de navegación del carrusel en todos los dispositivos */
+.carousel-control-prev,
+.carousel-control-next {
+    display: none;
+}
+
 /* Estilo para el logo principal */
 .custom-logo-img {
     filter: sepia(50%) saturate(300%) hue-rotate(325deg) brightness(110%);
@@ -1226,21 +1232,21 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 12px;
+    gap: 15px; /* Aumentado para acomodar los indicadores más grandes */
     background-color: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     width: fit-content;
     margin: 0 auto;
     border-radius: 30px;
-    padding: 8px 20px;
+    padding: 10px 25px; /* Aumentado para dar más espacio */
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .custom-carousel-indicators button {
-    width: 10px;
-    height: 10px;
+    width: 12px; /* 20% más grande */
+    height: 12px; /* 20% más grande */
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.5);
     border: none;
@@ -1253,7 +1259,7 @@ body {
 
 .custom-carousel-indicators button.active {
     background-color: #FF6B00;
-    transform: scale(1.4);
+    transform: scale(1.5); /* Aumentado para mayor énfasis */
     box-shadow: 0 0 15px rgba(255, 107, 0, 0.7);
 }
 

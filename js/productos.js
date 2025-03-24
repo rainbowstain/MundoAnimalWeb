@@ -35,5 +35,6 @@ const productosData = {
         pollos: ['Engorda', 'Ponedora', 'Trigo', 'Chancao Grueso', 'Maíz Entero', 'Crecimiento/Starter'],
         conejos: ['Pellet de Alfalfa', 'Pellet Champion'],
         tortugas: ['Pellet Surtido', 'Pellet Rojo', 'Pellet Blanco', 'Pellet Verde', 'Pulguilla', 'Camarones']
+        
     }
 };

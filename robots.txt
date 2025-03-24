@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mundoanimalarica.cl/sitemap.xml
