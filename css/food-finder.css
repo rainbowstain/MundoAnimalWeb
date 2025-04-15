@@ -3,9 +3,12 @@
 /* Sección principal */
 .food-finder-section {
     padding: 3rem 0;
-    background-color: #f8f9fa;
-    border-radius: 10px;
+    background-color: rgba(255, 247, 230, 0.7); /* Fondo más transparente para combinar con el nuevo fondo */
+    border-radius: 20px; /* Bordes más redondeados */
     margin: 2rem 0;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05); /* Sombra suave */
+    backdrop-filter: blur(5px); /* Efecto de vidrio */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Borde sutil */
 }
 
 .food-finder-section h2 {
@@ -38,6 +41,7 @@
     overflow: hidden;
     transition: all 0.3s ease;
     height: 60px; /* Barra más alta */
+    position: relative;
 }
 
 .search-container .input-group:hover {
@@ -147,13 +151,9 @@
 
 /* Pestañas de categorías */
 .filter-tabs {
-   
     padding-bottom: 1.5rem;
-   
     position: relative;
 }
-
-
 
 .filter-tabs .nav-pills {
     gap: 0.5rem;
@@ -161,30 +161,42 @@
 
 .filter-tabs .nav-link {
     border-radius: 50px;
-    padding: 0.7rem 1.5rem;
+    padding: 0.8rem 1.8rem;
     color: #555;
-    background-color: #fff;
-    border: 1px solid #ddd;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(230, 217, 197, 0.5);
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
     gap: 0.5rem;
     font-weight: 500;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+    backdrop-filter: blur(3px);
 }
 
 .filter-tabs .nav-link.active {
     background-color: var(--accent-color);
     border-color: var(--accent-color);
-    color: #333;
+    color: #fff;
     font-weight: 600;
+    box-shadow: 0 5px 15px rgba(64, 124, 115, 0.3);
+    transform: translateY(-2px);
+}
+
+.filter-tabs .nav-link.active i {
+    color: #fff;
+    transform: scale(1.1);
 }
 
 .filter-tabs .nav-link:hover:not(.active) {
-    background-color: #f0f0f0;
+    background-color: rgba(250, 241, 220, 0.9);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
 .filter-tabs .nav-link i {
     font-size: 1.2rem;
+    transition: all 0.3s ease;
 }
 
 /* Leyenda de calidades */
@@ -351,12 +363,12 @@
 /* Tarjetas de marcas */
 .brand-card {
     position: relative;
-    background-color: #fff;
-    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo más transparente */
+    border-radius: 15px; /* Bordes más redondeados */
     padding: 1.5rem 1rem;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Sombra más suave */
+    transition: all 0.4s ease;
     cursor: pointer;
     overflow: hidden;
     height: 100px;
@@ -364,32 +376,35 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    backdrop-filter: blur(3px); /* Efecto de vidrio */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Borde sutil */
 }
 
 /* Fondos de color tenue para cada jerarquía */
 .brand-card.quality-S {
-    background-color: rgba(255, 215, 0, 0.05);
+    background-color: rgba(255, 215, 0, 0.08);
 }
 
 .brand-card.quality-A {
-    background-color: rgba(255, 77, 77, 0.05);
+    background-color: rgba(255, 77, 77, 0.08);
 }
 
 .brand-card.quality-B {
-    background-color: rgba(153, 102, 204, 0.05);
+    background-color: rgba(153, 102, 204, 0.08);
 }
 
 .brand-card.quality-C {
-    background-color: rgba(77, 148, 255, 0.05);
+    background-color: rgba(77, 148, 255, 0.08);
 }
 
 .brand-card.quality-F {
-    background-color: rgba(102, 204, 102, 0.05);
+    background-color: rgba(102, 204, 102, 0.08);
 }
 
 .brand-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px); /* Mayor elevación */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada */
+    background-color: rgba(255, 255, 255, 0.95); /* Más opaco al hacer hover */
 }
 
 .brand-card .quality-indicator {
@@ -716,5 +731,71 @@
     
     .quality-legend .d-flex {
         gap: 0.6rem;
+    }
+}
+
+/* Estilos para el botón de borrado en el buscador */
+.clear-input-btn {
+    position: absolute;
+    right: 70px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #999;
+    font-size: 1.8rem;
+    z-index: 10;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.clear-input-btn:hover {
+    color: var(--primary-color);
+    background-color: rgba(0, 0, 0, 0.08);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.clear-input-btn.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Animación de sparkles */
+.sparkle-effect {
+    position: absolute;
+    pointer-events: none;
+    z-index: 100;
+}
+
+.sparkle {
+    position: absolute;
+    background-color: var(--primary-color);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    opacity: 0;
+    animation: sparkle 1s ease-in-out forwards;
+}
+
+@keyframes sparkle {
+    0% {
+        transform: scale(0) rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2) rotate(45deg);
+        opacity: 0;
     }
 }

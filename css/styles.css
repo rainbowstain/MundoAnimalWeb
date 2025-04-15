@@ -1,13 +1,25 @@
 /* Base Styles */
 :root {
-    --primary-color: #ff5722;
+    --primary-color: #A04524;    /* Tierra Cálida */
     --secondary-color: #4ecdc4;
-    --accent-color: #ffe66d;
-    --dark-color: #2d3436;
-    --light-color: #f9f9f9;
+    --accent-color: #2F8F83;     /* Verde Mundo */
+    --dark-color: #407C73;       /* Verde Oceánico */
+    --light-color: #FAF1DC;      /* Crema Natural */
+    --background-color: #FAF1DC; /* Crema Natural */
+    --hover-color: #C66D3A;      /* Marrón Suave */
+    --white-color: #FFFFFF;      /* Blanco puro */
     --text-color: #333;
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s ease;
+
+    /* Tipografía */
+    --font-primary: 'Poppins', sans-serif;
+    --font-secondary: 'Quicksand', sans-serif;
+    --font-size-base: 16px;
+    --line-height-base: 1.6;
+    --heading-line-height: 1.2;
+    --letter-spacing-base: 0.02em;
+    --letter-spacing-heading: 0.03em;
 }
 
 /* Bootstrap Overrides */
@@ -52,10 +64,13 @@ html {
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-primary);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
     color: var(--text-color);
-    line-height: 1.6;
-    background-color: var(--light-color);
+    letter-spacing: var(--letter-spacing-base);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
@@ -337,8 +352,7 @@ nav ul li a:hover::after {
 
 /* Products Section */
 #productos {
-    padding: 4rem 0;
-    background-color: #f5f7fa;
+    padding: 5rem 0;
 }
 
 .paw-border {
@@ -354,16 +368,15 @@ nav ul li a:hover::after {
 .paw-border::after {
     content: '';
     position: absolute;
-    width: 40px;
-    height: 40px;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="%23ff6b6b" d="M226.5 92.9c14.3 42.9-.3 86.2-32.6 96.8s-70.1-15.6-84.4-58.5.3-86.2 32.6-96.8S212.2 50 226.5 92.9zM100.4 198.6c18.9 32.4 14.3 70.1-10.2 84.1s-59.7-.9-78.5-33.3S-2.7 179.3 21.8 165.3s59.7.9 78.5 33.3zM69.2 401.2C121.6 259.9 214.7 224 256 224s134.4 35.9 186.8 177.2c3.6 9.7 5.2 20.1 5.2 30.5v1.6c0 25.8-20.9 46.7-46.7 46.7c-11.5 0-22.9-1.4-34-4.2l-88-22c-15.3-3.8-31.3-3.8-46.6 0l-88 22c-11.1 2.8-22.5 4.2-34 4.2C84.9 480 64 459.1 64 433.3v-1.6c0-10.4 1.6-20.8 5.2-30.5zM421.8 282.7c-24.5-14-29.1-51.7-10.2-84.1s54-47.3 78.5-33.3s29.1 51.7 10.2 84.1s-54 47.3-78.5 33.3zM310.1 189.7c-32.3-10.6-46.9-53.9-32.6-96.8s52.1-69.1 84.4-58.5s46.9 53.9 32.6 96.8s-52.1 69.1-84.4 58.5z"/></svg>');
+    width: 10px;
+    height: 10px;
     background-size: contain;
     background-repeat: no-repeat;
     opacity: 0.7;
     z-index: 2;
     background-color: white;
     border-radius: 50%;
-    padding: 5px;
+    padding: 2px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -513,8 +526,7 @@ nav ul li a:hover::after {
 
 /* Testimonials Section */
 #testimonios {
-    padding: 4rem 0;
-    background-color: #f5f7fa;
+    padding: 5rem 0;
 }
 
 .testimonials {
@@ -565,8 +577,7 @@ nav ul li a:hover::after {
 
 /* Location Section */
 #ubicacion {
-    padding: 4rem 0;
-    background-color: #f9f9f9;
+    padding: 5rem 0;
 }
 
 .location-highlight {
@@ -706,8 +717,7 @@ nav ul li a:hover::after {
 
 /* Contact Section */
 #contacto {
-    padding: 4rem 0;
-    background-color: #f5f7fa;
+    padding: 5rem 0;
 }
 
 .contact-content {
@@ -816,9 +826,11 @@ nav ul li a:hover::after {
 
 /* Footer */
 footer {
-    background-color: var(--dark-color);
-    color: white;
+    color: #333;
     padding: 4rem 0 2rem;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .footer-content {
@@ -832,12 +844,14 @@ footer {
     color: var(--primary-color);
     font-family: 'Quicksand', sans-serif;
     margin-bottom: 0.5rem;
+    height: 1000px;
+    width: 1000px;
 }
 
 .footer-links h3,
 .footer-contact h3 {
     margin-bottom: 1.5rem;
-    color: white;
+    color: var(--dark-color);
 }
 
 .footer-links ul li {
@@ -862,7 +876,7 @@ footer {
 .copyright {
     text-align: center;
     padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
     font-size: 0.9rem;
     opacity: 0.7;
 }
@@ -974,5 +988,119 @@ footer {
     
     .newsletter-form .btn {
         border-radius: 5px;
+    }
+}
+
+/* Tipografía Base */
+body {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    color: var(--text-color);
+    letter-spacing: var(--letter-spacing-base);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Encabezados */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-secondary);
+    font-weight: 600;
+    line-height: var(--heading-line-height);
+    letter-spacing: var(--letter-spacing-heading);
+    margin-bottom: 1rem;
+    color: var(--dark-color);
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.75rem;
+}
+
+h4 {
+    font-size: 1.5rem;
+}
+
+h5 {
+    font-size: 1.25rem;
+}
+
+h6 {
+    font-size: 1rem;
+}
+
+/* Párrafos y texto */
+p {
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    line-height: var(--line-height-base);
+}
+
+/* Enlaces */
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-weight: 500;
+}
+
+a:hover {
+    color: var(--hover-color);
+}
+
+/* Texto destacado */
+.highlight {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Texto secundario */
+.text-secondary {
+    color: var(--dark-color);
+    font-size: 0.9rem;
+}
+
+/* Responsive Tipografía */
+@media (max-width: 768px) {
+    :root {
+        --font-size-base: 15px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.75rem;
+    }
+    
+    h3 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    :root {
+        --font-size-base: 14px;
+    }
+    
+    h1 {
+        font-size: 1.75rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    h3 {
+        font-size: 1.25rem;
     }
 }

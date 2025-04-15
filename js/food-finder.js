@@ -8,6 +8,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Inicializar tooltips para las insignias de calidad
     initQualityTooltips();
+    
+    // Configurar el botón de borrado
+    setupClearButton();
 });
 
 // Inicializar el buscador de alimentos
@@ -486,7 +489,6 @@ function setupQualityBadges() {
                 console.log('Selecting quality:', quality);
                 clearQualitySelection(); // Limpiar selección anterior
                 applyQualitySelection(quality); // Aplicar nueva selección
-                filterProductsByQuality(quality); // Filtrar productos
             }
         });
     });
@@ -796,4 +798,77 @@ function filterProductsByQuality(quality) {
             showNoResultsMessage(activeTab, `No se encontraron alimentos de calidad ${quality}`);
         }
     }, 250);
+}
+
+// Configurar el botón de borrado
+function setupClearButton() {
+    const searchInput = document.getElementById('search-input');
+    const clearButton = document.getElementById('clear-input');
+    
+    // Mostrar/ocultar botón de borrado según si hay texto
+    searchInput.addEventListener('input', function() {
+        if (this.value.length > 0) {
+            clearButton.classList.add('visible');
+        } else {
+            clearButton.classList.remove('visible');
+        }
+    });
+    
+    // Borrar texto al hacer clic en el botón
+    clearButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        searchInput.value = '';
+        clearButton.classList.remove('visible');
+        
+        // Restablecer la búsqueda
+        resetSearch();
+        
+        // Crear efecto de sparkles
+        createSparkles(e);
+    });
+}
+
+// Crear efecto de sparkles
+function createSparkles(event) {
+    const button = event.currentTarget;
+    const buttonRect = button.getBoundingClientRect();
+    const sparkleContainer = document.createElement('div');
+    sparkleContainer.className = 'sparkle-effect';
+    sparkleContainer.style.left = buttonRect.left + 'px';
+    sparkleContainer.style.top = buttonRect.top + 'px';
+    document.body.appendChild(sparkleContainer);
+    
+    // Crear varios sparkles en diferentes direcciones
+    const colors = ['#ff6b00', '#ff9d45', '#ffd17e', '#ffb800', '#ff4500', '#ff8c00'];
+    
+    for (let i = 0; i < 20; i++) { // Aumentado de 12 a 20 chispas
+        const sparkle = document.createElement('div');
+        sparkle.className = 'sparkle';
+        sparkle.style.left = (buttonRect.width / 2) + 'px';
+        sparkle.style.top = (buttonRect.height / 2) + 'px';
+        
+        // Posicionar aleatoriamente alrededor del botón
+        const angle = (i / 20) * 360;
+        const distance = 30 + Math.random() * 50; // Mayor distancia para las chispas
+        sparkle.style.transform = `translate(${Math.cos(angle * Math.PI / 180) * distance}px, ${Math.sin(angle * Math.PI / 180) * distance}px)`;
+        
+        // Color aleatorio
+        sparkle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        
+        // Tamaño aleatorio
+        const size = 6 + Math.random() * 10; // Chispas más grandes
+        sparkle.style.width = `${size}px`;
+        sparkle.style.height = `${size}px`;
+        
+        // Retraso aleatorio para la animación
+        sparkle.style.animationDelay = `${Math.random() * 0.3}s`;
+        sparkle.style.animationDuration = `${0.8 + Math.random() * 0.5}s`; // Duración variable
+        
+        sparkleContainer.appendChild(sparkle);
+    }
+    
+    // Eliminar el contenedor después de que termine la animación
+    setTimeout(() => {
+        document.body.removeChild(sparkleContainer);
+    }, 1500); // Tiempo ampliado para que se vean las chispas
 }

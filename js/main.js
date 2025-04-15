@@ -237,4 +237,65 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+
+    // Botón de scroll to top
+    const scrollToTopBtn = document.getElementById('scroll-to-top');
+    
+    if (scrollToTopBtn) {
+        scrollToTopBtn.addEventListener('click', function() {
+            // Animación fluida y rápida con llegada suave
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+            
+            // Efecto visual de "llegada"
+            setTimeout(function() {
+                const logo = document.querySelector('.custom-logo-img');
+                if (logo) {
+                    logo.classList.add('pulse-animation');
+                    
+                    // Quitar la clase después de la animación
+                    setTimeout(function() {
+                        logo.classList.remove('pulse-animation');
+                    }, 1000);
+                }
+            }, 500);
+        });
+    }
+    
+    // Añadir funcionalidad de scroll al icono del mundo
+    const worldIcon = document.querySelector('.nav-link[href="#inicio"] .fa-globe-americas');
+    if (worldIcon) {
+        worldIcon.parentElement.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Añadir clase de feedback visual inmediato
+            worldIcon.classList.add('fa-spin');
+            
+            // Animación fluida para ir arriba
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+            
+            // Efecto visual mejorado
+            const logo = document.querySelector('.custom-logo-img');
+            if (logo) {
+                // Retrasar ligeramente para que coincida con la llegada al inicio
+                setTimeout(function() {
+                    logo.classList.add('pulse-animation');
+                    
+                    setTimeout(function() {
+                        logo.classList.remove('pulse-animation');
+                    }, 1000);
+                }, 300);
+            }
+            
+            // Mantener el giro durante el desplazamiento
+            setTimeout(function() {
+                worldIcon.classList.remove('fa-spin');
+            }, 1000);
+        });
+    }
 });

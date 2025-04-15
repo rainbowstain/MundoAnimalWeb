@@ -1,0 +1,93 @@
+/* Estilos elegantes para los iconos de servicios */
+.pricing-header i.fa-bath,
+.pricing-header i.fa-cut,
+.pricing-header i.fa-brush,
+.pricing-header i.fa-heart {
+    font-size: 3rem;
+    color: #407C73; /* Color verde del título */
+    display: block;
+    margin: 0 auto 15px;
+    transition: all 0.3s ease;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Efecto hover */
+.pricing-card:hover i.fa-bath,
+.pricing-card:hover i.fa-cut,
+.pricing-card:hover i.fa-brush,
+.pricing-card:hover i.fa-heart {
+    transform: scale(1.1);
+    color: #4f9e92; /* Color verde un poco más claro al pasar el mouse */
+}
+
+/* Ajuste tamaño íconos para encajar mejor */
+.pricing-header i.fa-bath {
+    font-size: 2.8rem;
+}
+
+.pricing-header i.fa-cut {
+    font-size: 2.7rem;
+}
+
+.pricing-header i.fa-brush {
+    font-size: 2.6rem;
+}
+
+.pricing-header i.fa-heart {
+    font-size: 2.7rem;
+}
+
+/* Responsive */
+@media (min-width: 768px) and (max-width: 992px) {
+    .pricing-header i.fa-bath,
+    .pricing-header i.fa-cut,
+    .pricing-header i.fa-brush,
+    .pricing-header i.fa-heart {
+        font-size: 2.4rem;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 767px) {
+    .pricing-header i.fa-bath,
+    .pricing-header i.fa-cut,
+    .pricing-header i.fa-brush,
+    .pricing-header i.fa-heart {
+        font-size: 2.2rem;
+        margin-bottom: 8px;
+    }
+}
+
+/* Estilos para el badge "Más solicitado" dentro del título */
+h3 .popular-badge {
+    font-size: 0.6rem !important;
+    padding: 2px 6px !important;
+    vertical-align: middle !important;
+    position: relative !important;
+    top: -2px !important;
+    display: inline-block !important;
+    margin: 0 0 0 5px !important;
+    line-height: normal !important;
+    color: white !important;
+    background: linear-gradient(135deg, var(--color-dark-orange), var(--color-orange)) !important;
+    border-radius: 20px !important;
+}
+
+h3 .popular-badge i {
+    color: #FFD700 !important;
+    margin-right: 2px !important;
+    font-size: 0.6rem !important;
+}
+
+/* Ajuste para responsivo */
+@media (max-width: 767px) {
+    h3 .popular-badge {
+        font-size: 0.5rem !important;
+        padding: 1px 4px !important;
+        margin-left: 3px !important;
+    }
+    
+    h3 .popular-badge i {
+        font-size: 0.5rem !important;
+    }
+} 
