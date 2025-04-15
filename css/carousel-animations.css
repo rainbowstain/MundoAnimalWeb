@@ -1,0 +1,86 @@
+/* Animaciones para el carrusel */
+
+/* Resetear estilos para animación */
+.hero-content h2,
+.hero-content p,
+.hero-content .btn-primary {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s cubic-bezier(0.25, 0.1, 0.25, 1), transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+    will-change: opacity, transform;
+}
+
+/* Estilos básicos para contenido del hero */
+.hero-content {
+    position: relative;
+    z-index: 10;
+    padding: 20px;
+    color: white;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    will-change: opacity;
+}
+
+/* Estilos específicos para el marco decorativo en la primera diapositiva */
+.hero-content-wrapper {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    padding: 30px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    max-width: 800px;
+    opacity: 0;
+    transition: opacity 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+    will-change: opacity;
+}
+
+/* Ajuste específico para el texto destacado */
+.highlight {
+    color: #ffcc00;
+}
+
+/* Animaciones para entrada de slides - optimizadas para rendimiento y suavidad */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    20% {
+        opacity: 0.4;
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Clase para aplicar la animación manualmente con curva más suave */
+.animated-fadeInUp {
+    animation: fadeInUp 1s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+    will-change: opacity, transform;
+}
+
+/* Retrasos para animación secuencial - ligeramente más espaciados */
+.delay-100 {
+    animation-delay: 100ms;
+}
+
+.delay-300 {
+    animation-delay: 250ms;
+}
+
+.delay-500 {
+    animation-delay: 400ms;
+}
+
+/* Asegurar que los elementos sean visibles incluso si la animación falla */
+.swiper-slide-active .hero-content h2,
+.swiper-slide-active .hero-content p,
+.swiper-slide-active .hero-content .btn-primary,
+.swiper-slide-active .hero-content-wrapper {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+} 

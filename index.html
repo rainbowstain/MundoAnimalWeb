@@ -45,7 +45,11 @@
     <link rel="stylesheet" href="css/food-finder.css">
     <link rel="stylesheet" href="css/custom-styles.css">
     <link rel="stylesheet" href="css/carousel-no-animations.css">
+    <link rel="stylesheet" href="css/carousel-animations.css">
     <link rel="stylesheet" href="css/destacados.css">
+    <link rel="stylesheet" href="css/simple-icons.css">
+    <!-- Choices.js para selector con búsqueda -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
     
     <!-- Favicon -->
     <link rel="icon" href="images/logo.png" type="image/png">
@@ -59,12 +63,12 @@
     
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-2 fixed-top">
             <div class="container">
-                <div class="navbar-brand d-flex align-items-center">
+                <div class="navbar-brand d-flex align-items-center" id="top">
                     <div class="logo-container me-2">
                         <img src="images/logo.png" alt="Mundo Animal" class="custom-logo-img">
                     </div>
                     <div class="brand-text">
-                        <h1 class="m-0 text-primary">Mundo Animal Arica</h1>
+                        <h1 class="m-0 text-primary" id="scroll-to-top">Mundo Animal Arica</h1>
                         <p class="tagline m-0">Tu local de mascotas en Agro Linderos Norte</p>
                     </div>
                     
@@ -75,19 +79,29 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#inicio">Inicio</a>
+                            <a class="nav-link nav-icon" href="#inicio" data-tooltip="Inicio">
+                                <i class="fas fa-globe-americas"></i>
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#productos">Productos</a>
+                            <a class="nav-link nav-icon" href="#productos" data-tooltip="Productos">
+                                <i class="fas fa-shopping-bag"></i>
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#buscador-alimentos">Marcas</a>
+                            <a class="nav-link nav-icon" href="#buscador-alimentos" data-tooltip="Marcas">
+                                <i class="fas fa-search"></i>
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#contacto">Agendar Peluquería</a>
+                            <a class="nav-link nav-icon" href="#contacto" data-tooltip="Agendar Peluquería">
+                                <i class="fas fa-cut"></i>
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#ubicacion">Ubicación</a>
+                            <a class="nav-link nav-icon" href="#footer" data-tooltip="Encuéntranos">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -135,7 +149,7 @@
                             <div class="hero-content">
                                 <h2 class="display-4 fw-bold text-white mb-3">Nuestra <span class="highlight">Ubicación</span></h2>
                                 <p class="lead text-white mb-4">Visítanos en Mercado Agro Linderos Norte, Local 131, Arica</p>
-                                <a href="#ubicacion" class="btn btn-primary btn-lg px-5 py-3 rounded-pill shadow-lg">Cómo Llegar</a>
+                                <a href="#footer" class="btn btn-primary btn-lg px-5 py-3 rounded-pill shadow-lg">Cómo Llegar</a>
                             </div>
                         </div>
                     </div>
@@ -181,7 +195,7 @@
 
     <section id="destacados">
         <div class="container">
-            <h2 class="section-title">Un Mundo Para Tu Mascota</h2>
+            <h2 class="section-title"><i class="fas fa-globe-americas" style="color: #A04524; margin-right: 10px;"></i>Un Mundo Para Tu Mascota</h2>
             <div class="features features-grid">
                 <div class="feature-card">
                     <div class="icon">
@@ -204,20 +218,16 @@
                     <h3>Atención Personalizada</h3>
                     <p>Nuestro equipo está capacitado para asesorarte sobre lo mejor para tu mascota.</p>
                 </div>
-                <div class="feature-card featured-service-horizontal">
+                <div class="feature-card">
                     <div class="new-badge">¡NUEVO!</div>
-                    <div class="service-content">
-                        <div class="icon">
-                            <i class="fas fa-cut"></i>
-                        </div>
-                        <div class="service-text">
-                            <h3>Peluquería Canina</h3>
-                            <p>Nuestro servicio de peluquería canina ofrece cortes personalizados, baños con productos premium y tratamientos especiales para mantener a tu mascota limpia, saludable y hermosa.</p>
-                            <a href="#contacto" class="btn btn-primary mt-3">
-                                <i class="fas fa-calendar-alt"></i> Agendar Cita
-                            </a>
-                        </div>
+                    <div class="icon">
+                        <i class="fas fa-cut"></i>
                     </div>
+                    <h3>Peluquería Canina</h3>
+                    <p>Nuestro servicio de peluquería canina ofrece cortes personalizados, baños con productos premium y tratamientos</p>
+                    <a href="#contacto" class="btn btn-primary mt-3">
+                        <i class="fas fa-calendar-alt"></i> Agendar Cita
+                    </a>
                 </div>
             </div>
         </div>
@@ -316,7 +326,7 @@
             </div>
             
             <div class="food-finder-section" id="buscador-alimentos">
-                <h2 class="text-center mb-4">Buscador de Alimentos Mundo Animal</h2>
+                <h2 class="text-center mb-4"><i class="fas fa-search" style="color: #407C73; margin-right: 10px;"></i>Buscador de Alimentos Mundo Animal</h2>
                 <p class="text-center mb-2">Explora nuestra amplia seleccion de marcas, para más información, visítanos. </p>
           
                 
@@ -326,6 +336,9 @@
                             <div class="search-container">
                                 <div class="input-group mb-3">
                                     <input type="text" id="search-input" class="form-control" placeholder="Buscar marca..." aria-label="Buscar alimento">
+                                    <button class="clear-input-btn" id="clear-input">
+                                        <i class="fas fa-times"></i>
+                                    </button>
                                     <div class="input-group-text">
                                         <i class="fas fa-search"></i>
                                     </div>
@@ -498,222 +511,214 @@
         </div>
     </section>
 
-    <section id="ubicacion">
-        <div class="container">
-            <h2 class="section-title">Encuéntranos</h2>
-            <div class="location-highlight mb-4">
-                <div class="row justify-content-center">
-                    <div class="col-md-5">
-                        <div class="info-item highlight-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <h3>Dirección</h3>
-                                <p class="highlight-text">Mercado Agro Linderos Norte, <strong>Local 131</strong>, Arica</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <div class="info-item highlight-item">
-                            <i class="fas fa-clock"></i>
-                            <div>
-                                <h3>Horario de Atención</h3>
-                                <p class="highlight-text"><strong>Todos los días:</strong> 10:00 - 19:00</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="location-content">
-                <div class="map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.2235485893516!2d-70.2840234!3d-18.4458762!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x915aa8b5c0eb9187%3A0x3b9b9178f4c3b279!2sMercado%20Agro%20Linderos%20Norte%2C%20Arica!5e0!3m2!1ses!2scl!4v1616000000000!5m2!1ses!2scl" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-                <div class="address-info">
-                    <div class="info-item">
-                        <i class="fas fa-paw"></i>
-                        <div>
-                            <h3>Visítanos</h3>
-                            <p>¡Te esperamos en nuestra tienda! Ven a conocer todos nuestros productos y recibe asesoría personalizada para el cuidado de tus mascotas.</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-hashtag"></i>
-                        <div>
-                            <h3>Síguenos en redes sociales!</h3>
-                      
-                            <div class="social-icons mt-3">
-                                <a href="#" class="social-icon" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
-                                <a href="#" class="social-icon" title="TikTok"><i class="fab fa-tiktok"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section id="contacto" class="">
         <div class="container">
-            <h2 class="section-title">Agendar Ahora Peluquería Canina</h2>
-         
+            <h2 class="section-title">Peluquería Canina - Agenda Ahora<span class="new-badge">NUEVO</span></h2>
             
-            <div class="mb-4">
-                <div class="row justify-content-center">
-                    <div class="col-6 col-sm-3">
-                        <div class="service-icon-box">
-                            <div class="service-icon">
-                                <i class="fas fa-bath"></i>
-                            </div>
-                            <h4>Baño</h4>
-                        </div>
+            <!-- Proceso paso a paso para agendar -->
+            <div class="booking-process">
+                <!-- Paso 1: Elegir servicio -->
+                <div class="booking-step active" id="paso1">
+                    <div class="step-header">
+                        <div class="step-number">1</div>
+                        <div class="step-title">Servicios</div>
+                        <div class="step-description">Ofrecemos diversos servicios de peluquería canina profesional para el cuidado y bienestar de tu mascota.</div>
                     </div>
-                    <div class="col-6 col-sm-3">
-                        <div class="service-icon-box">
-                            <div class="service-icon">
-                                <i class="fas fa-cut"></i>
+                    <div class="step-content paso1-container">
+                        
+                        <div class="row row-cols-1 row-cols-md-4 g-2" style="margin-top: -8px;">
+                            <!-- Baño -->
+                            <div class="col" style="padding: 8px;">
+                                <div class="pricing-card">
+                                    <div class="pricing-header">
+                                        <i class="fas fa-bath" style="font-size: 2.8rem; color: #407C73; display: block; margin: 0 auto 15px; background: none !important; border: none !important; width: auto !important; height: auto !important; box-shadow: none !important;"></i>
+                                        <h3 style="min-height: 28px;">Baño Premium</h3>
+                                        <div class="price-tag">$10.000</div>
+                                    </div>
+                                    <div class="pricing-body">
+                                        <ul class="service-features">
+                                            <li>Champú y acondicionador premium</li>
+                                            <li>Limpieza de oídos y corte de uñas</li>
+                                            <li>Perfume hipoalergénico</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                            <h4>Corte</h4>
-                        </div>
-                    </div>
-                    <div class="col-6 col-sm-3">
-                        <div class="service-icon-box">
-                            <div class="service-icon">
-                                <i class="fas fa-brush"></i>
+                            
+                            <!-- Corte -->
+                            <div class="col" style="padding: 8px;">
+                                <div class="pricing-card popular-service">
+                                    <div class="pricing-header">
+                                        <i class="fas fa-cut" style="font-size: 2.8rem; color: #407C73; display: block; margin: 0 auto 15px; background: none !important; border: none !important; width: auto !important; height: auto !important; box-shadow: none !important;"></i>
+                                        <h3 style="min-height: 28px;">Baño + Corte <span class="popular-badge"><i class="fas fa-star"></i> Más solicitado</span></h3>
+                                        <div class="price-tag">$15.000</div>
+                                    </div>
+                                    <div class="pricing-body">
+                                        <ul class="service-features">
+                                            <li>Baño completo incluido</li>
+                                            <li>Corte personalizado según raza</li>
+                                            <li>Acabado profesional</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                            <h4>Cepillado</h4>
-                        </div>
-                    </div>
-                    <div class="col-6 col-sm-3">
-                        <div class="service-icon-box">
-                            <div class="service-icon">
-                                <i class="fas fa-heart"></i>
+                            
+                            <!-- Cepillado -->
+                            <div class="col" style="padding: 8px;">
+                                <div class="pricing-card">
+                                    <div class="pricing-header">
+                                        <i class="fas fa-brush" style="font-size: 2.8rem; color: #407C73; display: block; margin: 0 auto 15px; background: none !important; border: none !important; width: auto !important; height: auto !important; box-shadow: none !important;"></i>
+                                        <h3 style="min-height: 28px;">Cepillado Profesional</h3>
+                                        <div class="price-tag">$8.000</div>
+                                    </div>
+                                    <div class="pricing-body">
+                                        <ul class="service-features">
+                                            <li>Cepillado profundo</li>
+                                            <li>Desenredado cuidadoso</li>
+                                            <li>Reduce caída de pelo</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                            <h4>Tratamientos</h4>
+                            
+                            <!-- Tratamientos -->
+                            <div class="col" style="padding: 8px;">
+                                <div class="pricing-card">
+                                    <div class="pricing-header">
+                                        <i class="fas fa-heart" style="font-size: 2.8rem; color: #407C73; display: block; margin: 0 auto 15px; background: none !important; border: none !important; width: auto !important; height: auto !important; box-shadow: none !important;"></i>
+                                        <h3 style="min-height: 28px;">Tratamientos Especiales</h3>
+                                        <div class="price-tag">$12.000</div>
+                                    </div>
+                                    <div class="pricing-body">
+                                        <ul class="service-features">
+                                            <li>Hidratación intensiva</li>
+                                            <li>Tratamiento anti-pulgas</li>
+                                            <li>Tratamiento para alergias</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="contact-content row gx-4 gy-4">
-                <div class="grooming-booking col-lg-6 mb-4 mb-lg-0">
-                    <div class="booking-container">
-                        <p class="booking-description">Agenda una cita para el servicio de peluquería de tu mascota directamente en nuestro calendario. Selecciona el día y la hora que más te convenga.</p>
-              
-                            <iframe src="https://calendar.google.com/calendar/embed?src=mundoanimal.peluqueria%40gmail.com&ctz=America%2FSantiago&mode=WEEK" style="border: 0" width="100%" height="450" frameborder="0" scrolling="no"></iframe>
+                
+                <!-- Paso 2: Revisar disponibilidad -->
+                <div class="booking-step" id="paso2">
+                    <div class="step-header">
+                        <div class="step-number">2</div>
+                        <div class="step-title">Revisa disponibilidad</div>
+                        <div class="step-description">Verifica en el calendario qué días y horarios están disponibles. Las horas ya agendadas aparecen bloqueadas.</div>
+                    </div>
+                    <div class="step-content">
+                        <div class="availability-info">
+                            <div class="alert alert-info">
+                                <i class="fas fa-info-circle me-2"></i> 
+                                <strong>Importante:</strong> En este calendario puedes ver las horas ya agendadas (bloqueadas). 
+                                Elige una hora que esté libre para tu cita.
+                            </div>
                         </div>
-                        <div class="booking-info mt-3">
-                            <div class="info-card">
-                                <div class="info-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="paw-icon"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg></div>
-                                <div class="info-text">Para reservar, identifica claramente si no existe ya una reserva en calendario. Si solicitas una hora que ya está pedida, te contactaremos para confirmar la disponibilidad.</div>
-                            </div>
-                            <div class="info-card">
-                                <div class="info-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="paw-icon"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg></div>
-                                <div class="info-text">Ofrecemos servicios de baño, corte, cepillado y tratamientos especiales para todo tipo de mascotas.</div>
-                            </div>
-                            <div class="info-card">
-                                <div class="info-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="paw-icon"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg></div>
-                                <div class="info-text">El tiempo estimado para cada servicio varía según el tamaño y tipo de mascota. Consulta por los detalles al agendar.</div>
-                            </div>
-                    
+                        <div class="calendar-container mb-4">
+                            <iframe src="https://calendar.google.com/calendar/embed?src=rojoserranoe%40gmail.com&ctz=America%2FSantiago&mode=WEEK" style="border: 0" width="100%" height="400" frameborder="0" scrolling="no"></iframe>
+                        </div>
                     </div>
                 </div>
-                <div class="contact-form col-lg-6">
-                    
-                        <h3 class="form-title"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="paw-icon"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg>Formulario de Reserva</h3>
-                        <form action="#" method="POST">
-                            <div class="form-group">
-                                <label for="nombre">Nombre del dueño</label>
-                                <input type="text" id="nombre" name="nombre" required>
+                
+                <!-- Paso 3: Completar formulario -->
+                <div class="booking-step" id="paso3">
+                    <div class="step-header">
+                        <div class="step-number">3</div>
+                        <div class="step-title">Completa el formulario</div>
+                        <div class="step-description">Ingresa tus datos, los de tu mascota y la fecha/hora que seleccionaste para confirmar tu reserva.</div>
+                    </div>
+                    <div class="step-content">
+                        <div class="form-container mb-4">
+                            <!-- Google Forms Embed -->
+                            <div class="google-form-container">
+                                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdDWcFziJJ4Kf-UAfgVG5X3LD7wpmIhhRx0_qEOM4MAFm2uOg/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Cargando formulario...</iframe>
                             </div>
-                            <div class="form-group">
-                                <label for="mascota">Nombre de tu mascota</label>
-                                <input type="text" id="mascota" name="mascota" required>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Paso 4: Confirmación -->
+                <div class="booking-step" id="paso4">
+                    <div class="step-header">
+                        <div class="step-number">4</div>
+                        <div class="step-title">¡Listo!</div>
+                        <div class="step-description">Recibirás un correo con la confirmación de tu cita. Presentate 10 minutos antes de la hora agendada.</div>
+                    </div>
+                    <div class="step-content">
+                        <div class="confirmation-container text-center py-4">
+                            <div class="success-icon mb-3">
+                                <i class="fas fa-check-circle"></i>
                             </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="tipo_mascota">Tipo de mascota</label>
-                                    <select id="tipo_mascota" name="tipo_mascota" required>
-                                        <option value="">Selecciona una opción</option>
-                                        <option value="perro">Perro</option>
-                                        <option value="gato">Gato</option>
-                                        <option value="otro">Otro</option>
-                                    </select>
+                            <h3 class="mb-3">¡Tu reserva ha sido enviada!</h3>
+                            <p class="mb-4">Recibirás un correo con todos los detalles de tu cita.</p>
+                            <div class="alert alert-warning">
+                                <p class="mb-0">Si tienes alguna pregunta o necesitas cambiar tu reserva, puedes contactarnos directamente:</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Paso 5: Contacto directo -->
+                        <div class="contact-options mt-4">
+                            <div class="step-header mb-4">
+                                <div class="step-number">5</div>
+                                <div class="step-title">¿Prefieres contactarnos directamente?</div>
+                            </div>
+                            <div class="row justify-content-center text-center">
+                                <div class="col-md-5 mb-3">
+                                    <div class="contact-option-card">
+                                        <div class="contact-icon">
+                                            <i class="fas fa-phone-alt"></i>
+                                        </div>
+                                        <h4>Llámanos</h4>
+                                        <p>Agenda directamente por teléfono</p>
+                                        <a href="tel:+56912345678" class="btn btn-outline-primary">
+                                            <i class="fas fa-phone"></i> +569 1234 5678
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="form-group col-md-6">
-                                    <label for="raza">Raza</label>
-                                    <input type="text" id="raza" name="raza">
+                                <div class="col-md-5 mb-3">
+                                    <div class="contact-option-card">
+                                        <div class="contact-icon">
+                                            <i class="fab fa-whatsapp"></i>
+                                        </div>
+                                        <h4>WhatsApp</h4>
+                                        <p>Escríbenos por WhatsApp</p>
+                                        <a href="https://wa.me/56912345678" target="_blank" class="btn btn-outline-success">
+                                            <i class="fab fa-whatsapp"></i> Enviar mensaje
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="fecha">Fecha preferida</label>
-                                    <input type="date" id="fecha" name="fecha" required>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="hora">Hora preferida</label>
-                                    <input type="time" id="hora" name="hora" required>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="servicio">Servicio requerido</label>
-                                <select id="servicio" name="servicio" required>
-                                    <option value="">Selecciona una opción</option>
-                                    <option value="bano">Baño</option>
-                                    <option value="corte">Corte</option>
-                                    <option value="bano_corte">Baño y corte</option>
-                                    <option value="tratamiento">Tratamiento especial</option>
-                                </select>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="telefono">Teléfono de contacto</label>
-                                    <input type="tel" id="telefono" name="telefono" required>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="email">Email</label>
-                                    <input type="email" id="email" name="email" required>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="notas">Notas adicionales</label>
-                                <textarea id="notas" name="notas" rows="3" placeholder="Detalles importantes sobre tu mascota, alergias, comportamiento, etc."></textarea>
-                            </div>
-                            <div class="text-end">
-                                <button type="submit" class="btn-primary">
-                                    <i class="fas fa-calendar-check"></i> Solicitar Reserva
-                                </button>
-                            </div>
-                        </form>
-                  
+                        </div>
+                        <div class="text-center mt-4">
+                            <a href="#inicio" class="btn btn-primary">
+                                <i class="fas fa-home"></i> Volver al inicio
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-
     </section>
 
-    <footer>
+    <footer id="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <h2>Mundo Animal</h2>
-                    <p>Tu tienda de mascotas en Arica</p>
+                    <img src="images/logo foofer.png" alt="Mundo Animal" class="footer-logo-img">
                 </div>
-                <div class="footer-links">
-                    <h3>Enlaces Rápidos</h3>
-                    <ul>
-                        <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#productos">Productos</a></li>
-
-                        <li><a href="#ubicacion">Ubicación</a></li>
-                        <li><a href="#contacto">Agendar Peluquería</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact">
-                    <h3>Contacto</h3>
+                <div class="footer-location">
+                    <h3>Encuéntranos</h3>
                     <p><i class="fas fa-map-marker-alt"></i> Mercado Agro Linderos Norte, Local 131, Arica</p>
                     <p><i class="fas fa-smile"></i> ¡Te esperamos en nuestra tienda!</p>
-                    <p><i class="fas fa-envelope"></i> Ventas@mundoanimalarica.cl</p>
+                    <p><i class="fas fa-envelope"></i> hola@mundoanimalarica.cl</p>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d945.5558871473379!2d-70.28402340000001!3d-18.445876199999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x915aa8b5c0eb9187%3A0x3b9b9178f4c3b279!2sMercado%20Agro%20Linderos%20Norte%2C%20Arica!5e0!3m2!1ses!2scl!4v1616000000000!5m2!1ses!2scl" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
+            </div>
+            <div class="developer-info">
+                <p>Página web desarrollada por  <a href="https://github.com/rainbowstain" target="_blank" class="github-link"><i class="fab fa-github"></i> rainbowstain</a></p>
             </div>
             <div class="copyright">
                 <p>&copy; 2025 Mundo Animal - Todos los derechos reservados</p>
@@ -731,90 +736,195 @@
     <script src="js/calidades-info.js"></script>
     <script src="js/food-finder.js"></script>
     <script src="js/paw-decoration.js"></script>
+    <script src="js/carousel-fix.js"></script>
+    <script src="js/peluqueria.js"></script>
+    
+    <!-- Choices.js para selector con búsqueda -->
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+    
+    <!-- Script para mostrar servicios de peluquería -->
+    <script>
+        function showService(serviceId) {
+            // Ocultar todos los contenidos
+            document.querySelectorAll('.service-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Desactivar todas las pestañas
+            document.querySelectorAll('.service-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Mostrar el contenido seleccionado
+            document.getElementById(serviceId).classList.add('active');
+            
+            // Activar la pestaña correspondiente
+            document.querySelectorAll('.service-tab').forEach(tab => {
+                if (tab.textContent.toLowerCase() === serviceId) {
+                    tab.classList.add('active');
+                }
+            });
+        }
+    </script>
     
     <!-- Inicialización de Swiper -->
     <script>
-        const swiper = new Swiper('.swiper', {
-            // Configuración básica
-            direction: 'horizontal',
-            loop: true,
-            speed: 800, // Velocidad de transición en ms
-            effect: 'fade', // Efecto de desvanecimiento para las imágenes
-            fadeEffect: {
-                crossFade: true // Permite un efecto de crossfade entre slides
-            },
-            
-            // Touch y mouse
-            touchRatio: 1,
-            grabCursor: true,
-            followFinger: true,
-            preventInteractionOnTransition: false,
-            
-            // Navegación
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            
-            // Paginación
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            
-            // Autoplay
-            autoplay: {
-                delay: 6000, // Mayor tiempo para apreciar las animaciones
-                disableOnInteraction: false,
-            },
-            
-            // Animaciones
-            on: {
-                slideChangeTransitionStart: function() {
-                    // Asegurarnos que los elementos animados se resetean
-                    document.querySelectorAll('.hero-content h2, .hero-content p, .hero-content .btn-primary').forEach(el => {
-                        el.style.opacity = '0';
-                    });
+        document.addEventListener('DOMContentLoaded', function() {
+            const swiper = new Swiper('.swiper', {
+                // Configuración básica
+                direction: 'horizontal',
+                loop: true,
+                speed: 800, // Velocidad de transición ajustada para mayor suavidad
+                effect: 'fade', // Efecto de desvanecimiento para las imágenes
+                fadeEffect: {
+                    crossFade: true // Permite un efecto de crossfade entre slides
                 },
-                init: function() {
-                    // Ajustar altura en móviles para ocupar toda la pantalla
-                    if (window.innerWidth <= 768) {
-                        const navbarHeight = document.querySelector('.navbar').offsetHeight;
-                        const heroHeight = window.innerHeight - navbarHeight;
-                        document.querySelector('.hero-slider').style.height = heroHeight + 'px';
-                        document.querySelector('.swiper').style.height = heroHeight + 'px';
+                
+                // Precargar imágenes para mejorar la fluidez
+                preloadImages: true,
+                updateOnImagesReady: true,
+                
+                // Touch y mouse
+                touchRatio: 1,
+                grabCursor: true,
+                followFinger: true,
+                preventInteractionOnTransition: false,
+                
+                // Navegación
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                
+                // Paginación
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                
+                // Autoplay
+                autoplay: {
+                    delay: 8000, // Mayor tiempo entre slides para apreciar la animación completa
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true,
+                },
+                
+                // Mejorar rendimiento para animaciones
+                watchSlidesProgress: true,
+                observer: true,
+                observeParents: true,
+                
+                // Animaciones
+                on: {
+                    init: function() {
+                        // Activar el primer slide al iniciar después de un retraso para cargar recursos
+                        setTimeout(() => {
+                            this.emit('slideChangeTransitionEnd');
+                            
+                            // Ajustar altura en móviles
+                            if (window.innerWidth <= 768) {
+                                const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                                const heroHeight = window.innerHeight - navbarHeight;
+                                document.querySelector('.hero-slider').style.height = heroHeight + 'px';
+                                document.querySelector('.swiper').style.height = heroHeight + 'px';
+                            }
+                        }, 100);
+                    },
+                    
+                    beforeTransition: function() {
+                        // Limpiar todas las animaciones antes de comenzar la transición
+                        document.querySelectorAll('.swiper-slide').forEach(slide => {
+                            const elements = slide.querySelectorAll('.hero-content h2, .hero-content p, .hero-content .btn-primary');
+                            elements.forEach(el => {
+                                el.classList.remove('animated-fadeInUp', 'delay-100', 'delay-300', 'delay-500');
+                            });
+                        });
+                    },
+                    
+                    slideChangeTransitionStart: function() {
+                        // Ocultar los elementos animados
+                        const slides = document.querySelectorAll('.swiper-slide');
+                        slides.forEach(slide => {
+                            if (!slide.classList.contains('swiper-slide-active')) {
+                                const elements = slide.querySelectorAll('.hero-content h2, .hero-content p, .hero-content .btn-primary');
+                                elements.forEach(el => {
+                                    el.style.opacity = '0';
+                                    el.style.transform = 'translateY(30px)';
+                                    el.classList.remove('animated-fadeInUp', 'delay-100', 'delay-300', 'delay-500');
+                                });
+                                
+                                const wrapper = slide.querySelector('.hero-content-wrapper');
+                                if (wrapper) {
+                                    wrapper.style.opacity = '0';
+                                }
+                            }
+                        });
+                    },
+                    
+                    slideChangeTransitionEnd: function() {
+                        // Mostrar con animación los elementos del slide activo
+                        const activeSlide = this.slides[this.activeIndex];
+                        if (activeSlide) {
+                            // Primero hacer visible el wrapper
+                            const wrapper = activeSlide.querySelector('.hero-content-wrapper');
+                            if (wrapper) {
+                                wrapper.style.opacity = '1';
+                            }
+                            
+                            // Pequeño retraso para los elementos internos para secuencia natural
+                            setTimeout(() => {
+                                const elements = activeSlide.querySelectorAll('.hero-content h2, .hero-content p, .hero-content .btn-primary');
+                                
+                                elements.forEach((el, index) => {
+                                    // Usar setTimeout para un efecto más fluido y escalonado
+                                    setTimeout(() => {
+                                        el.classList.add('animated-fadeInUp');
+                                    }, index * 150);
+                                });
+                            }, 100);
+                        }
+                    },
+                    
+                    resize: function() {
+                        // Reajustar al cambiar el tamaño de la ventana
+                        if (window.innerWidth <= 768) {
+                            const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                            const heroHeight = window.innerHeight - navbarHeight;
+                            document.querySelector('.hero-slider').style.height = heroHeight + 'px';
+                            document.querySelector('.swiper').style.height = heroHeight + 'px';
+                        } else {
+                            // Restablecer altura en escritorio
+                            document.querySelector('.hero-slider').style.height = 'auto';
+                            document.querySelector('.swiper').style.height = '500px';
+                        }
                     }
                 },
-                resize: function() {
-                    // Reajustar al cambiar el tamaño de la ventana
-                    if (window.innerWidth <= 768) {
-                        const navbarHeight = document.querySelector('.navbar').offsetHeight;
-                        const heroHeight = window.innerHeight - navbarHeight;
-                        document.querySelector('.hero-slider').style.height = heroHeight + 'px';
-                        document.querySelector('.swiper').style.height = heroHeight + 'px';
-                    } else {
-                        // Restablecer altura en escritorio
-                        document.querySelector('.hero-slider').style.height = 'auto';
-                        document.querySelector('.swiper').style.height = '500px';
+                
+                // Breakpoints responsivos
+                breakpoints: {
+                    // Cuando la ventana es >= 320px
+                    320: {
+                        autoplay: {
+                            delay: 7000
+                        }
+                    },
+                    // Cuando la ventana es >= 768px
+                    768: {
+                        autoplay: {
+                            delay: 8000
+                        }
                     }
                 }
-            },
+            });
             
-            // Breakpoints responsivos
-            breakpoints: {
-                // Cuando la ventana es >= 320px
-                320: {
-                    autoplay: {
-                        delay: 5000
-                    }
-                },
-                // Cuando la ventana es >= 768px
-                768: {
-                    autoplay: {
-                        delay: 6000
-                    }
+            // Detener autoplay cuando la página no está visible para ahorrar recursos
+            document.addEventListener('visibilitychange', function() {
+                if (document.hidden) {
+                    swiper.autoplay.stop();
+                } else {
+                    swiper.autoplay.start();
                 }
-            }
+            });
         });
     </script>
     
