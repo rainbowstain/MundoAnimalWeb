@@ -38,10 +38,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <!-- Font Awesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <!-- Custom CSS (cargado después de Bootstrap para sobrescribir estilos si es necesario) -->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/food-finder.css">
     <link rel="stylesheet" href="css/custom-styles.css">
+    <link rel="stylesheet" href="css/carousel-no-animations.css">
+    <link rel="stylesheet" href="css/destacados.css">
     
     <!-- Favicon -->
     <link rel="icon" href="images/logo.png" type="image/png">
@@ -91,21 +95,18 @@
         </nav>
 
     <section id="hero" class="hero-slider position-relative overflow-hidden">
-        <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-pause="false" data-bs-touch="true">
-            
-            <!-- Slides -->
-            <div class="carousel-inner">
-                <!-- Slide 1: Bienvenida (sin botón) -->
-                <div class="carousel-item active" data-bs-interval="5000">
-                    <div class="hero-slide" style="background-image: url('images/hero1.jpg');">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <!-- Slide 1: Bienvenida -->
+                <div class="swiper-slide">
+                    <div class="hero-slide" style="background-image: url('images/optimized/hero1.webp');">
+                        <div class="hero-overlay"></div>
                         <div class="container h-100 d-flex align-items-center justify-content-center">
-                            <div class="row justify-content-center w-100">
-                                <div class="col-lg-8 text-center text-white mx-auto">
-                                    <div class="hero-content">
-                                        <h2 class="display-4 fw-bold mb-4">Bienvenido a <span class="highlight">Mundo Animal</span> Arica</h2>
-                                        <p class="lead mb-4">La tienda oficial para todas las necesidades de tus mascotas y animales</p>
-                                        <!-- Sin botón como solicitado -->
-                                    </div>
+                            <div class="hero-content-wrapper">
+                                <div class="hero-content">
+                                    <h2 class="display-4 fw-bold text-white mb-3">Bienvenido a <span class="highlight">Mundo Animal</span> Arica</h2>
+                                    <p class="lead text-white mb-4">La tienda oficial para todas las necesidades de tus mascotas y animales</p>
+                                    <a href="#productos" class="btn btn-primary btn-lg px-5 py-3 rounded-pill shadow-lg">Explorar Productos</a>
                                 </div>
                             </div>
                         </div>
@@ -113,102 +114,75 @@
                 </div>
                 
                 <!-- Slide 2: Productos -->
-                <div class="carousel-item" data-bs-interval="5000">
-                    <div class="hero-slide" style="background-image: url('images/hero2.jpg');">
+                <div class="swiper-slide">
+                    <div class="hero-slide" style="background-image: url('images/optimized/hero2.webp');">
+                        <div class="hero-overlay"></div>
                         <div class="container h-100 d-flex align-items-center justify-content-center">
-                            <div class="row justify-content-center w-100">
-                                <div class="col-lg-8 text-center text-white mx-auto">
-                                    <div class="hero-content">
-                                        <h2 class="display-4 fw-bold mb-4">Nuestros <span class="highlight">Productos</span></h2>
-                                        <p class="lead mb-4">Alimentos premium, accesorios, juguetes y más para tus compañeros peludos</p>
-                                        <a href="#productos" class="btn btn-primary btn-lg px-4 py-2 rounded-pill">Ver Productos</a>
-                                    </div>
-                                </div>
+                            <div class="hero-content">
+                                <h2 class="display-4 fw-bold text-white mb-3">Nuestros <span class="highlight">Productos</span></h2>
+                                <p class="lead text-white mb-4">Alimentos premium, accesorios, juguetes y más para tus compañeros peludos</p>
+                                <a href="#productos" class="btn btn-primary btn-lg px-5 py-3 rounded-pill shadow-lg">Ver Productos</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Slide 3: Ubicación -->
-                <div class="carousel-item" data-bs-interval="5000">
-                    <div class="hero-slide" style="background-image: url('images/hero3.jpg');">
+                <div class="swiper-slide">
+                    <div class="hero-slide" style="background-image: url('images/optimized/hero3.webp');">
+                        <div class="hero-overlay"></div>
                         <div class="container h-100 d-flex align-items-center justify-content-center">
-                            <div class="row justify-content-center w-100">
-                                <div class="col-lg-8 text-center text-white mx-auto">
-                                    <div class="hero-content">
-                                        <h2 class="display-4 fw-bold mb-4">Nuestra <span class="highlight">Ubicación</span></h2>
-                                        <p class="lead mb-4">Visítanos en Mercado Agro Linderos Norte, Local 131, Arica</p>
-                                        <a href="#ubicacion" class="btn btn-primary btn-lg px-4 py-2 rounded-pill">Cómo Llegar</a>
-                                    </div>
-                                </div>
+                            <div class="hero-content">
+                                <h2 class="display-4 fw-bold text-white mb-3">Nuestra <span class="highlight">Ubicación</span></h2>
+                                <p class="lead text-white mb-4">Visítanos en Mercado Agro Linderos Norte, Local 131, Arica</p>
+                                <a href="#ubicacion" class="btn btn-primary btn-lg px-5 py-3 rounded-pill shadow-lg">Cómo Llegar</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Slide 4: Marcas -->
-                <div class="carousel-item" data-bs-interval="5000">
-                    <div class="hero-slide" style="background-image: url('images/hero4.jpg');">
+                <div class="swiper-slide">
+                    <div class="hero-slide" style="background-image: url('images/optimized/hero4.webp');">
+                        <div class="hero-overlay"></div>
                         <div class="container h-100 d-flex align-items-center justify-content-center">
-                            <div class="row justify-content-center w-100">
-                                <div class="col-lg-8 text-center text-white mx-auto">
-                                    <div class="hero-content">
-                                        <h2 class="display-4 fw-bold mb-4">Nuestras <span class="highlight">Marcas</span></h2>
-                                        <p class="lead mb-4">Trabajamos con las mejores marcas de alimentos y productos para mascotas</p>
-                                        <a href="#buscador-alimentos" class="btn btn-primary btn-lg px-4 py-2 rounded-pill">Ver Marcas</a>
-                                    </div>
-                                </div>
+                            <div class="hero-content">
+                                <h2 class="display-4 fw-bold text-white mb-3">Nuestras <span class="highlight">Marcas</span></h2>
+                                <p class="lead text-white mb-4">Trabajamos con las mejores marcas de alimentos y productos para mascotas</p>
+                                <a href="#buscador-alimentos" class="btn btn-primary btn-lg px-5 py-3 rounded-pill shadow-lg">Ver Marcas</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Slide 5: Peluquería -->
-                <div class="carousel-item" data-bs-interval="5000">
-                    <div class="hero-slide" style="background-image: url('images/hero5.jpg');">
+                <div class="swiper-slide">
+                    <div class="hero-slide" style="background-image: url('images/optimized/hero5.webp');">
+                        <div class="hero-overlay"></div>
                         <div class="container h-100 d-flex align-items-center justify-content-center">
-                            <div class="row justify-content-center w-100">
-                                <div class="col-lg-8 text-center text-white mx-auto">
-                                    <div class="hero-content">
-                                        <h2 class="display-4 fw-bold mb-4">Servicio de <span class="highlight">Peluquería</span> Canina</h2>
-                                        <p class="lead mb-4">Cortes personalizados y baños con productos premium para consentir a tu mascota</p>
-                                        <a href="#contacto" class="btn btn-primary btn-lg px-4 py-2 rounded-pill">Agendar Cita</a>
-                                    </div>
-                                </div>
+                            <div class="hero-content">
+                                <h2 class="display-4 fw-bold text-white mb-3">Servicio de <span class="highlight">Peluquería</span> Canina</h2>
+                                <p class="lead text-white mb-4">Cortes personalizados y baños con productos premium para consentir a tu mascota</p>
+                                <a href="#contacto" class="btn btn-primary btn-lg px-5 py-3 rounded-pill shadow-lg">Agendar Cita</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             
-           
-        </div>
-         <!-- Controles de navegación -->
-         <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Anterior</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Siguiente</span>
-        </button>
-        
-        <!-- Indicadores (círculos) dentro del carrusel al final -->
-        <div class="custom-carousel-indicators-wrapper">
-            <div class="custom-carousel-indicators">
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Bienvenida"></button>
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Productos"></button>
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Ubicación"></button>
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="3" aria-label="Marcas"></button>
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="4" aria-label="Peluquería"></button>
-            </div>
+            <!-- Controles de navegación -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            
+            <!-- Indicadores (paginación) -->
+            <div class="swiper-pagination"></div>
         </div>
     </section>
 
     <section id="destacados">
         <div class="container">
             <h2 class="section-title">Un Mundo Para Tu Mascota</h2>
-            <div class="features">
+            <div class="features features-grid">
                 <div class="feature-card">
                     <div class="icon">
                         <i class="fas fa-medal"></i>
@@ -230,6 +204,21 @@
                     <h3>Atención Personalizada</h3>
                     <p>Nuestro equipo está capacitado para asesorarte sobre lo mejor para tu mascota.</p>
                 </div>
+                <div class="feature-card featured-service-horizontal">
+                    <div class="new-badge">¡NUEVO!</div>
+                    <div class="service-content">
+                        <div class="icon">
+                            <i class="fas fa-cut"></i>
+                        </div>
+                        <div class="service-text">
+                            <h3>Peluquería Canina</h3>
+                            <p>Nuestro servicio de peluquería canina ofrece cortes personalizados, baños con productos premium y tratamientos especiales para mantener a tu mascota limpia, saludable y hermosa.</p>
+                            <a href="#contacto" class="btn btn-primary mt-3">
+                                <i class="fas fa-calendar-alt"></i> Agendar Cita
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -242,7 +231,12 @@
                 <!-- Categorías con dimensiones uniformes -->
                 <div class="col d-flex">
                     <div class="category card w-100">
-                        <img src="images/alimentos.jpg" class="card-img-top" alt="Alimentos para mascotas">
+                        <img src="images/optimized/alimentos.webp" 
+                             srcset="images/optimized/alimentos.webp 800w, images/optimized/alimentos.webp 400w" 
+                             sizes="(max-width: 576px) 400px, 800px"
+                             class="card-img-top" 
+                             alt="Alimentos para mascotas"
+                             loading="lazy">
                         <div class="card-body">
                             <h3 class="card-title">Alimentos</h3>
                             <p class="card-text">Gran variedad de marcas premium para perros y gatos de todas las edades.</p>
@@ -251,7 +245,12 @@
                 </div>
                 <div class="col d-flex">
                     <div class="category card w-100">
-                        <img src="images/accesorios.jpg" class="card-img-top" alt="Accesorios para mascotas">
+                        <img src="images/optimized/accesorios.webp" 
+                             srcset="images/optimized/accesorios.webp 800w, images/optimized/accesorios.webp 400w" 
+                             sizes="(max-width: 576px) 400px, 800px"
+                             class="card-img-top" 
+                             alt="Accesorios para mascotas"
+                             loading="lazy">
                         <div class="card-body">
                             <h3 class="card-title">Accesorios</h3>
                             <p class="card-text">Collares, correas, camas, transportadoras y todo lo que necesitas.</p>
@@ -260,7 +259,12 @@
                 </div>
                 <div class="col d-flex">
                     <div class="category card w-100">
-                        <img src="images/higiene.jpg" class="card-img-top" alt="Productos de higiene">
+                        <img src="images/optimized/higiene.webp" 
+                             srcset="images/optimized/higiene.webp 800w, images/optimized/higiene.webp 400w" 
+                             sizes="(max-width: 576px) 400px, 800px"
+                             class="card-img-top" 
+                             alt="Productos de higiene"
+                             loading="lazy">
                         <div class="card-body">
                             <h3 class="card-title">Higiene</h3>
                             <p class="card-text">Arena para gatos, pipetas antiparasitarias, shampoos y productos de limpieza.</p>
@@ -269,7 +273,12 @@
                 </div>
                 <div class="col d-flex">
                     <div class="category card w-100">
-                        <img src="images/juguetes.jpg" class="card-img-top" alt="Juguetes para mascotas">
+                        <img src="images/optimized/juguetes.webp" 
+                             srcset="images/optimized/juguetes.webp 800w, images/optimized/juguetes.webp 400w" 
+                             sizes="(max-width: 576px) 400px, 800px"
+                             class="card-img-top" 
+                             alt="Juguetes para mascotas"
+                             loading="lazy">
                         <div class="card-body">
                             <h3 class="card-title">Juguetes</h3>
                             <p class="card-text">Divertidos juguetes para mantener activos y entretenidos a tus compañeros.</p>
@@ -278,7 +287,12 @@
                 </div>
                 <div class="col d-flex">
                     <div class="category card w-100">
-                        <img src="images/granja.jpg" class="card-img-top" alt="Alimentos para animales de granja">
+                        <img src="images/optimized/granja.webp" 
+                             srcset="images/optimized/granja.webp 800w, images/optimized/granja.webp 400w" 
+                             sizes="(max-width: 576px) 400px, 800px"
+                             class="card-img-top" 
+                             alt="Alimentos para animales de granja"
+                             loading="lazy">
                         <div class="card-body">
                             <h3 class="card-title">Animales de Granja</h3>
                             <p class="card-text">Alimentos especializados y accesorios para animales de trabajo como caballos, aves de corral y ganado.</p>
@@ -287,7 +301,12 @@
                 </div>
                 <div class="col d-flex">
                     <div class="category card w-100">
-                        <img src="images/exoticos.jpg" class="card-img-top" alt="Productos para mascotas exóticas">
+                        <img src="images/optimized/exoticos.webp" 
+                             srcset="images/optimized/exoticos.webp 800w, images/optimized/exoticos.webp 400w" 
+                             sizes="(max-width: 576px) 400px, 800px"
+                             class="card-img-top" 
+                             alt="Productos para mascotas exóticas"
+                             loading="lazy">
                         <div class="card-body">
                             <h3 class="card-title">Mascotas Exóticas</h3>
                             <p class="card-text">Todo lo necesario para el cuidado de tortugas, peces, conejos, erizos y otras mascotas no convencionales.</p>
@@ -296,30 +315,6 @@
                 </div>
             </div>
             
-            <!-- Sección de Peluquería Destacada -->
-            <div class="peluqueria-destacada mt-5">
-                <div class="card border-0 shadow-lg peluqueria-card">
-                    <div class="row g-0">
-                        <div class="col-md-6">
-                            <img src="images/peluqueria.jpg" class="img-fluid rounded-start h-100 w-100 object-fit-cover peluqueria-img" alt="Peluquería canina profesional">
-                        </div>
-                        <div class="col-md-6">
-                            <div class="card-body p-4 p-lg-5">
-                                <h2 class="card-title text-primary fw-bold mb-4 position-relative pb-3">
-                                    <i class="fas fa-cut me-2"></i>Peluquería Canina
-                                </h2>
-                                <p class="card-text fs-5 mb-4">Nuestro servicio de peluquería canina ofrece cortes personalizados, baños con productos premium y tratamientos especiales para mantener a tu mascota limpia, saludable y hermosa.</p>
-                                <div class="text-end">
-                                    <a href="#contacto" class="btn btn-primary btn-lg rounded-pill px-4 py-2 shadow-sm cita-btn">
-                                        <i class="fas fa-calendar-alt"></i>
-                                        AGENDAR AHORA
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="food-finder-section" id="buscador-alimentos">
                 <h2 class="text-center mb-4">Buscador de Alimentos Mundo Animal</h2>
                 <p class="text-center mb-2">Explora nuestra amplia seleccion de marcas, para más información, visítanos. </p>
@@ -503,8 +498,6 @@
         </div>
     </section>
 
-
-
     <section id="ubicacion">
         <div class="container">
             <h2 class="section-title">Encuéntranos</h2>
@@ -564,9 +557,9 @@
             <h2 class="section-title">Agendar Ahora Peluquería Canina</h2>
          
             
-            <div class=" mb-4">
+            <div class="mb-4">
                 <div class="row justify-content-center">
-                    <div class="col-6 col-md-3">
+                    <div class="col-6 col-sm-3">
                         <div class="service-icon-box">
                             <div class="service-icon">
                                 <i class="fas fa-bath"></i>
@@ -574,7 +567,7 @@
                             <h4>Baño</h4>
                         </div>
                     </div>
-                    <div class="col-6 col-md-3">
+                    <div class="col-6 col-sm-3">
                         <div class="service-icon-box">
                             <div class="service-icon">
                                 <i class="fas fa-cut"></i>
@@ -582,7 +575,7 @@
                             <h4>Corte</h4>
                         </div>
                     </div>
-                    <div class="col-6 col-md-3">
+                    <div class="col-6 col-sm-3">
                         <div class="service-icon-box">
                             <div class="service-icon">
                                 <i class="fas fa-brush"></i>
@@ -590,7 +583,7 @@
                             <h4>Cepillado</h4>
                         </div>
                     </div>
-                    <div class="col-6 col-md-3">
+                    <div class="col-6 col-sm-3">
                         <div class="service-icon-box">
                             <div class="service-icon">
                                 <i class="fas fa-heart"></i>
@@ -730,13 +723,100 @@
 
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- Custom JS -->
     <script src="js/main.js"></script>
     <script src="js/productos.js"></script>
     <script src="js/calidades-info.js"></script>
     <script src="js/food-finder.js"></script>
-    <script src="js/carousel-animations.js"></script>
     <script src="js/paw-decoration.js"></script>
+    
+    <!-- Inicialización de Swiper -->
+    <script>
+        const swiper = new Swiper('.swiper', {
+            // Configuración básica
+            direction: 'horizontal',
+            loop: true,
+            speed: 800, // Velocidad de transición en ms
+            effect: 'fade', // Efecto de desvanecimiento para las imágenes
+            fadeEffect: {
+                crossFade: true // Permite un efecto de crossfade entre slides
+            },
+            
+            // Touch y mouse
+            touchRatio: 1,
+            grabCursor: true,
+            followFinger: true,
+            preventInteractionOnTransition: false,
+            
+            // Navegación
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            
+            // Paginación
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            
+            // Autoplay
+            autoplay: {
+                delay: 6000, // Mayor tiempo para apreciar las animaciones
+                disableOnInteraction: false,
+            },
+            
+            // Animaciones
+            on: {
+                slideChangeTransitionStart: function() {
+                    // Asegurarnos que los elementos animados se resetean
+                    document.querySelectorAll('.hero-content h2, .hero-content p, .hero-content .btn-primary').forEach(el => {
+                        el.style.opacity = '0';
+                    });
+                },
+                init: function() {
+                    // Ajustar altura en móviles para ocupar toda la pantalla
+                    if (window.innerWidth <= 768) {
+                        const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                        const heroHeight = window.innerHeight - navbarHeight;
+                        document.querySelector('.hero-slider').style.height = heroHeight + 'px';
+                        document.querySelector('.swiper').style.height = heroHeight + 'px';
+                    }
+                },
+                resize: function() {
+                    // Reajustar al cambiar el tamaño de la ventana
+                    if (window.innerWidth <= 768) {
+                        const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                        const heroHeight = window.innerHeight - navbarHeight;
+                        document.querySelector('.hero-slider').style.height = heroHeight + 'px';
+                        document.querySelector('.swiper').style.height = heroHeight + 'px';
+                    } else {
+                        // Restablecer altura en escritorio
+                        document.querySelector('.hero-slider').style.height = 'auto';
+                        document.querySelector('.swiper').style.height = '500px';
+                    }
+                }
+            },
+            
+            // Breakpoints responsivos
+            breakpoints: {
+                // Cuando la ventana es >= 320px
+                320: {
+                    autoplay: {
+                        delay: 5000
+                    }
+                },
+                // Cuando la ventana es >= 768px
+                768: {
+                    autoplay: {
+                        delay: 6000
+                    }
+                }
+            }
+        });
+    </script>
     
     <!-- Live Reload Script -->
     <script>

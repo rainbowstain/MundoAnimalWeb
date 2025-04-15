@@ -209,11 +209,56 @@ nav ul li a:hover::after {
  * texto y botones. Asegura que el contenido no se desborde de la
  * pantalla y agrega un poco de espacio abajo para los botones.
  */
+.hero-slider {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hero-slide {
+    position: relative;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    transition: none;
+}
+
 .hero-content {
-    max-width: 1800px;
-    
-    margin: 0 auto;
-    padding-bottom: 20px; /* Añadir espacio abajo para los botones */
+    opacity: 1;
+    transform: none;
+    transition: none;
+}
+
+.carousel-item {
+    transition: none;
+}
+
+.carousel-inner {
+    touch-action: pan-y pinch-zoom;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Estilos para el scroll táctil */
+.carousel-inner {
+    scroll-snap-type: x mandatory;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+.carousel-item {
+    scroll-snap-align: start;
+    flex: 0 0 100%;
+}
+
+/* Ocultar la barra de scroll pero mantener la funcionalidad */
+.carousel-inner::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-inner {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .hero-content h2 {
@@ -889,6 +934,19 @@ footer {
     
     .hero-content h2 {
         font-size: 2.2rem;
+    }
+    
+    .hero-slider {
+        height: 70vh;
+    }
+    
+    .hero-slide {
+        height: 70vh;
+    }
+    
+    .carousel-inner {
+        display: flex;
+        flex-direction: row;
     }
 }
 

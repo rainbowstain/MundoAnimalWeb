@@ -1,0 +1,161 @@
+/* Estilos para el carrusel hero */
+.hero-slider {
+    height: 50vh;
+    min-height: 400px;
+    position: relative;
+}
+
+.hero-slide {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.hero-content-wrapper {
+    position: relative;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 20px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-logo {
+    max-width: 200px;
+    height: auto;
+    margin-bottom: 1.5rem;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 20px;
+    margin: 0 auto;
+    color: white;
+}
+
+.hero-content h2 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content .lead {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content .highlight {
+    color: #ffd700;
+    font-weight: 700;
+}
+
+/* Estilos para los controles del carrusel */
+.swiper-button-prev,
+.swiper-button-next {
+    color: white;
+    background: rgba(0, 0, 0, 0.3);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    top: 50%;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+    font-size: 1.2rem;
+}
+
+.swiper-pagination {
+    bottom: 20px;
+}
+
+.swiper-pagination-bullet {
+    background: white;
+    opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+    background: #ffd700;
+    opacity: 1;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .hero-slider {
+        height: 40vh;
+        min-height: 300px;
+    }
+    
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+    
+    .hero-content .lead {
+        font-size: 1rem;
+    }
+    
+    .hero-logo {
+        max-width: 150px;
+    }
+    
+    .hero-content-wrapper,
+    .hero-content {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-slider {
+        height: 35vh;
+        min-height: 250px;
+    }
+    
+    .hero-content h2 {
+        font-size: 1.5rem;
+    }
+    
+    .hero-content .lead {
+        font-size: 0.9rem;
+    }
+    
+    .hero-logo {
+        max-width: 120px;
+    }
+    
+    .swiper-button-prev,
+    .swiper-button-next {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .hero-content-wrapper,
+    .hero-content {
+        padding: 10px;
+    }
+} 
