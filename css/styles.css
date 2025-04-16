@@ -844,8 +844,7 @@ footer {
     color: var(--primary-color);
     font-family: 'Quicksand', sans-serif;
     margin-bottom: 0.5rem;
-    height: 1000px;
-    width: 1000px;
+    
 }
 
 .footer-links h3,

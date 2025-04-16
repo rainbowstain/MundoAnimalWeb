@@ -640,62 +640,65 @@
                     </div>
                 </div>
                 
-                <!-- Paso 4: Confirmación -->
-                <div class="booking-step" id="paso4">
-                    <div class="step-header">
-                        <div class="step-number">4</div>
-                        <div class="step-title">¡Listo!</div>
-                        <div class="step-description">Recibirás un correo con la confirmación de tu cita. Presentate 10 minutos antes de la hora agendada.</div>
+                <!-- Contacto Directo -->
+                <div class="booking-step" id="contacto-directo">
+                    <div class="contact-header text-center mb-5">
+                        <div class="contact-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h2 class="contact-title">Contáctanos Directamente</h2>
+                        <p class="contact-subtitle">Para agendar una cita de peluquería canina o consultar por nuestros servicios, utiliza cualquiera de estos medios de comunicación</p>
                     </div>
-                    <div class="step-content">
-                        <div class="confirmation-container text-center py-4">
-                            <div class="success-icon mb-3">
-                                <i class="fas fa-check-circle"></i>
-                            </div>
-                            <h3 class="mb-3">¡Tu reserva ha sido enviada!</h3>
-                            <p class="mb-4">Recibirás un correo con todos los detalles de tu cita.</p>
-                            <div class="alert alert-warning">
-                                <p class="mb-0">Si tienes alguna pregunta o necesitas cambiar tu reserva, puedes contactarnos directamente:</p>
-                            </div>
-                        </div>
-                        
-                        <!-- Paso 5: Contacto directo -->
-                        <div class="contact-options mt-4">
-                            <div class="step-header mb-4">
-                                <div class="step-number">5</div>
-                                <div class="step-title">¿Prefieres contactarnos directamente?</div>
-                            </div>
-                            <div class="row justify-content-center text-center">
-                                <div class="col-md-5 mb-3">
-                                    <div class="contact-option-card">
-                                        <div class="contact-icon">
-                                            <i class="fas fa-phone-alt"></i>
+                    
+                    <div class="contact-cards">
+                        <div class="row justify-content-center g-4">
+                            <!-- WhatsApp -->
+                            <div class="col-lg-4 col-md-6">
+                                <div class="contact-card card h-100 border-0 shadow-sm hover-lift">
+                                    <div class="card-body text-center p-4">
+                                        <div class="contact-card-icon bg-success text-white mb-3">
+                                            <i class="fab fa-whatsapp fa-lg"></i>
                                         </div>
-                                        <h4>Llámanos</h4>
-                                        <p>Agenda directamente por teléfono</p>
-                                        <a href="tel:+56912345678" class="btn btn-outline-primary">
-                                            <i class="fas fa-phone"></i> +569 1234 5678
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-md-5 mb-3">
-                                    <div class="contact-option-card">
-                                        <div class="contact-icon">
-                                            <i class="fab fa-whatsapp"></i>
-                                        </div>
-                                        <h4>WhatsApp</h4>
-                                        <p>Escríbenos por WhatsApp</p>
-                                        <a href="https://wa.me/56912345678" target="_blank" class="btn btn-outline-success">
-                                            <i class="fab fa-whatsapp"></i> Enviar mensaje
+                                        <h3 class="card-title h4 mb-2">WhatsApp</h3>
+                                        <p class="card-text text-muted mb-3">Respuesta rápida a todas tus consultas y reservas</p>
+                                        <a href="https://wa.me/56912345678" target="_blank" class="btn btn-success btn-lg px-4 rounded-pill">
+                                            <i class="fab fa-whatsapp me-2"></i> Enviar Mensaje
                                         </a>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="text-center mt-4">
-                            <a href="#inicio" class="btn btn-primary">
-                                <i class="fas fa-home"></i> Volver al inicio
-                            </a>
+                            
+                            <!-- Teléfono -->
+                            <div class="col-lg-4 col-md-6">
+                                <div class="contact-card card h-100 border-0 shadow-sm hover-lift">
+                                    <div class="card-body text-center p-4">
+                                        <div class="contact-card-icon bg-primary text-white mb-3">
+                                            <i class="fas fa-phone-alt fa-lg"></i>
+                                        </div>
+                                        <h3 class="card-title h4 mb-2">Llámanos</h3>
+                                        <p class="card-text text-muted mb-3">Habla directamente con nuestro equipo de atención</p>
+                                        <a href="tel:+56912345678" class="btn btn-primary btn-lg px-4 rounded-pill">
+                                            <i class="fas fa-phone me-2"></i> +569 1234 5678
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Email -->
+                            <div class="col-lg-4 col-md-6">
+                                <div class="contact-card card h-100 border-0 shadow-sm hover-lift">
+                                    <div class="card-body text-center p-4">
+                                        <div class="contact-card-icon bg-warning text-white mb-3">
+                                            <i class="fas fa-envelope fa-lg"></i>
+                                        </div>
+                                        <h3 class="card-title h4 mb-2">Email</h3>
+                                        <p class="card-text text-muted mb-3">Envíanos un correo con todos los detalles</p>
+                                        <a href="mailto:contacto@mundoanimal.cl" class="btn btn-warning btn-lg px-4 rounded-pill">
+                                            <i class="fas fa-envelope me-2"></i> Escribir Email
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -714,6 +717,7 @@
                     <p><i class="fas fa-map-marker-alt"></i> Mercado Agro Linderos Norte, Local 131, Arica</p>
                     <p><i class="fas fa-smile"></i> ¡Te esperamos en nuestra tienda!</p>
                     <p><i class="fas fa-envelope"></i> hola@mundoanimalarica.cl</p>
+                    <p><i class="fas fa-clock"></i> Horario: Todos los días 10:00 a 19:00</p>
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d945.5558871473379!2d-70.28402340000001!3d-18.445876199999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x915aa8b5c0eb9187%3A0x3b9b9178f4c3b279!2sMercado%20Agro%20Linderos%20Norte%2C%20Arica!5e0!3m2!1ses!2scl!4v1616000000000!5m2!1ses!2scl" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
@@ -804,7 +808,7 @@
                 
                 // Autoplay
                 autoplay: {
-                    delay: 8000, // Mayor tiempo entre slides para apreciar la animación completa
+                    delay: 3000, // Cambio a 3 segundos para que cambie más rápido
                     disableOnInteraction: false,
                     pauseOnMouseEnter: true,
                 },
@@ -905,13 +909,13 @@
                     // Cuando la ventana es >= 320px
                     320: {
                         autoplay: {
-                            delay: 7000
+                            delay: 3000
                         }
                     },
                     // Cuando la ventana es >= 768px
                     768: {
                         autoplay: {
-                            delay: 8000
+                            delay: 3000
                         }
                     }
                 }
