@@ -331,46 +331,18 @@
     </footer>
 
     <!-- Scripts principales -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
-    <!-- Cargar directamente el archivo de datos de productos -->
+    <!-- Cargar scripts en orden correcto con defer para asegurar que el DOM esté listo -->
+    <script src="js/calidades-info.js"></script>
     <script src="js/productos.js"></script>
+    <script src="js/food-finder.js"></script>
+    <script src="js/paw-decoration.js"></script>
     
-    <!-- Scripts específicos del buscador -->
+    <!-- Script para ocultar el loader una vez que todo esté cargado -->
     <script>
-        // Función para inicializar el buscador cuando el DOM esté listo
-        document.addEventListener('DOMContentLoaded', () => {
-            try {
-                // Verificar si los datos de productos están disponibles
-                if (typeof productosData !== 'undefined') {
-                    initializeSearcher();
-                } else {
-                    console.error('Error: Variable productosData no definida');
-                    showError();
-                }
-            } catch (error) {
-                console.error('Error al inicializar el buscador:', error);
-                showError();
-            }
-        });
-        
-        // Función para mostrar error
-        const showError = () => {
-            const loaderContainer = document.getElementById('loader-container');
-            if (loaderContainer) {
-                loaderContainer.innerHTML = `
-                    <div class="loader-content">
-                        <i class="fas fa-exclamation-triangle text-danger" style="font-size: 48px;"></i>
-                        <p class="text-danger">Error al cargar datos. Intente nuevamente.</p>
-                        <button class="btn btn-primary mt-3" onclick="location.reload()">Reintentar</button>
-                    </div>
-                `;
-            }
-        };
-        
-        // Inicializar el buscador
-        const initializeSearcher = () => {
-            // Ocultar el loader
+        // Ocultar el loader cuando todo esté cargado
+        window.addEventListener('load', function() {
             const loaderContainer = document.getElementById('loader-container');
             if (loaderContainer) {
                 loaderContainer.style.opacity = '0';
@@ -379,24 +351,42 @@
                 }, 500);
             }
             
-            // Cargar scripts necesarios de manera secuencial
-            const loadScript = (src, callback) => {
-                const script = document.createElement('script');
-                script.src = src;
-                script.async = true;
-                script.onload = callback;
-                document.body.appendChild(script);
-            };
-            
-            // Primero cargamos calidades-info.js
-            loadScript('js/calidades-info.js', () => {
-                // Luego cargamos food-finder.js
-                loadScript('js/food-finder.js', () => {
-                    // Finalmente cargamos paw-decoration.js
-                    loadScript('js/paw-decoration.js', null);
-                });
-            });
-        };
+            // Verificar que las funciones esenciales existan
+            if (typeof initFoodFinder === 'function') {
+                // Inicializar manualmente el buscador si la función existe
+                initFoodFinder();
+                
+                // Asegurarnos de que el buscador esté configurado
+                setupSearch();
+                
+                // Inicializar tooltips para las insignias de calidad
+                initQualityTooltips();
+                
+                // Configurar el botón de borrado
+                setupClearButton();
+                
+                console.log('Buscador de alimentos inicializado manualmente');
+            } else {
+                console.error('La función initFoodFinder no está disponible');
+                showError();
+            }
+        });
+        
+        // Función para mostrar error
+        function showError() {
+            const loaderContainer = document.getElementById('loader-container');
+            if (loaderContainer) {
+                loaderContainer.innerHTML = `
+                    <div class="loader-content">
+                        <i class="fas fa-exclamation-triangle text-danger" style="font-size: 48px;"></i>
+                        <p class="text-danger">Error al cargar funciones del buscador. Intente nuevamente.</p>
+                        <button class="btn btn-primary mt-3" onclick="location.reload()">Reintentar</button>
+                    </div>
+                `;
+                loaderContainer.style.opacity = '1';
+                loaderContainer.style.display = 'flex';
+            }
+        }
     </script>
 </body>
 </html> 
