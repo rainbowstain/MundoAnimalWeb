@@ -89,7 +89,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link nav-icon" href="#buscador-alimentos" data-tooltip="Marcas">
+                            <a class="nav-link nav-icon" href="buscador.html" data-tooltip="Buscador de Alimentos">
                                 <i class="fas fa-search"></i>
                             </a>
                         </li>
@@ -163,7 +163,7 @@
                             <div class="hero-content">
                                 <h2 class="display-4 fw-bold text-white mb-3">Nuestras <span class="highlight">Marcas</span></h2>
                                 <p class="lead text-white mb-4">Trabajamos con las mejores marcas de alimentos y productos para mascotas</p>
-                                <a href="#buscador-alimentos" class="btn btn-primary btn-lg px-5 py-3 rounded-pill shadow-lg">Ver Marcas</a>
+                                <a href="buscador.html" class="btn btn-primary btn-lg px-5 py-3 rounded-pill shadow-lg">Ver Marcas</a>
                             </div>
                         </div>
                     </div>
@@ -325,188 +325,11 @@
                 </div>
             </div>
             
-            <div class="food-finder-section" id="buscador-alimentos">
-                <h2 class="text-center mb-4"><i class="fas fa-search" style="color: #407C73; margin-right: 10px;"></i>Buscador de Alimentos Mundo Animal</h2>
-                <p class="text-center mb-2">Explora nuestra amplia seleccion de marcas, para más información, visítanos. </p>
-          
-                
-                <div class="container">
-                    <div class="row justify-content-center mb-2">
-                        <div class="col-md-8">
-                            <div class="search-container">
-                                <div class="input-group mb-3">
-                                    <input type="text" id="search-input" class="form-control" placeholder="Buscar marca..." aria-label="Buscar alimento">
-                                    <button class="clear-input-btn" id="clear-input">
-                                        <i class="fas fa-times"></i>
-                                    </button>
-                                    <div class="input-group-text">
-                                        <i class="fas fa-search"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="row mb-2">
-                        <div class="col-12">
-                            <div class="filter-tabs">
-                                <ul class="nav nav-pills justify-content-center flex-wrap" id="food-tabs" role="tablist">
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link active" id="gatos-tab" data-bs-toggle="pill" data-bs-target="#gatos" type="button" role="tab" aria-controls="gatos" aria-selected="true">
-                                            <i class="fas fa-cat"></i> <span>Gatos</span>
-                                        </button>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="perros-tab" data-bs-toggle="pill" data-bs-target="#perros" type="button" role="tab" aria-controls="perros" aria-selected="false">
-                                            <i class="fas fa-dog"></i> <span>Perros</span>
-                                        </button>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="medicados-tab" data-bs-toggle="pill" data-bs-target="#medicados" type="button" role="tab" aria-controls="medicados" aria-selected="false">
-                                            <i class="fas fa-pills"></i> <span>Medicados</span>
-                                        </button>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="exoticos-tab" data-bs-toggle="pill" data-bs-target="#exoticos" type="button" role="tab" aria-controls="exoticos" aria-selected="false">
-                                            <i class="fas fa-paw"></i> <span>Exóticos</span>
-                                        </button>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="tab-content" id="food-tabContent">
-                        <!-- Contenido para Gatos -->
-                        <div class="tab-pane fade show active" id="gatos" role="tabpanel" aria-labelledby="gatos-tab">
-                            <div class="quality-legend mb-2">
-                                <div class="d-flex justify-content-center flex-wrap">
-                                    
-                                    <span class="quality-badge quality-S" title="Ultra Premium">S</span>
-                                    <span class="quality-badge quality-A" title="Super Premium">A</span>
-                                    <span class="quality-badge quality-B" title="Premium">B</span>
-                                    <span class="quality-badge quality-C" title="Estándar">C</span>
-                                    <span class="quality-badge quality-F" title="Económica">F</span>
-                                </div>
-                            </div>
-                            
-                            <div class="brands-container" id="gatos-brands">
-                                <!-- Se llenará dinámicamente con JavaScript -->
-                            </div>
-                            
-                            <div class="coming-soon mt-4">
-                                <h5 class="text-center">Próximamente</h5>
-                                <div class="d-flex justify-content-center flex-wrap" id="gatos-proximamente">
-                                    <!-- Se llenará dinámicamente con JavaScript -->
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Contenido para Perros -->
-                        <div class="tab-pane fade" id="perros" role="tabpanel" aria-labelledby="perros-tab">
-                            <div class="quality-legend mb-2">
-                                <div class="d-flex justify-content-center flex-wrap">
-                                    
-                                    <span class="quality-badge quality-S" title="Ultra Premium">S</span>
-                                    <span class="quality-badge quality-A" title="Super Premium">A</span>
-                                    <span class="quality-badge quality-B" title="Premium">B</span>
-                                    <span class="quality-badge quality-C" title="Estándar">C</span>
-                                    <span class="quality-badge quality-F" title="Económica">F</span>
-                                </div>
-                            </div>
-                            
-                            <div class="brands-container" id="perros-brands">
-                                <!-- Se llenará dinámicamente con JavaScript -->
-                            </div>
-                        </div>
-                        
-                        <!-- Contenido para Medicados -->
-                        <div class="tab-pane fade" id="medicados" role="tabpanel" aria-labelledby="medicados-tab">
-                            <div class="medicados-info mb-2">
-                                <div class="alert alert-info text-center">
-                                    <i class="fas fa-info-circle me-2"></i>
-                                    Las siguientes marcas ofrecen alimentos medicados para perros y gatos
-                                </div>
-                            </div>
-                            
-                            <div class="brands-container" id="medicados-brands">
-                                <!-- Se llenará dinámicamente con JavaScript -->
-                            </div>
-                        </div>
-                        
-                        <!-- Contenido para Exóticos -->
-                        <div class="tab-pane fade" id="exoticos" role="tabpanel" aria-labelledby="exoticos-tab">
-                            <div class="exoticos-categories">
-                                <div class="row">
-                                    <div class="col-md-4 col-sm-6 mb-4">
-                                        <div class="exotic-category-card">
-                                            <div class="card h-100">
-                                                <div class="card-header bg-primary text-white">
-                                                    <h5 class="mb-0"><i class="fas fa-fish me-2"></i>Peces</h5>
-                                                </div>
-                                                <div class="card-body" id="peces-foods">
-                                                    <!-- Se llenará dinámicamente con JavaScript -->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="col-md-4 col-sm-6 mb-4">
-                                        <div class="exotic-category-card">
-                                            <div class="card h-100">
-                                                <div class="card-header bg-primary text-white">
-                                                    <h5 class="mb-0"><i class="fas fa-kiwi-bird me-2"></i>Erizos</h5>
-                                                </div>
-                                                <div class="card-body" id="erizos-foods">
-                                                    <!-- Se llenará dinámicamente con JavaScript -->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="col-md-4 col-sm-6 mb-4">
-                                        <div class="exotic-category-card">
-                                            <div class="card h-100">
-                                                <div class="card-header bg-primary text-white">
-                                                    <h5 class="mb-0"><i class="fas fa-egg me-2"></i>Pollos</h5>
-                                                </div>
-                                                <div class="card-body" id="pollos-foods">
-                                                    <!-- Se llenará dinámicamente con JavaScript -->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="col-md-4 col-sm-6 mb-4">
-                                        <div class="exotic-category-card">
-                                            <div class="card h-100">
-                                                <div class="card-header bg-primary text-white">
-                                                    <h5 class="mb-0"><i class="fas fa-carrot me-2"></i>Conejos</h5>
-                                                </div>
-                                                <div class="card-body" id="conejos-foods">
-                                                    <!-- Se llenará dinámicamente con JavaScript -->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="col-md-4 col-sm-6 mb-4">
-                                        <div class="exotic-category-card">
-                                            <div class="card h-100">
-                                                <div class="card-header bg-primary text-white">
-                                                    <h5 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="turtle-icon"><path d="m12 10 2 4v3a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-3a8 8 0 1 0-16 0v3a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-3l2-4h4Z"/><path d="M4.82 7.9 8 10"/><path d="M15.18 7.9 12 10"/><path d="M16.93 10H20a2 2 0 0 1 0 4H2"/></svg>Tortugas</h5>
-                                                </div>
-                                                <div class="card-body" id="tortugas-foods">
-                                                    <!-- Se llenará dinámicamente con JavaScript -->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="text-center mt-5">
+                <a href="buscador.html" class="btn btn-primary btn-lg px-5 py-3 rounded-pill shadow-lg">
+                    <i class="fas fa-search me-2"></i> Ir al Buscador de Alimentos
+                </a>
+                <p class="mt-3 text-muted">Encuentra la alimentación ideal para tu mascota con nuestro buscador especializado</p>
             </div>
         </div>
     </section>
