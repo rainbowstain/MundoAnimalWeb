@@ -333,40 +333,26 @@
     <!-- Scripts principales -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
     
+    <!-- Cargar directamente el archivo de datos de productos -->
+    <script src="js/productos.js"></script>
+    
     <!-- Scripts específicos del buscador -->
     <script>
-        // Objeto para almacenar los datos en caché
-        let productosDataCache = null;
-        
-        // Función para cargar los datos de manera optimizada
-        const loadProductosData = async () => {
-            // Si ya tenemos los datos en caché, usarlos
-            if (productosDataCache) {
-                initializeSearcher(productosDataCache);
-                return;
-            }
-            
+        // Función para inicializar el buscador cuando el DOM esté listo
+        document.addEventListener('DOMContentLoaded', () => {
             try {
-                // Cargar el archivo de datos
-                const response = await fetch('js/productos.js');
-                const productosScript = await response.text();
-                
-                // Ejecutar el script para definir productosData
-                eval(productosScript);
-                
-                // Guardar en caché para futuros usos
+                // Verificar si los datos de productos están disponibles
                 if (typeof productosData !== 'undefined') {
-                    productosDataCache = productosData;
-                    initializeSearcher(productosDataCache);
+                    initializeSearcher();
                 } else {
-                    console.error('Error al cargar datos de productos: variable productosData no definida');
+                    console.error('Error: Variable productosData no definida');
                     showError();
                 }
             } catch (error) {
-                console.error('Error al cargar datos de productos:', error);
+                console.error('Error al inicializar el buscador:', error);
                 showError();
             }
-        };
+        });
         
         // Función para mostrar error
         const showError = () => {
@@ -382,8 +368,8 @@
             }
         };
         
-        // Inicializar el buscador con los datos cargados
-        const initializeSearcher = (data) => {
+        // Inicializar el buscador
+        const initializeSearcher = () => {
             // Ocultar el loader
             const loaderContainer = document.getElementById('loader-container');
             if (loaderContainer) {
@@ -411,9 +397,6 @@
                 });
             });
         };
-        
-        // Iniciar la carga cuando el DOM esté listo
-        document.addEventListener('DOMContentLoaded', loadProductosData);
     </script>
 </body>
 </html> 
