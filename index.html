@@ -50,12 +50,43 @@
     <link rel="stylesheet" href="css/simple-icons.css">
     <!-- Choices.js para selector con búsqueda -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
+    <link rel="stylesheet" href="styles/fix-alignment.css">
     
     <!-- Favicon -->
     <link rel="icon" href="images/logo.png" type="image/png">
     <link rel="shortcut icon" href="images/logo.png" type="image/png">
     <link rel="apple-touch-icon" href="images/logo.png">
     <meta name="msapplication-TileImage" content="images/logo.png">
+    <style>
+        /* Corrección para la alineación de marcadores de lista */
+        .service-features {
+            list-style: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            text-align: left !important;
+        }
+        
+        .service-features li {
+            padding: 8px 0 8px 25px !important;
+            border-bottom: 1px dashed rgba(0,0,0,0.05) !important;
+            position: relative !important;
+            line-height: 1.4 !important;
+            display: block !important;
+        }
+        
+        .service-features li:last-child {
+            border-bottom: none !important;
+        }
+        
+        .service-features li:before {
+            content: "✓" !important;
+            color: #407C73 !important;
+            position: absolute !important;
+            left: 0 !important;
+            top: 8px !important;
+            font-weight: bold !important;
+        }
+    </style>
 </head>
 <body>
     <!-- Decoración de patitas de alta calidad -->
@@ -88,11 +119,13 @@
                                 <i class="fas fa-shopping-bag"></i>
                             </a>
                         </li>
+                        <!-- Botón de búsqueda comentado
                         <li class="nav-item">
                             <a class="nav-link nav-icon" href="buscador.html" data-tooltip="Buscador de Alimentos">
                                 <i class="fas fa-search"></i>
                             </a>
                         </li>
+                        -->
                         <li class="nav-item">
                             <a class="nav-link nav-icon" href="#contacto" data-tooltip="Agendar Peluquería">
                                 <i class="fas fa-cut"></i>
@@ -155,7 +188,7 @@
                     </div>
                 </div>
                 
-                <!-- Slide 4: Marcas -->
+                <!-- Slide 4: Marcas - COMENTADA
                 <div class="swiper-slide">
                     <div class="hero-slide" style="background-image: url('images/optimized/hero4.webp');">
                         <div class="hero-overlay"></div>
@@ -168,6 +201,7 @@
                         </div>
                     </div>
                 </div>
+                -->
                 
                 <!-- Slide 5: Peluquería -->
                 <div class="swiper-slide">
@@ -325,207 +359,528 @@
                 </div>
             </div>
             
-            <div class="text-center mt-5">
-                <a href="buscador.html" class="btn btn-primary btn-lg px-5 py-3 rounded-pill shadow-lg">
-                    <i class="fas fa-search me-2"></i> Ir al Buscador de Alimentos
-                </a>
-                <p class="mt-3 text-muted">Encuentra la alimentación ideal para tu mascota con nuestro buscador especializado</p>
-            </div>
+   
         </div>
     </section>
 
-    <section id="contacto" class="">
-        <div class="container">
-            <h2 class="section-title">Peluquería Canina - Agenda Ahora<span class="new-badge">NUEVO</span></h2>
+    <section id="contacto" class="fluid-section">
+        <div class="section-header text-center mb-4" style="position: relative;">
             
-            <!-- Proceso paso a paso para agendar -->
-            <div class="booking-process">
-                <!-- Paso 1: Elegir servicio -->
-                <div class="booking-step active" id="paso1">
-                    <div class="step-header">
-                        <div class="step-number">1</div>
-                        <div class="step-title">Servicios</div>
-                        <div class="step-description">Ofrecemos diversos servicios de peluquería canina profesional para el cuidado y bienestar de tu mascota.</div>
-                    </div>
-                    <div class="step-content paso1-container">
-                        
-                        <div class="row row-cols-1 row-cols-md-4 g-2" style="margin-top: -8px;">
-                            <!-- Baño -->
-                            <div class="col" style="padding: 8px;">
-                                <div class="pricing-card">
-                                    <div class="pricing-header">
-                                        <i class="fas fa-bath" style="font-size: 2.8rem; color: #407C73; display: block; margin: 0 auto 15px; background: none !important; border: none !important; width: auto !important; height: auto !important; box-shadow: none !important;"></i>
-                                        <h3 style="min-height: 28px;">Baño Premium</h3>
-                                        <div class="price-tag">$10.000</div>
-                                    </div>
-                                    <div class="pricing-body">
-                                        <ul class="service-features">
-                                            <li>Champú y acondicionador premium</li>
-                                            <li>Limpieza de oídos y corte de uñas</li>
-                                            <li>Perfume hipoalergénico</li>
-                                        </ul>
-                                    </div>
+            <h2 class="section-title-peluqueria"><i class="fas fa-cut" style="color: #407C73; margin-right: 15px;"></i> La Perrukería de Mundo Animal </h2>
+            <p class="section-subtitle">Cortes personalizados y baños con productos premium para el cuidado de tu mascota</p>
+            <p class="agenda-gratis" style="font-size: 1.2rem; color: #407C73; font-weight: bold; margin-top: 15px; background-color: #f8f9fa; display: inline-block; padding: 8px 20px; border-radius: 25px; box-shadow: 0 2px 8px rgba(64, 124, 115, 0.2);"><i class="fas fa-calendar-check" style="color: #407C73; margin-right: 5px;"></i> <a href="#agenda" style="text-decoration: none; color: inherit;">Agenda Gratis Ahora</a> <i class="fas fa-paw" style="color: #407C73; margin-left: 5px;"></i></p>
+        </div>
+        
+        <!-- Slider de Antes y Después -->
+        <div class="before-after-slider mt-5 mb-5">
+            <h3 class="text-center mb-4">Nuestros Clientes Felices <i class="fas fa-heart" style="color: #407C73; margin-left: 10px;"></i></h3>
+            <p class="text-center mb-4 slider-subtitle">Mira la transformación de estas mascotas con nuestro servicio de peluquería</p>
+            
+            <div class="swiper-container before-after-swiper">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide">
+                        <div class="transformation-card">
+                            <div class="transformation-images">
+                                <div class="before-image">
+                                    <img src="images/razas/optimized/yorkshire.webp" alt="Antes - yorkshire" class="img-fluid">
+                                    <span class="badge-overlay before">Antes</span>
+                                </div>
+                                <div class="after-image">
+                                    <img src="images/razas/optimized/yorkshire.webp" alt="Después - yorkshire" class="img-fluid">
+                                    <span class="badge-overlay after">Después</span>
                                 </div>
                             </div>
-                            
-                            <!-- Corte -->
-                            <div class="col" style="padding: 8px;">
-                                <div class="pricing-card popular-service">
-                                    <div class="pricing-header">
-                                        <i class="fas fa-cut" style="font-size: 2.8rem; color: #407C73; display: block; margin: 0 auto 15px; background: none !important; border: none !important; width: auto !important; height: auto !important; box-shadow: none !important;"></i>
-                                        <h3 style="min-height: 28px;">Baño + Corte <span class="popular-badge"><i class="fas fa-star"></i> Más solicitado</span></h3>
-                                        <div class="price-tag">$15.000</div>
-                                    </div>
-                                    <div class="pricing-body">
-                                        <ul class="service-features">
-                                            <li>Baño completo incluido</li>
-                                            <li>Corte personalizado según raza</li>
-                                            <li>Acabado profesional</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Cepillado -->
-                            <div class="col" style="padding: 8px;">
-                                <div class="pricing-card">
-                                    <div class="pricing-header">
-                                        <i class="fas fa-brush" style="font-size: 2.8rem; color: #407C73; display: block; margin: 0 auto 15px; background: none !important; border: none !important; width: auto !important; height: auto !important; box-shadow: none !important;"></i>
-                                        <h3 style="min-height: 28px;">Cepillado Profesional</h3>
-                                        <div class="price-tag">$8.000</div>
-                                    </div>
-                                    <div class="pricing-body">
-                                        <ul class="service-features">
-                                            <li>Cepillado profundo</li>
-                                            <li>Desenredado cuidadoso</li>
-                                            <li>Reduce caída de pelo</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Tratamientos -->
-                            <div class="col" style="padding: 8px;">
-                                <div class="pricing-card">
-                                    <div class="pricing-header">
-                                        <i class="fas fa-heart" style="font-size: 2.8rem; color: #407C73; display: block; margin: 0 auto 15px; background: none !important; border: none !important; width: auto !important; height: auto !important; box-shadow: none !important;"></i>
-                                        <h3 style="min-height: 28px;">Tratamientos Especiales</h3>
-                                        <div class="price-tag">$12.000</div>
-                                    </div>
-                                    <div class="pricing-body">
-                                        <ul class="service-features">
-                                            <li>Hidratación intensiva</li>
-                                            <li>Tratamiento anti-pulgas</li>
-                                            <li>Tratamiento para alergias</li>
-                                        </ul>
-                                    </div>
-                                </div>
+                            <div class="transformation-info">
+                                <h4>Max <small class="text-muted">Yorkshire Terrier</small></h4>
+                                <p>Servicio: Corte estándar y baño premium</p>
                             </div>
                         </div>
-                    </div>
-                </div>
-                
-                <!-- Paso 2: Revisar disponibilidad -->
-                <div class="booking-step" id="paso2">
-                    <div class="step-header">
-                        <div class="step-number">2</div>
-                        <div class="step-title">Revisa disponibilidad</div>
-                        <div class="step-description">Verifica en el calendario qué días y horarios están disponibles. Las horas ya agendadas aparecen bloqueadas.</div>
-                    </div>
-                    <div class="step-content">
-                        <div class="availability-info">
-                            <div class="alert alert-info">
-                                <i class="fas fa-info-circle me-2"></i> 
-                                <strong>Importante:</strong> En este calendario puedes ver las horas ya agendadas (bloqueadas). 
-                                Elige una hora que esté libre para tu cita.
-                            </div>
-                        </div>
-                        <div class="calendar-container mb-4">
-                            <iframe src="https://calendar.google.com/calendar/embed?src=rojoserranoe%40gmail.com&ctz=America%2FSantiago&mode=WEEK" style="border: 0" width="100%" height="400" frameborder="0" scrolling="no"></iframe>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Paso 3: Completar formulario -->
-                <div class="booking-step" id="paso3">
-                    <div class="step-header">
-                        <div class="step-number">3</div>
-                        <div class="step-title">Completa el formulario</div>
-                        <div class="step-description">Ingresa tus datos, los de tu mascota y la fecha/hora que seleccionaste para confirmar tu reserva.</div>
-                    </div>
-                    <div class="step-content">
-                        <div class="form-container mb-4">
-                            <!-- Google Forms Embed -->
-                            <div class="google-form-container">
-                                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdDWcFziJJ4Kf-UAfgVG5X3LD7wpmIhhRx0_qEOM4MAFm2uOg/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Cargando formulario...</iframe>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Contacto Directo -->
-                <div class="booking-step" id="contacto-directo">
-                    <div class="contact-header text-center mb-5">
-                        <div class="contact-icon">
-                            <i class="fas fa-headset"></i>
-                        </div>
-                        <h2 class="contact-title">Contáctanos Directamente</h2>
-                        <p class="contact-subtitle">Para agendar una cita de peluquería canina o consultar por nuestros servicios, utiliza cualquiera de estos medios de comunicación</p>
                     </div>
                     
-                    <div class="contact-cards">
-                        <div class="row justify-content-center g-4">
-                            <!-- WhatsApp -->
-                            <div class="col-lg-4 col-md-6">
-                                <div class="contact-card card h-100 border-0 shadow-sm hover-lift">
-                                    <div class="card-body text-center p-4">
-                                        <div class="contact-card-icon bg-success text-white mb-3">
-                                            <i class="fab fa-whatsapp fa-lg"></i>
-                                        </div>
-                                        <h3 class="card-title h4 mb-2">WhatsApp</h3>
-                                        <p class="card-text text-muted mb-3">Respuesta rápida a todas tus consultas y reservas</p>
-                                        <a href="https://wa.me/56912345678" target="_blank" class="btn btn-success btn-lg px-4 rounded-pill">
-                                            <i class="fab fa-whatsapp me-2"></i> Enviar Mensaje
-                                        </a>
-                                    </div>
+                    <!-- Slide 2 -->
+                    <div class="swiper-slide">
+                        <div class="transformation-card">
+                            <div class="transformation-images">
+                                <div class="before-image">
+                                    <img src="images/razas/optimized/poodle.webp" alt="Antes - poodle" class="img-fluid">
+                                    <span class="badge-overlay before">Antes</span>
+                                </div>
+                                <div class="after-image">
+                                    <img src="images/razas/optimized/poodle.webp" alt="Después - poodle" class="img-fluid">
+                                    <span class="badge-overlay after">Después</span>
                                 </div>
                             </div>
-                            
-                            <!-- Teléfono -->
-                            <div class="col-lg-4 col-md-6">
-                                <div class="contact-card card h-100 border-0 shadow-sm hover-lift">
-                                    <div class="card-body text-center p-4">
-                                        <div class="contact-card-icon bg-primary text-white mb-3">
-                                            <i class="fas fa-phone-alt fa-lg"></i>
-                                        </div>
-                                        <h3 class="card-title h4 mb-2">Llámanos</h3>
-                                        <p class="card-text text-muted mb-3">Habla directamente con nuestro equipo de atención</p>
-                                        <a href="tel:+56912345678" class="btn btn-primary btn-lg px-4 rounded-pill">
-                                            <i class="fas fa-phone me-2"></i> +569 1234 5678
-                                        </a>
-                                    </div>
+                            <div class="transformation-info">
+                                <h4>Luna <small class="text-muted">Poodle</small></h4>
+                                <p>Servicio: Corte continental con pompones</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 3 -->
+                    <div class="swiper-slide">
+                        <div class="transformation-card">
+                            <div class="transformation-images">
+                                <div class="before-image">
+                                    <img src="images/razas/optimized/schnauzer.webp" alt="Antes - schnauzer" class="img-fluid">
+                                    <span class="badge-overlay before">Antes</span>
+                                </div>
+                                <div class="after-image">
+                                    <img src="images/razas/optimized/schnauzer.webp" alt="Después - schnauzer" class="img-fluid">
+                                    <span class="badge-overlay after">Después</span>
                                 </div>
                             </div>
-                            
-                            <!-- Email -->
-                            <div class="col-lg-4 col-md-6">
-                                <div class="contact-card card h-100 border-0 shadow-sm hover-lift">
-                                    <div class="card-body text-center p-4">
-                                        <div class="contact-card-icon bg-warning text-white mb-3">
-                                            <i class="fas fa-envelope fa-lg"></i>
-                                        </div>
-                                        <h3 class="card-title h4 mb-2">Email</h3>
-                                        <p class="card-text text-muted mb-3">Envíanos un correo con todos los detalles</p>
-                                        <a href="mailto:contacto@mundoanimal.cl" class="btn btn-warning btn-lg px-4 rounded-pill">
-                                            <i class="fas fa-envelope me-2"></i> Escribir Email
-                                        </a>
+                            <div class="transformation-info">
+                                <h4>Bruno <small class="text-muted">Schnauzer</small></h4>
+                                <p>Servicio: Corte estándar con barba definida</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 4 -->
+                    <div class="swiper-slide">
+                        <div class="transformation-card">
+                            <div class="transformation-images">
+                                <div class="before-image">
+                                    <img src="images/razas/optimized/maltes.webp" alt="Antes - maltés" class="img-fluid">
+                                    <span class="badge-overlay before">Antes</span>
+                                </div>
+                                <div class="after-image">
+                                    <img src="images/razas/optimized/maltes.webp" alt="Después - maltés" class="img-fluid">
+                                    <span class="badge-overlay after">Después</span>
+                                </div>
+                            </div>
+                            <div class="transformation-info">
+                                <h4>Bella <small class="text-muted">Maltés</small></h4>
+                                <p>Servicio: Corte teddy bear con lazo</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 5 -->
+                    <div class="swiper-slide">
+                        <div class="transformation-card">
+                            <div class="transformation-images">
+                                <div class="before-image">
+                                    <img src="images/razas/optimized/shihtzu.webp" alt="Antes - Shih Tzu" class="img-fluid">
+                                    <span class="badge-overlay before">Antes</span>
+                                </div>
+                                <div class="after-image">
+                                    <img src="images/razas/optimized/shihtzu.webp" alt="Después - Shih Tzu" class="img-fluid">
+                                    <span class="badge-overlay after">Después</span>
+                                </div>
+                            </div>
+                            <div class="transformation-info">
+                                <h4>Coco <small class="text-muted">Shih Tzu</small></h4>
+                                <p>Servicio: Corte en cara redonda con top knot</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Controles de navegación -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+        
+        <!-- Contenido de la Perrukeria -->
+        <div class="perrukeria-container">
+            <!-- Servicios disponibles -->
+            <div class="servicios-section">
+                <h3 class="servicios-title"><i class="fas fa-scissors" style="color: #407C73; margin-right: 10px;"></i> Nuestros Servicios <i class="fas fa-paw" style="color: #407C73; margin-left: 10px;"></i></h3>
+                <p class="servicios-description">Selecciona el servicio que mejor se adapte a las necesidades de tu mascota</p>
+                
+                <!-- Servicios de Baño -->
+                <h4 class="service-category-title"><i class="fas fa-dog" style="margin-right: 8px;"></i> Servicios Completos</h4>
+                <div class="row row-cols-1 row-cols-md-3 g-2 mt-2">
+                    <!-- Servicio Completo Pequeño -->
+                    <div class="col" style="padding: 8px;">
+                        <div class="pricing-card">
+                            <div class="pricing-header">
+                                <i class="fas fa-dog" style="font-size: 2rem; color: #407C73; display: block; margin: 0 auto 15px; background: none !important; border: none !important; width: auto !important; height: auto !important; box-shadow: none !important;"></i>
+                                <h3 style="min-height: 28px;">Servicio Completo Raza Pequeña</h3>
+                                <div class="price-tag">$12.000</div>
+                            </div>
+                            <div class="pricing-body">
+                                <ul class="service-features">
+                                    <li>Baño con Shampoo y acondicionador</li>
+                                    <li>Corte personalizado</li>
+                                    <li>Limpieza de oídos</li>
+                                    <li>Corte de uñas</li>
+                                    <li>Duración: 2 horas</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Servicio Completo Mediano -->
+                    <div class="col" style="padding: 8px;">
+                        <div class="pricing-card">
+                            <div class="pricing-header">
+                                <i class="fas fa-dog" style="font-size: 2.5rem; color: #407C73; display: block; margin: 0 auto 15px; background: none !important; border: none !important; width: auto !important; height: auto !important; box-shadow: none !important;"></i>
+                                <h3 style="min-height: 28px;">Servicio Completo Raza Mediana</h3>
+                                <div class="price-tag">$15.000</div>
+                            </div>
+                            <div class="pricing-body">
+                                <ul class="service-features">
+                                    <li>Baño con Shampoo y acondicionador</li>
+                                    <li>Corte personalizado</li>
+                                    <li>Limpieza de oídos</li>
+                                    <li>Corte de uñas</li>
+                                    <li>Duración: 2 horas</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Servicio Completo Grande -->
+                    <div class="col" style="padding: 8px;">
+                        <div class="pricing-card">
+                            <div class="pricing-header">
+                                <i class="fas fa-dog" style="font-size: 3rem; color: #407C73; display: block; margin: 0 auto 15px; background: none !important; border: none !important; width: auto !important; height: auto !important; box-shadow: none !important;"></i>
+                                <h3 style="min-height: 28px;">Servicio Completo Raza Grande</h3>
+                                <div class="price-tag">$20.000</div>
+                            </div>
+                            <div class="pricing-body">
+                                <ul class="service-features">
+                                    <li>Baño con Shampoo y acondicionador</li>
+                                    <li>Corte personalizado</li>
+                                    <li>Limpieza de oídos</li>
+                                    <li>Corte de uñas</li>
+                                    <li>Duración: 2 horas</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Servicios Especiales -->
+                <h4 class="service-category-title mt-4"><i class="fas fa-star" style="margin-right: 8px;"></i> Servicios Especiales</h4>
+                <div class="row row-cols-1 row-cols-md-3 g-2 mt-2">
+                    <!-- Baño Anti-pulgas -->
+                    <div class="col" style="padding: 8px;">
+                        <div class="pricing-card">
+                            <div class="pricing-header">
+                                <i class="fas fa-bug-slash" style="font-size: 2.5rem; color: #407C73; display: block; margin: 0 auto 15px; background: none !important; border: none !important; width: auto !important; height: auto !important; box-shadow: none !important;"></i>
+                                <h3 style="min-height: 28px;">Baño Anti-pulgas</h3>
+                                <div class="price-tag">+$3.000</div>
+                            </div>
+                            <div class="pricing-body">
+                                <ul class="service-features">
+                                    <li>Tratamiento especial</li>
+                                    <li>Elimina parásitos</li>
+                                    <li>Protección duradera</li>
+                                    <li>Adicional al baño regular</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Shampoo Antialérgico -->
+                    <div class="col" style="padding: 8px;">
+                        <div class="pricing-card">
+                            <div class="pricing-header">
+                                <i class="fas fa-heart" style="font-size: 2.5rem; color: #407C73; display: block; margin: 0 auto 15px; background: none !important; border: none !important; width: auto !important; height: auto !important; box-shadow: none !important;"></i>
+                                <h3 style="min-height: 28px;">Shampoo Antialérgico</h3>
+                                <div class="price-tag">+$2.000</div>
+                            </div>
+                            <div class="pricing-body">
+                                <ul class="service-features">
+                                    <li>Para pieles sensibles</li>
+                                    <li>Hipoalergénico</li>
+                                    <li>Reduce irritaciones</li>
+                                    <li>Adicional al baño regular</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Servicios Cortos -->
+                    <div class="col" style="padding: 8px;">
+                        <div class="pricing-card">
+                            <div class="pricing-header">
+                                <i class="fas fa-hand-sparkles" style="font-size: 2.5rem; color: #407C73; display: block; margin: 0 auto 15px; background: none !important; border: none !important; width: auto !important; height: auto !important; box-shadow: none !important;"></i>
+                                <h3 style="min-height: 28px;">Otros Servicios</h3>
+                                <div class="price-tag">$8.000</div>
+                            </div>
+                            <div class="pricing-body">
+                                <ul class="service-features">
+                                    <li>Corte de uñas</li>
+                                    <li>Limpieza de oídos</li>
+                                    <li>Baño Simple</li>
+                                    <li>Baño Anti-Pulgas</li>
+                                    <li>Corte Simple</li>
+                                    <li>Duración: 30 minutos</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Cortes por Raza -->
+                <h4 class="service-category-title mt-4"><i class="fas fa-paw" style="margin-right: 8px;"></i> Cortes Especiales por Raza</h4>
+                
+                <div class="breed-cuts-container mt-3">
+                    <div class="row">
+                        <!-- Columna izquierda: Slider con razas -->
+                        <div class="col-md-4">
+                            <div class="breed-selector">
+                                <p class="text-center mb-3"><strong>Selecciona una raza</strong></p>
+                                <div class="breed-list">
+                                    <div class="breed-item active" data-breed="yorkshire">
+                                        <picture>
+                                            <source data-srcset="images/razas/optimized/yorkshire.webp" type="image/webp">
+                                            <img data-src="images/razas/yorkshire.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" alt="Yorkshire Terrier" class="breed-thumb lazy" loading="lazy">
+                                        </picture>
+                                        <span>Yorkshire Terrier</span>
+                            </div>
+                                    <div class="breed-item" data-breed="poodle">
+                                        <picture>
+                                            <source data-srcset="images/razas/optimized/poodle.webp" type="image/webp">
+                                            <img data-src="images/razas/Poodle.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" alt="Poodle" class="breed-thumb lazy" loading="lazy">
+                                        </picture>
+                                        <span>Poodle</span>
+                                    </div>
+                                    <div class="breed-item" data-breed="schnauzer">
+                                        <picture>
+                                            <source data-srcset="images/razas/optimized/schnauzer.webp" type="image/webp">
+                                            <img data-src="images/razas/schnauzer.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" alt="Schnauzer" class="breed-thumb lazy" loading="lazy">
+                                        </picture>
+                                        <span>Schnauzer</span>
+                                    </div>
+                                    <div class="breed-item" data-breed="maltes">
+                                        <picture>
+                                            <source data-srcset="images/razas/optimized/maltes.webp" type="image/webp">
+                                            <img data-src="images/razas/maltes.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" alt="Maltés" class="breed-thumb lazy" loading="lazy">
+                                        </picture>
+                                        <span>Maltés</span>
+                                    </div>
+                                    <div class="breed-item" data-breed="shihtzu">
+                                        <picture>
+                                            <source data-srcset="images/razas/optimized/shihtzu.webp" type="image/webp">
+                                            <img data-src="images/razas/ShihTzu.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" alt="Shih Tzu" class="breed-thumb lazy" loading="lazy">
+                                        </picture>
+                                        <span>Shih Tzu</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        
+                        <!-- Columna derecha: Información de la raza seleccionada -->
+                        <div class="col-md-8">
+                            <div class="breed-info-container">
+                                <div class="breed-info active" id="yorkshire-info">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <picture>
+                                                <source data-srcset="images/razas/optimized/yorkshire.webp" type="image/webp">
+                                                <img data-src="images/razas/yorkshire.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" alt="Yorkshire Terrier" class="breed-image-large lazy" loading="lazy">
+                                            </picture>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <h3>Yorkshire Terrier</h3>
+                                            <div class="price-tag-large">$20.000</div>
+                                            <ul class="service-features mt-3">
+                                    <li>Corte estándar o personalizado</li>
+                                    <li>Técnica especial para el manto</li>
+                                    <li>Cuidado del pelo facial</li>
+                                    <li>Servicio completo incluido</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                                <div class="breed-info" id="poodle-info">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <picture>
+                                                <source data-srcset="images/razas/optimized/poodle.webp" type="image/webp">
+                                                <img data-src="images/razas/Poodle.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" alt="Poodle" class="breed-image-large lazy" loading="lazy">
+                                            </picture>
+                            </div>
+                                        <div class="col-md-7">
+                                            <h3>Poodle</h3>
+                                            <div class="price-tag-large">$20.000</div>
+                                            <ul class="service-features mt-3">
+                                    <li>Corte comercial o continental</li>
+                                    <li>Recorte de pompones</li>
+                                    <li>Definición facial</li>
+                                    <li>Servicio completo incluido</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                                <div class="breed-info" id="schnauzer-info">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <picture>
+                                                <source data-srcset="images/razas/optimized/schnauzer.webp" type="image/webp">
+                                                <img data-src="images/razas/schnauzer.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" alt="Schnauzer" class="breed-image-large lazy" loading="lazy">
+                                            </picture>
+                            </div>
+                                        <div class="col-md-7">
+                                            <h3>Schnauzer</h3>
+                                            <div class="price-tag-large">$20.000</div>
+                                            <ul class="service-features mt-3">
+                                                <li>Corte tradicional o moderno</li>
+                                                <li>Definición de barba y cejas</li>
+                                                <li>Técnica para pelo duro</li>
+                                    <li>Servicio completo incluido</li>
+                                </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="breed-info" id="maltes-info">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <picture>
+                                                <source data-srcset="images/razas/optimized/maltes.webp" type="image/webp">
+                                                <img data-src="images/razas/maltes.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" alt="Maltés" class="breed-image-large lazy" loading="lazy">
+                                            </picture>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <h3>Maltés</h3>
+                                            <div class="price-tag-large">$20.000</div>
+                                            <ul class="service-features mt-3">
+                                                <li>Corte higiénico o completo</li>
+                                                <li>Cuidado del manto blanco</li>
+                                                <li>Definición facial</li>
+                                                <li>Servicio completo incluido</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="breed-info" id="shihtzu-info">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <picture>
+                                                <source data-srcset="images/razas/optimized/shihtzu.webp" type="image/webp">
+                                                <img data-src="images/razas/ShihTzu.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" alt="Shih Tzu" class="breed-image-large lazy" loading="lazy">
+                                            </picture>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <h3>Shih Tzu</h3>
+                                            <div class="price-tag-large">$20.000</div>
+                                            <ul class="service-features mt-3">
+                                                <li>Corte personalizado</li>
+                                                <li>Estilizado de cara redonda o cuadrada</li>
+                                                <li>Cuidado especial del pelaje</li>
+                                                <li>Servicio completo incluido</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="price-note text-center mt-3">
+                                <p><strong>Precio único para todas las razas:</strong> $20.000</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-note mt-4">
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle me-2"></i>
+                        <strong>Nota:</strong> Los precios pueden variar según el estado del pelaje y el tamaño del perro. El servicio completo tiene una duración aproximada de 2 horas.
                     </div>
                 </div>
             </div>
+            
+            <!-- Información de contacto y agenda -->
+            <div class="contacto-section mt-5" id="agenda">
+                <h3 class="contacto-title"><i class="fas fa-calendar-check" style="color: #A04524; margin-right: 10px;"></i> Agenda tu Cita <i class="fas fa-paw" style="color: #A04524; margin-left: 10px;"></i></h3>
+                <p class="contacto-description">¿Te gustaría agendar tu cita para corte o baño de tu mascota? Contáctanos ahora mismo.</p>
+                
+                <!-- Horario destacado -->
+                <div class="horario-destacado text-center mb-4">
+                    <div class="horario-banner" style="background: linear-gradient(135deg, #A04524 0%, #c05f38 100%); color: white; padding: 15px 25px; border-radius: 12px; margin: 0 auto; max-width: 580px; box-shadow: 0 4px 10px rgba(160, 69, 36, 0.3); display: flex; align-items: center; justify-content: flex-start; border: 1px solid rgba(255,255,255,0.1);">
+                        <div style="display: flex; justify-content: center; align-items: center; width: 70px; margin-right: 15px;">
+                            <i class="fas fa-clock" style="font-size: 2.4rem; color: rgba(255,255,255,0.95);"></i>
+                                    </div>
+                        <div style="text-align: left;">
+                            <span style="display: block; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 3px; opacity: 0.8;">Horario de atención</span>
+                            <span style="display: block; font-weight: 700; font-size: 1.4rem; letter-spacing: 0.5px;">TODOS LOS DÍAS DE 10:00 A 19:00 HRS</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                <div class="contact-container mt-4">
+                    <div class="contact-wrapper">
+                        <div class="contact-image-container">
+                            <img src="images/peluqueria.jpg" alt="Mascota feliz" class="contact-image">
+                            <div class="contact-image-overlay">
+                                <div class="overlay-text">
+                                    <h4><i class="fas fa-heart"></i> Cuidamos a tu mascota como si fuera nuestra</h4>
+                                    <p>Nuestro equipo está esperando para atender a tu peludo amigo con toda la atención que merece</p>
+                                 
+                                    </div>
+                                </div>
+                        </div>
+                        
+                        <div class="contact-options">
+                            <!-- WhatsApp - Opción destacada -->
+                            <div class="contact-option whatsapp-option">
+                                <div class="option-icon">
+                                    <i class="fab fa-whatsapp"></i>
+                                    </div>
+                                <div class="option-content">
+                                    <h4>WhatsApp <span class="badge bg-success">Recomendado</span></h4>
+                                    <p>Respuesta rápida y confirmación inmediata de tu reserva</p>
+                                    <a href="https://wa.me/56936954730?text=¡Hola%2C%20Mundo%20Animal!%20Les%20contacto%20desde%20su%20página%20web%20para%20pedir%20una%20cita%20en%20la%20Perrukería.%20¿Me%20indican%2C%20por%20favor%2C%20la%20agenda%20de%20esta%20semana%3F" target="_blank" class="btn btn-success btn-lg px-4 rounded-pill">
+                                        <i class="fab fa-whatsapp me-2"></i> Agendar por WhatsApp
+                                    </a>
+                            </div>
+                        </div>
+                        
+                            <!-- Llamada - Opción secundaria -->
+                            <div class="contact-option call-option">
+                                <div class="option-icon">
+                                    <i class="fas fa-phone-alt"></i>
+                                    </div>
+                                <div class="option-content">
+                                    <h4>Llamada Telefónica</h4>
+                                    <p>Si prefieres hablar directamente con nosotros</p>
+                                    <a href="tel:+56936954730" class="btn btn-outline-primary btn-lg px-4 rounded-pill">
+                                        <i class="fas fa-phone me-2"></i> +56 9 3695 4730
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-benefits mt-4">
+                        <div class="benefit-item">
+                            <div class="benefit-icon"><i class="fas fa-calendar-check"></i></div>
+                            <div class="benefit-text">Reserva tu hora con anticipación</div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon"><i class="fas fa-clock"></i></div>
+                            <div class="benefit-text">Atención todos los días de 10:00 a 19:00 hrs</div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon"><i class="fas fa-comments"></i></div>
+                            <div class="benefit-text">Consulta sobre servicios y precios especiales</div>
+                        </div>
+                </div>
+            </div>
+            
+                <div class="horario-info mt-4">
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle me-2"></i> 
+                        <strong>Importante:</strong> Para una mejor atención, te recomendamos agendar tu cita con al menos 1 día de anticipación.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Horario de atención - NOTA: aquí se eliminó la sección del calendario -->
+            
         </div>
     </section>
 
@@ -587,7 +942,7 @@
             
             // Activar la pestaña correspondiente
             document.querySelectorAll('.service-tab').forEach(tab => {
-                if (tab.textContent.toLowerCase() === serviceId) {
+                if (tab.getAttribute('data-service') === serviceId) {
                     tab.classList.add('active');
                 }
             });
