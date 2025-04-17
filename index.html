@@ -51,12 +51,22 @@
     <!-- Choices.js para selector con búsqueda -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
     <link rel="stylesheet" href="styles/fix-alignment.css">
+    <link rel="stylesheet" href="styles/fix-razas.css">
+    <link rel="stylesheet" href="styles/contact-options-fix.css">
+    <link rel="stylesheet" href="css/loader.css">
     
     <!-- Favicon -->
     <link rel="icon" href="images/logo.png" type="image/png">
     <link rel="shortcut icon" href="images/logo.png" type="image/png">
     <link rel="apple-touch-icon" href="images/logo.png">
     <meta name="msapplication-TileImage" content="images/logo.png">
+    
+    <!-- Precarga de imágenes críticas -->
+    <link rel="preload" href="images/logo.png" as="image">
+    <link rel="preload" href="images/optimized/hero1.webp" as="image" type="image/webp">
+    <link rel="preload" href="images/optimized/hero2.webp" as="image" type="image/webp">
+    <link rel="preload" href="images/optimized/hero3.webp" as="image" type="image/webp">
+    <link rel="preload" href="images/optimized/hero5.webp" as="image" type="image/webp">
     <style>
         /* Corrección para la alineación de marcadores de lista */
         .service-features {
@@ -86,9 +96,431 @@
             top: 8px !important;
             font-weight: bold !important;
         }
+        
+        /* Estilos para la sección completa de peluquería */
+        .fluid-section.fade-in-up {
+            position: relative;
+            z-index: 1;
+            background: none !important;
+        }
+        
+        /* Asegurar que el contenedor de la sección sea lo suficientemente grande */
+        #contacto {
+            min-height: 100vh;
+            padding-bottom: 50px;
+            background: none !important;
+        }
+        
+        /* Forzar transparencia en los componentes internos */
+        .fluid-section.fade-in-up .perrukeria-container,
+        .fluid-section.fade-in-up .before-after-slider,
+        .fluid-section.fade-in-up .servicios-section,
+        .fluid-section.fade-in-up .contact-container,
+        .fluid-section.fade-in-up .breed-cuts-container,
+        .fluid-section.fade-in-up .contact-benefits,
+        .fluid-section.fade-in-up .horario-destacado,
+        .fluid-section.fade-in-up .contact-options {
+            background: none !important;
+        }
+        
+        /* Asegurarnos que el fondo en cards y otros elementos sea blanco para contraste */
+        .fluid-section.fade-in-up .card,
+        .fluid-section.fade-in-up .pricing-card,
+        .fluid-section.fade-in-up .transformation-card,
+        .fluid-section.fade-in-up .alert,
+        .fluid-section.fade-in-up .servicios-section,
+        .fluid-section.fade-in-up .breed-selector {
+            background-color: #ffffff !important;
+        }
+        
+        /* Estilos para el título de la Perrukería */
+    
+        
+        .perrukeria-logo-container {
+            display: flex;
+            justify-content: center;
+           
+        }
+        
+        .perrukeria-logo {
+            width: 160px;
+            height: auto;
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+            transition: transform 0.3s ease;
+        }
+        
+        .perrukeria-logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .perrukeria-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #407C73;
+            
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .perrukeria-highlight {
+            color: #A04524;
+            font-weight: 900;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .perrukeria-highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background-color: rgba(160, 69, 36, 0.2);
+            z-index: -1;
+            border-radius: 2px;
+        }
+        
+        .perrukeria-subtitle {
+            font-size: 1.8rem;
+            color: #407C73;
+            font-weight: 500;
+            margin-top: 0;
+           
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .perrukeria-logo {
+                width: 90px;
+            }
+            
+            .perrukeria-title {
+                font-size: 2.5rem;
+            }
+            
+            .perrukeria-subtitle {
+                font-size: 1.4rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .perrukeria-logo {
+                width: 80px;
+            }
+            
+            .perrukeria-title {
+                font-size: 2rem;
+            }
+            
+            .perrukeria-subtitle {
+                font-size: 1.2rem;
+            }
+        }
+        
+        /* Estilos para la barra de navegación móvil */
+        @media (max-width: 991px) {
+            /* Ajustes para el logo y título en móvil */
+            .custom-logo-img {
+                width: 40px;
+                height: auto;
+                display: block !important;
+                visibility: visible !important;
+                margin-right: 8px !important;
+            }
+            
+            .logo-container {
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                min-width: 40px !important;
+                margin-right: 8px !important;
+                visibility: visible !important;
+            }
+            
+            .brand-text h1 {
+                font-size: 1.2rem;
+            }
+            
+            .brand-text .tagline {
+                font-size: 0.7rem;
+            }
+            
+            /* Navbar container para móviles */
+            .navbar > .container {
+                padding: 5px !important;
+            }
+            
+            /* Asegurar que el logo y el texto estén alineados correctamente */
+            .navbar-brand {
+                display: flex !important;
+                align-items: center !important;
+                padding: 0 !important;
+                margin-right: 0 !important;
+            }
+            
+            /* Estilos para la barra de navegación inferior en móvil */
+            .mobile-nav {
+                z-index: 1030;
+            }
+            
+            .mobile-nav-link {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                color: #555;
+                text-decoration: none;
+                font-size: 0.7rem;
+                padding: 6px 0;
+                position: relative;
+                transition: all 0.3s ease;
+            }
+            
+            .mobile-nav-link i {
+                font-size: 1.2rem;
+                margin-bottom: 2px;
+                color: #407C73;
+                transition: all 0.3s ease;
+            }
+            
+            .mobile-nav-link:hover, .mobile-nav-link:active, .mobile-nav-link.active {
+                color: #A04524;
+            }
+            
+            .mobile-nav-link:hover i, .mobile-nav-link:active i, .mobile-nav-link.active i {
+                color: #A04524;
+            }
+            
+            /* Indicador de activo para el enlace activo */
+            .mobile-nav-link.active::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 30px;
+                height: 3px;
+                background-color: #A04524;
+                border-radius: 3px;
+            }
+            
+            /* Ajuste para el footer en dispositivos móviles para evitar que se superponga con la barra de navegación inferior */
+            #footer {
+                margin-bottom: 65px;
+                padding-bottom: 20px;
+            }
+            
+            /* Ajuste al botón de volver arriba */
+            .scroll-top-btn {
+                bottom: 70px;
+            }
+
+            /* Ajuste para la sección de contacto en móvil */
+            #contacto {
+                margin-bottom: 70px;
+            }
+
+            /* Ajustes para el espaciado de elementos en pantallas móviles */
+            .contact-container,
+            .contact-benefits,
+            .horario-info {
+                margin-bottom: 20px;
+            }
+            
+            /* Asegurar que el último elemento tenga suficiente padding */
+            .section-last {
+                padding-bottom: 80px;
+            }
+        }
+        
+        /* Estilos para la sección "Un mundo para tu mascota" en móviles */
+        #destacados .section-title {
+            text-align: center !important;
+            padding: 0 10px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+        
+        #destacados .section-icon {
+            font-size: 3rem !important;
+            display: block !important;
+            margin: 0 auto 15px !important;
+            color: #A04524 !important;
+        }
+        
+        #destacados .features-grid {
+            padding: 0 5px !important;
+        }
+        
+        #destacados .feature-card {
+            margin-bottom: 15px !important;
+            padding: 15px !important;
+            text-align: center !important;
+            box-sizing: border-box !important;
+        }
+        
+        #destacados .feature-card .icon {
+            margin: 0 auto 15px !important;
+        }
+        
+        /* Estilos para la sección de productos */
+        #productos {
+            padding-top: 10px !important;
+        }
+        
+        #productos .section-icon {
+            font-size: 3rem !important;
+            display: block !important;
+            margin: 0 auto 15px !important;
+            color: #A04524 !important;
+        }
+        
+        /* Estilos para reducir espacios entre secciones */
+        #destacados {
+            padding-bottom: 20px !important;
+        }
+        
+        .cards-section.fade-in-up.mt-3 {
+            margin-top: 0 !important;
+            padding-top: 0 !important;
+        }
+        
+        /* Asegurar centrado perfecto en móviles */
+        @media (max-width: 767px) {
+            #destacados .container {
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+            
+            #destacados .section-title-container {
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+            
+            #destacados .features-grid {
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+            
+            #destacados .feature-card {
+                width: 100% !important;
+                max-width: 300px !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+        }
+        
+        /* Estilos para mejorar la visualización móvil */
+        @media (max-width: 767px) {
+            #destacados, #productos {
+                padding: 0;
+            }
+            
+            .section-title-container {
+                margin-bottom: 10px !important;
+            }
+            
+            .section-description {
+                margin-bottom: 10px !important;
+                padding: 0 10px !important;
+            }
+            
+            .feature-card {
+                padding: 10px !important;
+                margin-bottom: 10px !important;
+            }
+            
+            .section-icon {
+                font-size: 2.5rem !important;
+                margin-bottom: 5px !important;
+            }
+            
+            /* Espacio adicional entre el slider y la sección destacados */
+            .hero-section {
+                padding-bottom: 5px !important;
+            }
+            
+            #destacados {
+                padding-top: 20px !important;
+                margin-top: 15px !important;
+            }
+        }
+        
+        /* Estilos para el nuevo badge Arica */
+        .region-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 200;
+            color: white;
+            background-color: #407C73;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-size: 1.5rem;
+            margin-left: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            top: -2px;
+            height: 28px;
+        }
+        
+        @media (max-width: 480px) {
+            .region-badge {
+                font-size: 0.55em;
+                padding: 1px 4px;
+                height: 14px;
+                top: -1px;
+            }
+        }
+        
+        /* Estilo para el ícono del reloj - color blanco */
+        .clock-white {
+            color: #FFFFFF !important;
+        }
     </style>
+    
+    <!-- Estilos adicionales para espacio en móviles -->
+    <style>
+        @media (max-width: 768px) {
+            /* Se eliminó el espacio excesivo aquí */
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/custom-styles.css">
+    <link rel="stylesheet" href="espaciado.css">
+    <script src="https://kit.fontawesome.com/9316e5c90e.js" crossorigin="anonymous"></script>
 </head>
-<body>
+<body class="loading">
+    <!-- Loader para la precarga de la página -->
+    <div id="page-loader">
+        <div class="loader-container">
+            <img src="images/logo.png" alt="Mundo Animal" class="loader-logo">
+            <div class="loader-spinner">
+                <div class="paw-prints-container">
+                    <div class="paw-print"></div>
+                    <div class="paw-print"></div>
+                    <div class="paw-print"></div>
+                    <div class="paw-print"></div>
+                </div>
+            </div>
+            <div class="loader-progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="progress-text">0%</div>
+            <div class="loader-message">Cargando las mejores experiencias para tu mascota...</div>
+        </div>
+    </div>
+    
     <!-- Decoración de patitas de alta calidad -->
     <div class="paw-trail" id="pawTrail"></div>
     
@@ -96,18 +528,16 @@
             <div class="container">
                 <div class="navbar-brand d-flex align-items-center" id="top">
                     <div class="logo-container me-2">
-                        <img src="images/logo.png" alt="Mundo Animal" class="custom-logo-img">
+                        <img src="images/logo.png" alt="Mundo Animal" class="custom-logo-img" style="max-width: 100%; height: auto;">
                     </div>
                     <div class="brand-text">
-                        <h1 class="m-0 text-primary" id="scroll-to-top">Mundo Animal Arica</h1>
-                        <p class="tagline m-0">Tu local de mascotas en Agro Linderos Norte</p>
+                        <h1 class="m-0 text-primary brand-name" id="scroll-to-top">Mundo Animal <span class="region-badge">Arica</span></h1>
+                        <p class="tagline m-0">PetShop y Peluquería de mascotas en Agro Linderos Norte</p>
                     </div>
                     
                 </div>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Eliminamos el botón hamburguesa y el menú desplegable para móviles -->
+                <div class="d-none d-lg-block">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
                             <a class="nav-link nav-icon" href="#inicio" data-tooltip="Inicio">
@@ -141,7 +571,39 @@
             </div>
         </nav>
 
-    <section id="hero" class="hero-slider position-relative overflow-hidden">
+    <!-- Añadimos la barra de navegación móvil en la parte inferior -->
+    <div class="mobile-nav d-block d-lg-none fixed-bottom bg-white shadow-lg py-2">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-3">
+                    <a href="#inicio" class="mobile-nav-link">
+                        <i class="fas fa-globe-americas"></i>
+                        <span>Inicio</span>
+                    </a>
+                </div>
+                <div class="col-3">
+                    <a href="#productos" class="mobile-nav-link">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span>Productos</span>
+                    </a>
+                </div>
+                <div class="col-3">
+                    <a href="#contacto" class="mobile-nav-link">
+                        <i class="fas fa-cut"></i>
+                        <span>Peluquería</span>
+                    </a>
+                </div>
+                <div class="col-3">
+                    <a href="#footer" class="mobile-nav-link">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Ubicación</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="inicio" class="hero-section fade-in-up" style="margin-top: 45px;">
         <div class="swiper">
             <div class="swiper-wrapper">
                 <!-- Slide 1: Bienvenida -->
@@ -228,9 +690,14 @@
     </section>
 
     <section id="destacados">
-        <div class="container">
-            <h2 class="section-title"><i class="fas fa-globe-americas" style="color: #A04524; margin-right: 10px;"></i>Un Mundo Para Tu Mascota</h2>
-            <div class="features features-grid">
+        <div class="container px-0">
+            <div class="section-title-container text-center mb-4 mx-auto" style="max-width: 100%; padding: 0;">
+                <div style="width: 100%; display: flex; justify-content: center; align-items: center; flex-direction: column; padding: 0 15px;">
+                    <i class="fas fa-globe-americas section-icon mb-3" style="color: #A04524; font-size: 2.5rem; display: block;"></i>
+                    <h2 class="section-title" style="width: 100%; text-align: center;">Un Mundo Para Tu Mascota</h2>
+                </div>
+            </div>
+            <div class="features features-grid" style="padding: 0 15px;">
                 <div class="feature-card">
                     <div class="icon">
                         <i class="fas fa-medal"></i>
@@ -252,13 +719,12 @@
                     <h3>Atención Personalizada</h3>
                     <p>Nuestro equipo está capacitado para asesorarte sobre lo mejor para tu mascota.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="new-badge">¡NUEVO!</div>
+                <div class="feature-card peluqueria-card">
                     <div class="icon">
                         <i class="fas fa-cut"></i>
                     </div>
                     <h3>Peluquería Canina</h3>
-                    <p>Nuestro servicio de peluquería canina ofrece cortes personalizados, baños con productos premium y tratamientos</p>
+                    <p>Baños con productos premium y cortes personalizados para consentir a tu mascota.</p>
                     <a href="#contacto" class="btn btn-primary mt-3">
                         <i class="fas fa-calendar-alt"></i> Agendar Cita
                     </a>
@@ -267,11 +733,16 @@
         </div>
     </section>
 
-    <section id="productos">
-        <div class="container">
-            <h2 class="section-title">Productos y Servicios</h2>
-            <p class="section-description">Ofrecemos todo lo que tu mascota necesita para estar sana, feliz y consentida. Desde alimentos premium hasta servicios de cuidado profesional.</p>
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 paw-border">
+    <section id="productos" class="cards-section fade-in-up" style="margin-top: 0; padding-top: 0; margin-bottom: 0; padding-bottom: 0;">
+        <div class="container px-0">
+            <div class="section-title-container text-center mb-3 mx-auto" style="max-width: 100%; padding: 0;">
+                <div style="width: 100%; display: flex; justify-content: center; align-items: center; flex-direction: column; padding: 0 15px;">
+                    <i class="fas fa-shopping-bag section-icon mb-2" style="color: #A04524; font-size: 2.5rem; display: block;"></i>
+                    <h2 class="section-title" style="width: 100%; text-align: center; margin-bottom: 5px;">Productos</h2>
+                </div>
+            </div>
+            <p class="section-description text-center px-3 mb-5">Ofrecemos todo lo que tu mascota necesita para estar sana, feliz y consentida.</p>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 paw-border mb-2 pb-2">
                 <!-- Categorías con dimensiones uniformes -->
                 <div class="col d-flex">
                     <div class="category card w-100">
@@ -363,16 +834,21 @@
         </div>
     </section>
 
-    <section id="contacto" class="fluid-section">
-        <div class="section-header text-center mb-4" style="position: relative;">
-            
-            <h2 class="section-title-peluqueria"><i class="fas fa-cut" style="color: #407C73; margin-right: 15px;"></i> La Perrukería de Mundo Animal </h2>
-            <p class="section-subtitle">Cortes personalizados y baños con productos premium para el cuidado de tu mascota</p>
-            <p class="agenda-gratis" style="font-size: 1.2rem; color: #407C73; font-weight: bold; margin-top: 15px; background-color: #f8f9fa; display: inline-block; padding: 8px 20px; border-radius: 25px; box-shadow: 0 2px 8px rgba(64, 124, 115, 0.2);"><i class="fas fa-calendar-check" style="color: #407C73; margin-right: 5px;"></i> <a href="#agenda" style="text-decoration: none; color: inherit;">Agenda Gratis Ahora</a> <i class="fas fa-paw" style="color: #407C73; margin-left: 5px;"></i></p>
+    <section id="contacto" class="fluid-section fade-in-up" style="padding-top: 10px; margin-top: 0;">
+        <div class="perrukeria-background">
+            <div class="section-header text-center ">
+                <div class="perrukeria-logo-container">
+                    <img src="images/logo.png" alt="Logo Mundo Animal" class="perrukeria-logo">
+                </div>
+                <h2 class="perrukeria-title"> <span class="perrukeria-highlight">LA PERRUKERÍA</span></h2>
+                <h3 class="perrukeria-subtitle">Mundo Animal</h3>
+                <p class="section-subtitle mt-2">Peluquería Canina, baños e higiene para tu mascota, explora nuestros servicios</p>
+                <p class="agenda-gratis" style="font-size: 1.2rem; color: #407C73; font-weight: bold; margin-top: 15px; background-color: rgba(248, 249, 250, 0.8); display: inline-block; padding: 8px 20px; border-radius: 25px; box-shadow: 0 2px 8px rgba(64, 124, 115, 0.2);"><i class="fas fa-calendar-check" style="color: #407C73; margin-right: 5px;"></i> <a href="#agenda" style="text-decoration: none; color: inherit;">Agenda Gratis Ahora</a> <i class="fas fa-paw" style="color: #407C73; margin-left: 5px;"></i></p>
+            </div>
         </div>
         
         <!-- Slider de Antes y Después -->
-        <div class="before-after-slider mt-5 mb-5">
+        <div class="before-after-slider mt-2 mb-3">
             <h3 class="text-center mb-4">Nuestros Clientes Felices <i class="fas fa-heart" style="color: #407C73; margin-left: 10px;"></i></h3>
             <p class="text-center mb-4 slider-subtitle">Mira la transformación de estas mascotas con nuestro servicio de peluquería</p>
             
@@ -491,7 +967,7 @@
             <!-- Servicios disponibles -->
             <div class="servicios-section">
                 <h3 class="servicios-title"><i class="fas fa-scissors" style="color: #407C73; margin-right: 10px;"></i> Nuestros Servicios <i class="fas fa-paw" style="color: #407C73; margin-left: 10px;"></i></h3>
-                <p class="servicios-description">Selecciona el servicio que mejor se adapte a las necesidades de tu mascota</p>
+                <p class="servicios-description">Conoce el servicio que mejor se adapte a tu regalón</p>
                 
                 <!-- Servicios de Baño -->
                 <h4 class="service-category-title"><i class="fas fa-dog" style="margin-right: 8px;"></i> Servicios Completos</h4>
@@ -624,164 +1100,157 @@
                 <h4 class="service-category-title mt-4"><i class="fas fa-paw" style="margin-right: 8px;"></i> Cortes Especiales por Raza</h4>
                 
                 <div class="breed-cuts-container mt-3">
-                    <div class="row">
-                        <!-- Columna izquierda: Slider con razas -->
-                        <div class="col-md-4">
-                            <div class="breed-selector">
-                                <p class="text-center mb-3"><strong>Selecciona una raza</strong></p>
-                                <div class="breed-list">
-                                    <div class="breed-item active" data-breed="yorkshire">
-                                        <picture>
-                                            <source data-srcset="images/razas/optimized/yorkshire.webp" type="image/webp">
-                                            <img data-src="images/razas/yorkshire.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" alt="Yorkshire Terrier" class="breed-thumb lazy" loading="lazy">
-                                        </picture>
-                                        <span>Yorkshire Terrier</span>
+                    <!-- Selector de razas en horizontal -->
+                    <div class="breed-selector">
+                        <div class="breed-list">
+                            <div class="breed-item active" data-breed="yorkshire">
+                                <picture>
+                                    <source data-srcset="images/razas/optimized/yorkshire.webp" type="image/webp">
+                                    <img data-src="images/razas/yorkshire.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" alt="Yorkshire" class="breed-thumb lazy" loading="lazy">
+                                </picture>
+                                <span>Yorkshire</span>
                             </div>
-                                    <div class="breed-item" data-breed="poodle">
-                                        <picture>
-                                            <source data-srcset="images/razas/optimized/poodle.webp" type="image/webp">
-                                            <img data-src="images/razas/Poodle.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" alt="Poodle" class="breed-thumb lazy" loading="lazy">
-                                        </picture>
-                                        <span>Poodle</span>
-                                    </div>
-                                    <div class="breed-item" data-breed="schnauzer">
-                                        <picture>
-                                            <source data-srcset="images/razas/optimized/schnauzer.webp" type="image/webp">
-                                            <img data-src="images/razas/schnauzer.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" alt="Schnauzer" class="breed-thumb lazy" loading="lazy">
-                                        </picture>
-                                        <span>Schnauzer</span>
-                                    </div>
-                                    <div class="breed-item" data-breed="maltes">
-                                        <picture>
-                                            <source data-srcset="images/razas/optimized/maltes.webp" type="image/webp">
-                                            <img data-src="images/razas/maltes.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" alt="Maltés" class="breed-thumb lazy" loading="lazy">
-                                        </picture>
-                                        <span>Maltés</span>
-                                    </div>
-                                    <div class="breed-item" data-breed="shihtzu">
-                                        <picture>
-                                            <source data-srcset="images/razas/optimized/shihtzu.webp" type="image/webp">
-                                            <img data-src="images/razas/ShihTzu.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" alt="Shih Tzu" class="breed-thumb lazy" loading="lazy">
-                                        </picture>
-                                        <span>Shih Tzu</span>
-                                    </div>
+                            <div class="breed-item" data-breed="poodle">
+                                <picture>
+                                    <source data-srcset="images/razas/optimized/poodle.webp" type="image/webp">
+                                    <img data-src="images/razas/Poodle.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" alt="Poodle" class="breed-thumb lazy" loading="lazy">
+                                </picture>
+                                <span>Poodle</span>
+                            </div>
+                            <div class="breed-item" data-breed="schnauzer">
+                                <picture>
+                                    <source data-srcset="images/razas/optimized/schnauzer.webp" type="image/webp">
+                                    <img data-src="images/razas/schnauzer.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" alt="Schnauzer" class="breed-thumb lazy" loading="lazy">
+                                </picture>
+                                <span>Schnauzer</span>
+                            </div>
+                            <div class="breed-item" data-breed="maltes">
+                                <picture>
+                                    <source data-srcset="images/razas/optimized/maltes.webp" type="image/webp">
+                                    <img data-src="images/razas/maltes.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" alt="Maltés" class="breed-thumb lazy" loading="lazy">
+                                </picture>
+                                <span>Maltés</span>
+                            </div>
+                            <div class="breed-item" data-breed="shihtzu">
+                                <picture>
+                                    <source data-srcset="images/razas/optimized/shihtzu.webp" type="image/webp">
+                                    <img data-src="images/razas/ShihTzu.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" alt="Shih Tzu" class="breed-thumb lazy" loading="lazy">
+                                </picture>
+                                <span>Shih Tzu</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Información de la raza seleccionada -->
+                    <div class="breed-info-container">
+                        <div class="breed-info active" id="yorkshire-info">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <picture>
+                                        <source data-srcset="images/razas/optimized/yorkshire.webp" type="image/webp">
+                                        <img data-src="images/razas/yorkshire.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" alt="Yorkshire" class="breed-image-large lazy" loading="lazy">
+                                    </picture>
+                                </div>
+                                <div class="col-md-7">
+                                    <h3>Yorkshire</h3>
+                                    <div class="price-tag-large">$20.000</div>
+                                    <ul class="service-features mt-3">
+                                        <li>Corte estándar o personalizado</li>
+                                        <li>Técnica especial para el manto</li>
+                                        <li>Cuidado del pelo facial</li>
+                                        <li>Servicio completo incluido</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="breed-info" id="poodle-info">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <picture>
+                                        <source data-srcset="images/razas/optimized/poodle.webp" type="image/webp">
+                                        <img data-src="images/razas/Poodle.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" alt="Poodle" class="breed-image-large lazy" loading="lazy">
+                                    </picture>
+                                </div>
+                                <div class="col-md-7">
+                                    <h3>Poodle</h3>
+                                    <div class="price-tag-large">$20.000</div>
+                                    <ul class="service-features mt-3">
+                                        <li>Corte comercial o continental</li>
+                                        <li>Recorte de pompones</li>
+                                        <li>Definición facial</li>
+                                        <li>Servicio completo incluido</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="breed-info" id="schnauzer-info">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <picture>
+                                        <source data-srcset="images/razas/optimized/schnauzer.webp" type="image/webp">
+                                        <img data-src="images/razas/schnauzer.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" alt="Schnauzer" class="breed-image-large lazy" loading="lazy">
+                                    </picture>
+                                </div>
+                                <div class="col-md-7">
+                                    <h3>Schnauzer</h3>
+                                    <div class="price-tag-large">$20.000</div>
+                                    <ul class="service-features mt-3">
+                                        <li>Corte tradicional o moderno</li>
+                                        <li>Definición de barba y cejas</li>
+                                        <li>Técnica para pelo duro</li>
+                                        <li>Servicio completo incluido</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
                         
-                        <!-- Columna derecha: Información de la raza seleccionada -->
-                        <div class="col-md-8">
-                            <div class="breed-info-container">
-                                <div class="breed-info active" id="yorkshire-info">
-                                    <div class="row">
-                                        <div class="col-md-5">
-                                            <picture>
-                                                <source data-srcset="images/razas/optimized/yorkshire.webp" type="image/webp">
-                                                <img data-src="images/razas/yorkshire.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" alt="Yorkshire Terrier" class="breed-image-large lazy" loading="lazy">
-                                            </picture>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <h3>Yorkshire Terrier</h3>
-                                            <div class="price-tag-large">$20.000</div>
-                                            <ul class="service-features mt-3">
-                                    <li>Corte estándar o personalizado</li>
-                                    <li>Técnica especial para el manto</li>
-                                    <li>Cuidado del pelo facial</li>
-                                    <li>Servicio completo incluido</li>
-                                </ul>
+                        <div class="breed-info" id="maltes-info">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <picture>
+                                        <source data-srcset="images/razas/optimized/maltes.webp" type="image/webp">
+                                        <img data-src="images/razas/maltes.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" alt="Maltés" class="breed-image-large lazy" loading="lazy">
+                                    </picture>
+                                </div>
+                                <div class="col-md-7">
+                                    <h3>Maltés</h3>
+                                    <div class="price-tag-large">$20.000</div>
+                                    <ul class="service-features mt-3">
+                                        <li>Corte higiénico o completo</li>
+                                        <li>Cuidado del manto blanco</li>
+                                        <li>Definición facial</li>
+                                        <li>Servicio completo incluido</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="breed-info" id="shihtzu-info">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <picture>
+                                        <source data-srcset="images/razas/optimized/shihtzu.webp" type="image/webp">
+                                        <img data-src="images/razas/ShihTzu.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" alt="Shih Tzu" class="breed-image-large lazy" loading="lazy">
+                                    </picture>
+                                </div>
+                                <div class="col-md-7">
+                                    <h3>Shih Tzu</h3>
+                                    <div class="price-tag-large">$20.000</div>
+                                    <ul class="service-features mt-3">
+                                        <li>Corte personalizado</li>
+                                        <li>Estilizado de cara redonda o cuadrada</li>
+                                        <li>Cuidado especial del pelaje</li>
+                                        <li>Servicio completo incluido</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                     
-                                <div class="breed-info" id="poodle-info">
-                                    <div class="row">
-                                        <div class="col-md-5">
-                                            <picture>
-                                                <source data-srcset="images/razas/optimized/poodle.webp" type="image/webp">
-                                                <img data-src="images/razas/Poodle.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" alt="Poodle" class="breed-image-large lazy" loading="lazy">
-                                            </picture>
-                            </div>
-                                        <div class="col-md-7">
-                                            <h3>Poodle</h3>
-                                            <div class="price-tag-large">$20.000</div>
-                                            <ul class="service-features mt-3">
-                                    <li>Corte comercial o continental</li>
-                                    <li>Recorte de pompones</li>
-                                    <li>Definición facial</li>
-                                    <li>Servicio completo incluido</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                                <div class="breed-info" id="schnauzer-info">
-                                    <div class="row">
-                                        <div class="col-md-5">
-                                            <picture>
-                                                <source data-srcset="images/razas/optimized/schnauzer.webp" type="image/webp">
-                                                <img data-src="images/razas/schnauzer.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" alt="Schnauzer" class="breed-image-large lazy" loading="lazy">
-                                            </picture>
-                            </div>
-                                        <div class="col-md-7">
-                                            <h3>Schnauzer</h3>
-                                            <div class="price-tag-large">$20.000</div>
-                                            <ul class="service-features mt-3">
-                                                <li>Corte tradicional o moderno</li>
-                                                <li>Definición de barba y cejas</li>
-                                                <li>Técnica para pelo duro</li>
-                                    <li>Servicio completo incluido</li>
-                                </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="breed-info" id="maltes-info">
-                                    <div class="row">
-                                        <div class="col-md-5">
-                                            <picture>
-                                                <source data-srcset="images/razas/optimized/maltes.webp" type="image/webp">
-                                                <img data-src="images/razas/maltes.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" alt="Maltés" class="breed-image-large lazy" loading="lazy">
-                                            </picture>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <h3>Maltés</h3>
-                                            <div class="price-tag-large">$20.000</div>
-                                            <ul class="service-features mt-3">
-                                                <li>Corte higiénico o completo</li>
-                                                <li>Cuidado del manto blanco</li>
-                                                <li>Definición facial</li>
-                                                <li>Servicio completo incluido</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="breed-info" id="shihtzu-info">
-                                    <div class="row">
-                                        <div class="col-md-5">
-                                            <picture>
-                                                <source data-srcset="images/razas/optimized/shihtzu.webp" type="image/webp">
-                                                <img data-src="images/razas/ShihTzu.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" alt="Shih Tzu" class="breed-image-large lazy" loading="lazy">
-                                            </picture>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <h3>Shih Tzu</h3>
-                                            <div class="price-tag-large">$20.000</div>
-                                            <ul class="service-features mt-3">
-                                                <li>Corte personalizado</li>
-                                                <li>Estilizado de cara redonda o cuadrada</li>
-                                                <li>Cuidado especial del pelaje</li>
-                                                <li>Servicio completo incluido</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="price-note text-center mt-3">
-                                <p><strong>Precio único para todas las razas:</strong> $20.000</p>
-                            </div>
-                        </div>
+                    <div class="price-note text-center mt-3">
+                        <p><strong>Precio único para todas las razas:</strong> $20.000</p>
                     </div>
                 </div>
                 
@@ -794,23 +1263,22 @@
             </div>
             
             <!-- Información de contacto y agenda -->
-            <div class="contacto-section mt-5" id="agenda">
-                <h3 class="contacto-title"><i class="fas fa-calendar-check" style="color: #A04524; margin-right: 10px;"></i> Agenda tu Cita <i class="fas fa-paw" style="color: #A04524; margin-left: 10px;"></i></h3>
-                <p class="contacto-description">¿Te gustaría agendar tu cita para corte o baño de tu mascota? Contáctanos ahora mismo.</p>
+            <div class="mt-5" id="agenda">
+                <h4 class="service-category-title mt-4"><i class="fas fa-paw" style="margin-right: 8px;"></i> Escríbenos o Llámanos para agendar tu cita</h4>
                 
                 <!-- Horario destacado -->
                 <div class="horario-destacado text-center mb-4">
                     <div class="horario-banner" style="background: linear-gradient(135deg, #A04524 0%, #c05f38 100%); color: white; padding: 15px 25px; border-radius: 12px; margin: 0 auto; max-width: 580px; box-shadow: 0 4px 10px rgba(160, 69, 36, 0.3); display: flex; align-items: center; justify-content: flex-start; border: 1px solid rgba(255,255,255,0.1);">
                         <div style="display: flex; justify-content: center; align-items: center; width: 70px; margin-right: 15px;">
-                            <i class="fas fa-clock" style="font-size: 2.4rem; color: rgba(255,255,255,0.95);"></i>
-                                    </div>
+                            <i class="fas fa-clock" style="font-size: 2.4rem; color: #FFFFFF !important;"></i>
+                        </div>
                         <div style="text-align: left;">
                             <span style="display: block; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 3px; opacity: 0.8;">Horario de atención</span>
                             <span style="display: block; font-weight: 700; font-size: 1.4rem; letter-spacing: 0.5px;">TODOS LOS DÍAS DE 10:00 A 19:00 HRS</span>
-                                </div>
-                            </div>
                         </div>
-                        
+                    </div>
+                </div>
+                
                 <div class="contact-container mt-4">
                     <div class="contact-wrapper">
                         <div class="contact-image-container">
@@ -819,9 +1287,8 @@
                                 <div class="overlay-text">
                                     <h4><i class="fas fa-heart"></i> Cuidamos a tu mascota como si fuera nuestra</h4>
                                     <p>Nuestro equipo está esperando para atender a tu peludo amigo con toda la atención que merece</p>
-                                 
-                                    </div>
                                 </div>
+                            </div>
                         </div>
                         
                         <div class="contact-options">
@@ -829,26 +1296,26 @@
                             <div class="contact-option whatsapp-option">
                                 <div class="option-icon">
                                     <i class="fab fa-whatsapp"></i>
-                                    </div>
+                                </div>
                                 <div class="option-content">
                                     <h4>WhatsApp <span class="badge bg-success">Recomendado</span></h4>
                                     <p>Respuesta rápida y confirmación inmediata de tu reserva</p>
-                                    <a href="https://wa.me/56936954730?text=¡Hola%2C%20Mundo%20Animal!%20Les%20contacto%20desde%20su%20página%20web%20para%20pedir%20una%20cita%20en%20la%20Perrukería.%20¿Me%20indican%2C%20por%20favor%2C%20la%20agenda%20de%20esta%20semana%3F" target="_blank" class="btn btn-success btn-lg px-4 rounded-pill">
-                                        <i class="fab fa-whatsapp me-2"></i> Agendar por WhatsApp
+                                    <a href="https://wa.me/56936954730?text=¡Hola%2C%20Mundo%20Animal!%20Les%20contacto%20para%20reservar%20una%20cita" target="_blank" class="btn btn-success btn-lg px-4 rounded-pill">
+                                        <i class="fab fa-whatsapp me-2"></i> Agendar cita
                                     </a>
+                                </div>
                             </div>
-                        </div>
                         
                             <!-- Llamada - Opción secundaria -->
                             <div class="contact-option call-option">
                                 <div class="option-icon">
                                     <i class="fas fa-phone-alt"></i>
-                                    </div>
+                                </div>
                                 <div class="option-content">
                                     <h4>Llamada Telefónica</h4>
                                     <p>Si prefieres hablar directamente con nosotros</p>
                                     <a href="tel:+56936954730" class="btn btn-outline-primary btn-lg px-4 rounded-pill">
-                                        <i class="fas fa-phone me-2"></i> +56 9 3695 4730
+                                        <i class="fas fa-phone me-2"></i> Llamar ahora
                                     </a>
                                 </div>
                             </div>
@@ -860,17 +1327,14 @@
                             <div class="benefit-icon"><i class="fas fa-calendar-check"></i></div>
                             <div class="benefit-text">Reserva tu hora con anticipación</div>
                         </div>
-                        <div class="benefit-item">
-                            <div class="benefit-icon"><i class="fas fa-clock"></i></div>
-                            <div class="benefit-text">Atención todos los días de 10:00 a 19:00 hrs</div>
-                        </div>
+                       
                         <div class="benefit-item">
                             <div class="benefit-icon"><i class="fas fa-comments"></i></div>
                             <div class="benefit-text">Consulta sobre servicios y precios especiales</div>
                         </div>
+                    </div>
                 </div>
-            </div>
-            
+                
                 <div class="horario-info mt-4">
                     <div class="alert alert-info">
                         <i class="fas fa-info-circle me-2"></i> 
@@ -884,7 +1348,7 @@
         </div>
     </section>
 
-    <footer id="footer">
+    <footer id="footer" class="fade-in-up">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
@@ -895,7 +1359,7 @@
                     <p><i class="fas fa-map-marker-alt"></i> Mercado Agro Linderos Norte, Local 131, Arica</p>
                     <p><i class="fas fa-smile"></i> ¡Te esperamos en nuestra tienda!</p>
                     <p><i class="fas fa-envelope"></i> hola@mundoanimalarica.cl</p>
-                    <p><i class="fas fa-clock"></i> Horario: Todos los días 10:00 a 19:00</p>
+                    <p><i class="fas fa-clock clock-white" style="color: #FFFFFF !important;"></i> Horario: Todos los días 10:00 a 19:00</p>
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d945.5558871473379!2d-70.28402340000001!3d-18.445876199999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x915aa8b5c0eb9187%3A0x3b9b9178f4c3b279!2sMercado%20Agro%20Linderos%20Norte%2C%20Arica!5e0!3m2!1ses!2scl!4v1616000000000!5m2!1ses!2scl" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
@@ -912,6 +1376,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Loader script debe ir antes que los demás scripts -->
+    <script src="js/image-preloader.js"></script>
     <!-- Custom JS -->
     <script src="js/main.js"></script>
     <script src="js/productos.js"></script>
@@ -920,6 +1386,134 @@
     <script src="js/paw-decoration.js"></script>
     <script src="js/carousel-fix.js"></script>
     <script src="js/peluqueria.js"></script>
+    
+    <!-- Estilos adicionales para la visualización del logo en móviles -->
+    <style>
+        @media (max-width: 480px) {
+            .custom-logo-img {
+                width: 50px !important;
+                height: auto !important;
+                display: block !important;
+                margin-right: 10px !important;
+            }
+            
+            .navbar-brand {
+                padding: 5px 0 !important;
+            }
+            
+            .logo-container {
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                min-width: 50px !important;
+            }
+            
+            .brand-text h1 {
+                font-size: 1.1rem !important;
+            }
+            
+            .brand-text .tagline {
+                font-size: 0.65rem !important;
+            }
+            
+            /* Estilos para la sección "Un mundo para tu mascota" en móviles */
+            #destacados .section-title {
+                text-align: center !important;
+                padding: 0 10px !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+            
+            #destacados .section-icon {
+                font-size: 3rem !important;
+                display: block !important;
+                margin: 0 auto 15px !important;
+                color: #A04524 !important;
+            }
+            
+            #destacados .features-grid {
+                padding: 0 5px !important;
+            }
+            
+            #destacados .feature-card {
+                margin-bottom: 15px !important;
+                padding: 15px !important;
+                text-align: center !important;
+                box-sizing: border-box !important;
+            }
+            
+            #destacados .feature-card .icon {
+                margin: 0 auto 15px !important;
+            }
+            
+            /* Estilos para la sección de productos */
+            #productos {
+                padding-top: 10px !important;
+            }
+            
+            #productos .section-icon {
+                font-size: 3rem !important;
+                display: block !important;
+                margin: 0 auto 15px !important;
+                color: #A04524 !important;
+            }
+            
+            /* Estilos para reducir espacios entre secciones */
+            #destacados {
+                padding-bottom: 20px !important;
+            }
+            
+            .cards-section.fade-in-up.mt-3 {
+                margin-top: 0 !important;
+                padding-top: 0 !important;
+            }
+            
+            /* Asegurar centrado perfecto en móviles */
+            @media (max-width: 767px) {
+                #destacados .container {
+                    padding-left: 0 !important;
+                    padding-right: 0 !important;
+                }
+                
+                #destacados .section-title-container {
+                    padding-left: 15px !important;
+                    padding-right: 15px !important;
+                    margin-left: auto !important;
+                    margin-right: auto !important;
+                }
+                
+                #destacados .features-grid {
+                    padding-left: 15px !important;
+                    padding-right: 15px !important;
+                    display: flex !important;
+                    flex-direction: column !important;
+                    align-items: center !important;
+                }
+                
+                #destacados .feature-card {
+                    width: 100% !important;
+                    max-width: 300px !important;
+                    margin-left: auto !important;
+                    margin-right: auto !important;
+                }
+            }
+        }
+        
+        /* Para dispositivos extra pequeños */
+        @media (max-width: 360px) {
+            .custom-logo-img {
+                width: 45px !important;
+            }
+            
+            .brand-text h1 {
+                font-size: 0.95rem !important;
+            }
+            
+            .brand-text .tagline {
+                font-size: 0.6rem !important;
+            }
+        }
+    </style>
     
     <!-- Choices.js para selector con búsqueda -->
     <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
@@ -956,7 +1550,7 @@
                 // Configuración básica
                 direction: 'horizontal',
                 loop: true,
-                speed: 800, // Velocidad de transición ajustada para mayor suavidad
+                speed: 800, // Velocidad de transición más lenta (era 300ms)
                 effect: 'fade', // Efecto de desvanecimiento para las imágenes
                 fadeEffect: {
                     crossFade: true // Permite un efecto de crossfade entre slides
@@ -986,7 +1580,7 @@
                 
                 // Autoplay
                 autoplay: {
-                    delay: 3000, // Cambio a 3 segundos para que cambie más rápido
+                    delay: 4000, // Cambio a 4 segundos para un ritmo más pausado
                     disableOnInteraction: false,
                     pauseOnMouseEnter: true,
                 },
@@ -1010,7 +1604,7 @@
                                 document.querySelector('.hero-slider').style.height = heroHeight + 'px';
                                 document.querySelector('.swiper').style.height = heroHeight + 'px';
                             }
-                        }, 100);
+                        }, 50); // Reducido de 100ms a 50ms
                     },
                     
                     beforeTransition: function() {
@@ -1024,14 +1618,14 @@
                     },
                     
                     slideChangeTransitionStart: function() {
-                        // Ocultar los elementos animados
+                        // Ocultar los elementos animados de manera más suave
                         const slides = document.querySelectorAll('.swiper-slide');
                         slides.forEach(slide => {
                             if (!slide.classList.contains('swiper-slide-active')) {
                                 const elements = slide.querySelectorAll('.hero-content h2, .hero-content p, .hero-content .btn-primary');
                                 elements.forEach(el => {
                                     el.style.opacity = '0';
-                                    el.style.transform = 'translateY(30px)';
+                                    el.style.transform = 'translateY(20px)'; // Reducido de 30px a 20px para un efecto más sutil
                                     el.classList.remove('animated-fadeInUp', 'delay-100', 'delay-300', 'delay-500');
                                 });
                                 
@@ -1044,26 +1638,28 @@
                     },
                     
                     slideChangeTransitionEnd: function() {
-                        // Mostrar con animación los elementos del slide activo
+                        // Mostrar con animación los elementos del slide activo con más suavidad
                         const activeSlide = this.slides[this.activeIndex];
                         if (activeSlide) {
-                            // Primero hacer visible el wrapper
+                            // Primero hacer visible el wrapper con un pequeño retraso
                             const wrapper = activeSlide.querySelector('.hero-content-wrapper');
                             if (wrapper) {
-                                wrapper.style.opacity = '1';
+                                setTimeout(() => {
+                                    wrapper.style.opacity = '1';
+                                }, 100);
                             }
                             
-                            // Pequeño retraso para los elementos internos para secuencia natural
+                            // Mayor retraso para los elementos internos 
                             setTimeout(() => {
                                 const elements = activeSlide.querySelectorAll('.hero-content h2, .hero-content p, .hero-content .btn-primary');
                                 
                                 elements.forEach((el, index) => {
-                                    // Usar setTimeout para un efecto más fluido y escalonado
+                                    // Usar setTimeout con más tiempo entre elementos para un efecto más fluido
                                     setTimeout(() => {
                                         el.classList.add('animated-fadeInUp');
-                                    }, index * 150);
+                                    }, index * 200); // Aumentado de 150ms a 200ms
                                 });
-                            }, 100);
+                            }, 200); // Aumentado de 100ms a 200ms
                         }
                     },
                     
@@ -1087,13 +1683,13 @@
                     // Cuando la ventana es >= 320px
                     320: {
                         autoplay: {
-                            delay: 3000
+                            delay: 4000 // Cambiado a 4 segundos
                         }
                     },
                     // Cuando la ventana es >= 768px
                     768: {
                         autoplay: {
-                            delay: 3000
+                            delay: 4000 // Cambiado a 4 segundos
                         }
                     }
                 }
@@ -1142,6 +1738,71 @@
         setTimeout(checkForChanges, checkInterval);
         console.log('Live reload monitoring active');
     })();
+    </script>
+    
+    <!-- Script para la navegación móvil -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Referencias a enlaces de navegación móvil
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        
+        // Referencias a secciones para detectar cual está visible
+        const sections = [
+            document.getElementById('inicio'),
+            document.getElementById('productos'),
+            document.getElementById('contacto'),
+            document.getElementById('footer')
+        ];
+        
+        // Función para determinar qué sección está actualmente visible
+        function setActiveLink() {
+            const scrollPosition = window.scrollY + window.innerHeight / 2;
+            
+            // Encontrar la sección visible
+            let activeSection = sections[0]; // Por defecto, la primera sección
+            
+            sections.forEach(section => {
+                if (!section) return; // Saltarse si la sección no existe
+                
+                const sectionTop = section.offsetTop;
+                const sectionBottom = sectionTop + section.offsetHeight;
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                    activeSection = section;
+                }
+            });
+            
+            // Establecer la clase active en el enlace correspondiente
+            mobileNavLinks.forEach(link => {
+                link.classList.remove('active');
+                const href = link.getAttribute('href');
+                if (href === '#' + activeSection.id) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        
+        // Detectar scroll y cambiar el enlace activo
+        window.addEventListener('scroll', setActiveLink);
+        
+        // Establecer el enlace activo al cargar la página
+        setActiveLink();
+        
+        // Suavizar el desplazamiento al hacer clic en los enlaces de navegación
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                const targetSection = document.querySelector(href);
+                
+                if (targetSection) {
+                    e.preventDefault();
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    });
     </script>
 </body>
 </html>
