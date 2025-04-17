@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador de Alimentos - Mundo Animal Arica</title>
+    
+    <!-- Meta Tags SEO -->
+    <meta name="description" content="Buscador de alimentos para mascotas en Mundo Animal Arica. Encuentra la mejor comida para perros, gatos y mascotas exóticas.">
+    <meta name="keywords" content="buscador alimentos mascotas, comida perros, comida gatos, alimento mascotas arica">
+    <meta name="author" content="Mundo Animal Arica">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mundoanimalarica.cl/buscador.html">
+    <meta property="og:title" content="Buscador de Alimentos - Mundo Animal Arica">
+    <meta property="og:description" content="Encuentra el mejor alimento para tu mascota en nuestro buscador.">
+    <meta property="og:image" content="https://mundoanimalarica.cl/images/logo.png">
+    
+    <!-- CSS crítico incrustado para carga más rápida -->
+    <style>
+        /* Estilos críticos para el layout inicial */
+        :root {
+            --primary-color: #CF4520;
+            --secondary-color: #A04524;
+            --accent-color: #407C73;
+            --light-color: #FFF7E6;
+            --dark-color: #333333;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            color: var(--dark-color);
+            overflow-x: hidden;
+            margin: 0;
+            padding-bottom: 40px;
+        }
+        
+        /* Loader estilizado */
+        #loader-container {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(255, 255, 255, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        
+        .loader {
+            border: 8px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 8px solid var(--primary-color);
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+        }
+        
+        .loader-content {
+            text-align: center;
+        }
+        
+        .loader-content img {
+            width: 80px;
+            margin-bottom: 15px;
+        }
+        
+        .loader-content p {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 500;
+            color: var(--primary-color);
+            margin-top: 15px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .main-content {
+            padding-top: 20px;
+        }
+        
+        /* Estilo para el botón de volver */
+        .btn-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-link:hover {
+            background-color: rgba(207, 69, 32, 0.1);
+            color: var(--secondary-color);
+            transform: translateX(-3px);
+        }
+        
+        /* Interruptor para efectos visuales */
+        .effects-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 50px;
+            padding: 10px 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+        }
+        
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 20px;
+            margin-left: 10px;
+        }
+        
+        .switch input { 
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 4px;
+            bottom: 2px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        
+        input:checked + .slider {
+            background-color: var(--primary-color);
+        }
+        
+        input:checked + .slider:before {
+            transform: translateX(18px);
+        }
+    </style>
+    
+    <!-- CSS no crítico cargado después -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/logo.png" type="image/png">
+    <link rel="shortcut icon" href="images/logo.png" type="image/png">
+</head>
+<body>
+    <!-- Loader de carga -->
+    <div id="loader-container">
+        <div class="loader-content">
+            <img src="images/logo.png" alt="Mundo Animal">
+            <div class="loader"></div>
+            <p>Cargando buscador de alimentos...</p>
+        </div>
+    </div>
+
+    <!-- Decoración de patitas (desactivada por defecto) -->
+    <div class="paw-trail" id="pawTrail" style="display: none;"></div>
+    
+    <!-- Enlace para volver a la página principal -->
+    <div class="container pt-3">
+        <a href="index.html" class="btn btn-link text-primary d-inline-flex align-items-center">
+            <i class="fas fa-arrow-left me-2"></i>
+            <span>Volver a Mundo Animal</span>
+        </a>
+    </div>
+
+    <!-- Interruptor para activar/desactivar efectos visuales -->
+    <div class="effects-toggle">
+        <span>Efectos visuales</span>
+        <label class="switch">
+            <input type="checkbox" id="effects-toggle">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <div class="container main-content pt-3">
+     
+        
+        <div class="food-finder-section">
+            <h2 class="text-center mb-4"><i class="fas fa-search" style="color: #407C73; margin-right: 10px;"></i>Buscador de Alimentos Mundo Animal</h2>
+            <p class="text-center mb-2">Explora nuestra amplia selección de marcas, para más información, visítanos.</p>
+      
+            <div class="container">
+                <div class="row justify-content-center mb-2">
+                    <div class="col-md-8">
+                        <div class="search-container">
+                            <div class="input-group mb-3">
+                                <input type="text" id="search-input" class="form-control" placeholder="Buscar marca..." aria-label="Buscar alimento">
+                                <button class="clear-input-btn" id="clear-input">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                                <div class="input-group-text">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row mb-2">
+                    <div class="col-12">
+                        <div class="filter-tabs">
+                            <ul class="nav nav-pills justify-content-center flex-wrap" id="food-tabs" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="gatos-tab" data-bs-toggle="pill" data-bs-target="#gatos" type="button" role="tab" aria-controls="gatos" aria-selected="true">
+                                        <i class="fas fa-cat"></i> <span>Gatos</span>
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="perros-tab" data-bs-toggle="pill" data-bs-target="#perros" type="button" role="tab" aria-controls="perros" aria-selected="false">
+                                        <i class="fas fa-dog"></i> <span>Perros</span>
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="medicados-tab" data-bs-toggle="pill" data-bs-target="#medicados" type="button" role="tab" aria-controls="medicados" aria-selected="false">
+                                        <i class="fas fa-pills"></i> <span>Medicados</span>
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="exoticos-tab" data-bs-toggle="pill" data-bs-target="#exoticos" type="button" role="tab" aria-controls="exoticos" aria-selected="false">
+                                        <i class="fas fa-paw"></i> <span>Exóticos</span>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="food-tabContent">
+                    <!-- Contenido para Gatos -->
+                    <div class="tab-pane fade show active" id="gatos" role="tabpanel" aria-labelledby="gatos-tab">
+                        <div class="quality-legend mb-2">
+                            <div class="d-flex justify-content-center flex-wrap">
+                                <span class="quality-badge quality-S" title="Ultra Premium">S</span>
+                                <span class="quality-badge quality-A" title="Super Premium">A</span>
+                                <span class="quality-badge quality-B" title="Premium">B</span>
+                                <span class="quality-badge quality-C" title="Estándar">C</span>
+                                <span class="quality-badge quality-F" title="Económica">F</span>
+                            </div>
+                        </div>
+                        
+                        <div class="brands-container" id="gatos-brands">
+                            <!-- Se llenará dinámicamente con JavaScript -->
+                        </div>
+                        
+                        <div class="coming-soon mt-4">
+                            <h5 class="text-center">Próximamente</h5>
+                            <div class="d-flex justify-content-center flex-wrap" id="gatos-proximamente">
+                                <!-- Se llenará dinámicamente con JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contenido para Perros -->
+                    <div class="tab-pane fade" id="perros" role="tabpanel" aria-labelledby="perros-tab">
+                        <div class="quality-legend mb-2">
+                            <div class="d-flex justify-content-center flex-wrap">
+                                <span class="quality-badge quality-S" title="Ultra Premium">S</span>
+                                <span class="quality-badge quality-A" title="Super Premium">A</span>
+                                <span class="quality-badge quality-B" title="Premium">B</span>
+                                <span class="quality-badge quality-C" title="Estándar">C</span>
+                                <span class="quality-badge quality-F" title="Económica">F</span>
+                            </div>
+                        </div>
+                        
+                        <div class="brands-container" id="perros-brands">
+                            <!-- Se llenará dinámicamente con JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <!-- Contenido para Medicados -->
+                    <div class="tab-pane fade" id="medicados" role="tabpanel" aria-labelledby="medicados-tab">
+                        <div class="medicados-info mb-2">
+                            <div class="alert alert-info text-center">
+                                <i class="fas fa-info-circle me-2"></i>
+                                Las siguientes marcas ofrecen alimentos medicados para perros y gatos
+                            </div>
+                        </div>
+                        
+                        <div class="brands-container" id="medicados-brands">
+                            <!-- Se llenará dinámicamente con JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <!-- Contenido para Exóticos -->
+                    <div class="tab-pane fade" id="exoticos" role="tabpanel" aria-labelledby="exoticos-tab">
+                        <div class="exoticos-categories">
+                            <div class="row">
+                                <div class="col-md-4 col-sm-6 mb-4">
+                                    <div class="exotic-category-card">
+                                        <div class="card h-100">
+                                            <div class="card-header bg-primary text-white">
+                                                <h5 class="mb-0"><i class="fas fa-fish me-2"></i>Peces</h5>
+                                            </div>
+                                            <div class="card-body" id="peces-foods">
+                                                <!-- Se llenará dinámicamente con JavaScript -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4 col-sm-6 mb-4">
+                                    <div class="exotic-category-card">
+                                        <div class="card h-100">
+                                            <div class="card-header bg-primary text-white">
+                                                <h5 class="mb-0"><i class="fas fa-kiwi-bird me-2"></i>Erizos</h5>
+                                            </div>
+                                            <div class="card-body" id="erizos-foods">
+                                                <!-- Se llenará dinámicamente con JavaScript -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4 col-sm-6 mb-4">
+                                    <div class="exotic-category-card">
+                                        <div class="card h-100">
+                                            <div class="card-header bg-primary text-white">
+                                                <h5 class="mb-0"><i class="fas fa-egg me-2"></i>Pollos</h5>
+                                            </div>
+                                            <div class="card-body" id="pollos-foods">
+                                                <!-- Se llenará dinámicamente con JavaScript -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4 col-sm-6 mb-4">
+                                    <div class="exotic-category-card">
+                                        <div class="card h-100">
+                                            <div class="card-header bg-primary text-white">
+                                                <h5 class="mb-0"><i class="fas fa-carrot me-2"></i>Conejos</h5>
+                                            </div>
+                                            <div class="card-body" id="conejos-foods">
+                                                <!-- Se llenará dinámicamente con JavaScript -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4 col-sm-6 mb-4">
+                                    <div class="exotic-category-card">
+                                        <div class="card h-100">
+                                            <div class="card-header bg-primary text-white">
+                                                <h5 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="turtle-icon"><path d="m12 10 2 4v3a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-3a8 8 0 1 0-16 0v3a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-3l2-4h4Z"/><path d="M4.82 7.9 8 10"/><path d="M15.18 7.9 12 10"/><path d="M16.93 10H20a2 2 0 0 1 0 4H2"/></svg>Tortugas</h5>
+                                            </div>
+                                            <div class="card-body" id="tortugas-foods">
+                                                <!-- Se llenará dinámicamente con JavaScript -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Carga progresiva de CSS no crítico -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/food-finder.css">
+    <link rel="stylesheet" href="css/custom-styles.css">
+
+    <!-- Scripts principales -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Cargar scripts en orden correcto -->
+    <script src="js/calidades-info.js"></script>
+    <script src="js/productos.js"></script>
+    <script src="js/food-finder.js"></script>
+    
+    <!-- Script optimizado -->
+    <script>
+        // Variables globales
+        let visualEffectsEnabled = false;
+        
+        // Ocultar el loader cuando todo esté cargado
+        window.addEventListener('load', function() {
+            // Ocultar loader
+            hideLoader();
+            
+            // Inicializar buscador
+            initializeSearcher();
+            
+            // Configurar toggle de efectos visuales
+            setupEffectsToggle();
+        });
+        
+        // Función para ocultar el loader
+        function hideLoader() {
+            const loaderContainer = document.getElementById('loader-container');
+            if (loaderContainer) {
+                loaderContainer.style.opacity = '0';
+                setTimeout(() => {
+                    loaderContainer.style.display = 'none';
+                }, 500);
+            }
+        }
+        
+        // Inicializar buscador
+        function initializeSearcher() {
+            if (typeof initFoodFinder === 'function') {
+                // Inicializar manualmente el buscador
+                initFoodFinder();
+                setupSearch();
+                initQualityTooltips();
+                setupClearButton();
+                console.log('Buscador de alimentos inicializado correctamente');
+            } else {
+                console.error('Error: Funciones del buscador no disponibles');
+                showError();
+            }
+        }
+        
+        // Configurar toggle de efectos visuales
+        function setupEffectsToggle() {
+            const toggle = document.getElementById('effects-toggle');
+            const pawTrail = document.getElementById('pawTrail');
+            
+            if (toggle && pawTrail) {
+                // Estado inicial: desactivado
+                toggle.checked = false;
+                
+                toggle.addEventListener('change', function() {
+                    visualEffectsEnabled = this.checked;
+                    
+                    if (visualEffectsEnabled) {
+                        // Activar efectos visuales
+                        pawTrail.style.display = 'block';
+                        
+                        // Cargar script de patitas solo si está activado
+                        if (!window.pawDecorationLoaded) {
+                            const script = document.createElement('script');
+                            script.src = 'js/paw-decoration.js';
+                            script.onload = function() {
+                                window.pawDecorationLoaded = true;
+                            };
+                            document.body.appendChild(script);
+                        }
+                        
+                        // Activar animaciones en el CSS
+                        document.body.classList.add('effects-enabled');
+                    } else {
+                        // Desactivar efectos visuales
+                        pawTrail.style.display = 'none';
+                        document.body.classList.remove('effects-enabled');
+                    }
+                });
+            }
+        }
+        
+        // Función para mostrar error
+        function showError() {
+            const loaderContainer = document.getElementById('loader-container');
+            if (loaderContainer) {
+                loaderContainer.innerHTML = `
+                    <div class="loader-content">
+                        <i class="fas fa-exclamation-triangle text-danger" style="font-size: 48px;"></i>
+                        <p class="text-danger">Error al cargar funciones del buscador. Intente nuevamente.</p>
+                        <button class="btn btn-primary mt-3" onclick="location.reload()">Reintentar</button>
+                    </div>
+                `;
+                loaderContainer.style.opacity = '1';
+                loaderContainer.style.display = 'flex';
+            }
+        }
+    </script>
+</body>
+</html> 

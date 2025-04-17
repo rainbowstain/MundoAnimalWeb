@@ -1,0 +1,57 @@
+/* Corrección para la alineación de los marcadores de lista */
+.service-features {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    text-align: left !important;
+}
+
+.service-features li {
+    padding: 8px 0 8px 25px !important;
+    border-bottom: 1px dashed rgba(0,0,0,0.05) !important;
+    position: relative !important;
+    line-height: 1.4 !important;
+    display: block !important;
+    text-align: left !important;
+}
+
+.service-features li:last-child {
+    border-bottom: none !important;
+}
+
+.service-features li:before {
+    content: "✓" !important;
+    color: #407C73 !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 8px !important;
+    font-weight: bold !important;
+}
+
+/* Ajuste para dispositivos móviles */
+@media (max-width: 767px) {
+    .service-features li {
+        padding: 6px 0 6px 25px !important;
+        font-size: 0.9rem !important;
+    }
+    
+    .service-features li:before {
+        top: 6px !important;
+    }
+}
+
+/* Corrección específica para las listas en la sección de razas */
+.breed-info .service-features li {
+    text-align: left !important;
+    margin-bottom: 5px !important;
+}
+
+/* Cambio de color de los precios */
+.price-tag, .price-tag-large, .price, .price-note strong {
+    color: #A04524 !important;
+}
+
+/* Tarjetas estáticas sin efecto de selección */
+.pricing-card {
+    cursor: default !important;
+}

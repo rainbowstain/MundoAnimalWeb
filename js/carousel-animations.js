@@ -131,6 +131,93 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 500);
         }
     }
+
+    const carouselInner = heroCarousel.querySelector('.carousel-inner');
+    let isScrolling = false;
+    let startX;
+    let scrollLeft;
+
+    // Configurar el carrusel para scroll táctil
+    carouselInner.style.display = 'flex';
+    carouselInner.style.flexDirection = 'row';
+    carouselInner.style.overflowX = 'auto';
+    carouselInner.style.scrollSnapType = 'x mandatory';
+    carouselInner.style.scrollBehavior = 'smooth';
+
+    // Ocultar controles nativos de Bootstrap
+    const controls = heroCarousel.querySelectorAll('.carousel-control-prev, .carousel-control-next');
+    controls.forEach(control => control.style.display = 'none');
+
+    // Manejar eventos táctiles
+    carouselInner.addEventListener('touchstart', (e) => {
+        isScrolling = true;
+        startX = e.touches[0].pageX;
+        scrollLeft = carouselInner.scrollLeft;
+    });
+
+    carouselInner.addEventListener('touchmove', (e) => {
+        if (!isScrolling) return;
+        e.preventDefault();
+        const x = e.touches[0].pageX;
+        const walk = (x - startX) * 2;
+        carouselInner.scrollLeft = scrollLeft - walk;
+    });
+
+    carouselInner.addEventListener('touchend', () => {
+        isScrolling = false;
+        // Ajustar al slide más cercano
+        const slideWidth = carouselInner.offsetWidth;
+        const currentScroll = carouselInner.scrollLeft;
+        const targetSlide = Math.round(currentScroll / slideWidth);
+        carouselInner.scrollTo({
+            left: targetSlide * slideWidth,
+            behavior: 'smooth'
+        });
+    });
+
+    // Manejar eventos de mouse para desktop
+    carouselInner.addEventListener('mousedown', (e) => {
+        isScrolling = true;
+        startX = e.pageX;
+        scrollLeft = carouselInner.scrollLeft;
+    });
+
+    carouselInner.addEventListener('mousemove', (e) => {
+        if (!isScrolling) return;
+        e.preventDefault();
+        const x = e.pageX;
+        const walk = (x - startX) * 2;
+        carouselInner.scrollLeft = scrollLeft - walk;
+    });
+
+    carouselInner.addEventListener('mouseup', () => {
+        isScrolling = false;
+        const slideWidth = carouselInner.offsetWidth;
+        const currentScroll = carouselInner.scrollLeft;
+        const targetSlide = Math.round(currentScroll / slideWidth);
+        carouselInner.scrollTo({
+            left: targetSlide * slideWidth,
+            behavior: 'smooth'
+        });
+    });
+
+    carouselInner.addEventListener('mouseleave', () => {
+        isScrolling = false;
+    });
+
+    // Actualizar indicadores cuando cambia el slide
+    carouselInner.addEventListener('scroll', () => {
+        const slideWidth = carouselInner.offsetWidth;
+        const currentSlide = Math.round(carouselInner.scrollLeft / slideWidth);
+        const indicators = heroCarousel.querySelectorAll('.custom-carousel-indicators button');
+        indicators.forEach((indicator, index) => {
+            if (index === currentSlide) {
+                indicator.classList.add('active');
+            } else {
+                indicator.classList.remove('active');
+            }
+        });
+    });
 });
 
 // Añadir animación de pulso para los indicadores

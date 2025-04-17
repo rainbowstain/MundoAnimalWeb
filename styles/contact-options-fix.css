@@ -1,0 +1,230 @@
+/* Mejoras para la sección de contacto */
+
+/* Contenedor de opciones de contacto */
+.contact-options {
+    padding: 1.5rem !important;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+/* Estilo mejorado para las opciones de contacto */
+.contact-option {
+    display: flex;
+    align-items: flex-start;
+    padding: 0.5rem !important;
+    margin-bottom: 0 !important;
+    border-radius: 10px;
+    background-color: #f8f9fa;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: visible;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.whatsapp-option {
+    border-left: 5px solid #25D366;
+}
+
+.call-option {
+    border-left: 5px solid #0d6efd;
+}
+
+/* Mejora el ícono */
+.option-icon {
+    flex: 0 0 60px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    border-radius: 50%;
+    margin-right: 1.2rem;
+    background-color: rgba(248, 249, 250, 0.7);
+    transition: all 0.3s ease;
+}
+
+.whatsapp-option .option-icon {
+    color: #25D366;
+    background-color: rgba(37, 211, 102, 0.1);
+}
+
+.call-option .option-icon {
+    color: #0d6efd;
+    background-color: rgba(13, 110, 253, 0.1);
+}
+
+/* Mejora el contenido */
+.option-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding-right: 5px;
+}
+
+.option-content h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.option-content p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 1.25rem;
+    line-height: 1.4;
+}
+
+/* Botones más atractivos */
+.whatsapp-option .btn-success, 
+.call-option .btn-outline-primary {
+    position: relative;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    padding: 0.6rem 1.5rem;
+    white-space: normal;
+    overflow: visible;
+    max-width: 100%;
+    display: inline-block;
+    word-break: break-word;
+    border-radius: 30px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Efectos hover */
+.contact-option:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.contact-option:hover .option-icon {
+    transform: scale(1.1);
+}
+
+/* Media queries para asegurar responsividad */
+@media (max-width: 768px) {
+    .contact-options {
+        padding: 1.2rem !important;
+        gap: 1rem;
+    }
+    
+    .contact-option {
+        padding: 1.2rem !important;
+        padding-bottom: 1.5rem !important;
+    }
+    
+    .option-icon {
+        flex: 0 0 50px;
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        margin-right: 1rem;
+    }
+    
+    .option-content h4 {
+        font-size: 1.1rem;
+    }
+    
+    .option-content p {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+    
+    .whatsapp-option .btn-success, 
+    .call-option .btn-outline-primary {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.95rem;
+        width: auto;
+        min-width: 0;
+    }
+}
+
+/* Mejoras para pantallas pequeñas */
+@media (max-width: 576px) {
+    .contact-options {
+        padding: 1rem !important;
+    }
+    
+    .contact-option {
+        padding: 1.2rem 1rem !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        margin-bottom: 0.8rem !important;
+    }
+    
+    .option-icon {
+        margin-right: 0;
+        margin-bottom: 0.8rem;
+        flex: 0 0 45px;
+        width: 45px;
+        height: 45px;
+    }
+    
+    .option-content {
+        text-align: center !important;
+        width: 100%;
+    }
+    
+    .option-content h4 {
+        justify-content: center !important;
+        font-size: 1rem;
+        text-align: center;
+    }
+    
+    .option-content p {
+        margin-bottom: 0.8rem;
+        text-align: center;
+    }
+    
+    .whatsapp-option .btn-success, 
+    .call-option .btn-outline-primary {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+        width: auto;
+        display: inline-block;
+        margin: 0 auto 0.3rem auto;
+        max-width: 90%;
+    }
+}
+
+/* Corrección para evitar que los botones se corten en dispositivos muy pequeños */
+@media (max-width: 350px) {
+    .contact-option {
+        padding: 1rem !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .option-icon {
+        flex: 0 0 40px;
+        width: 40px;
+        height: 40px;
+        font-size: 1.3rem;
+    }
+    
+    .option-content h4 {
+        font-size: 0.95rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .option-content p {
+        font-size: 0.8rem;
+        margin-bottom: 0.6rem;
+        line-height: 1.3;
+    }
+    
+    .whatsapp-option .btn-success, 
+    .call-option .btn-outline-primary {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+        line-height: 1.3;
+        display: inline-block;
+        width: auto;
+        min-width: 0;
+    }
+} 
